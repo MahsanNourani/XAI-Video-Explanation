@@ -37,8 +37,8 @@ function createString3 (explanation) {
 // To load explanation data from json files
 function loadData(explanationsData, associationData)
 {
-    console.log(explanationsData);
-    console.log(associationData);
+    // console.log(explanationsData);
+    // console.log(associationData);
 
     var header=d3.select('#list').append("div")
             .classed("explanation-options vertical-align-center", true)
@@ -75,8 +75,8 @@ function loadData(explanationsData, associationData)
     for (var j = 0; j <explanationsData.length; j++) {
         loadExplanation(explanationsData)
     }
-    loadCharts(associationData, "#850d2a");
-    loadChartsTemp(associationData, "#008185");
+    loadCharts(associationData, "#4dcee4");
+    // loadChartsTemp(associationData, "#008185");
 
 }
 
@@ -106,7 +106,7 @@ function loadExplanation (data) {
     listItems.append("a")
         .classed("list-group-item", true)
         .append("p")
-        .classed("explanation-options", true)
+        .classed("explanation-options vertical-align-center", true)
         .html(function(d) {
             return createString(d);
         });
@@ -114,7 +114,7 @@ function loadExplanation (data) {
     listItems1.append("a")
         .classed("list-group-item", true)
         .append("p")
-        .classed("explanation-options", true)
+        .classed("explanation-options vertical-align-center", true)
         .html(function(d) {
             return createString1(d);
         });
@@ -123,15 +123,20 @@ function loadExplanation (data) {
     listItems2.append("a")
         .classed("list-group-item", true)
         .append("p")
-        .classed("explanation-options", true)
+        .classed("explanation-options vertical-align-center", true)
         .html(function(d) {
             return createString2(d);
         });
 
     listItems3.append("a")
-        .classed("list-group-item", true)
+        .classed("list-group-item list3", true)
+        .style({
+            "background-color": "#0686da",
+            /*border: 1px solid #428aca24;*/
+            "color": "white"
+        })
         .append("p")
-        .classed("explanation-options", true)
+        .classed("explanation-options vertical-align-center", true)
         .html(function(d) {
             return createString3(d);
         });

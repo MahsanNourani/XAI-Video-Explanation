@@ -159,7 +159,7 @@
 //         createBarChart(data, chartSvg, xScale, yScale, colors, tooltip, newHeight);
 //     }
 // }
-var maxWidth = 80, height = "10px"
+var maxWidth = 80, height = "10px";
 function loadCharts (associations, color) {
     d3.select("#marginal-score").html("");
     var listOfData = [];
@@ -170,10 +170,13 @@ function loadCharts (associations, color) {
     if (associations.listOfAllDetectedAction !== undefined)
         listOfData = listOfData.concat(associations.listOfAllDetectedLocation);
 
+    listOfData.sort(function(x, y){
+        return d3.descending(x.probability, y.probability);
+    });
     var temp = d3.select("#marginal-score");
     var dummy = temp.selectAll("div").data(listOfData).enter()
         .append("div")
-        .classed("col-md-12", true);
+        .classed("col-md-6", true);
     dummy.append("h")
         .html(function (d) {
             if (d == undefined)

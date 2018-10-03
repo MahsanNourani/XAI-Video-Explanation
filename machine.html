@@ -18,18 +18,16 @@
     <div id="page-wrapper">
 
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-5 main-boxes">
                 <!--Video Area -->
                 <div class="panel panel-primary">
                     <div id="video-panel" class="panel-body">
-                        <div id="message"></div>
-                        <input type="file" id="video_selector" accept="video/*"/>
-                            <div id='media-player'>
-                             <video id='media-video' controls>
+                        <div id='media-player' class="col-md-12">
+                             <video id='media-video' class="col-md-12" controls>
                                      <!-- <source src='s22-d23.mp4' type='video/mp4'> -->
                              </video>
                              <div id='media-controls'>
-                                <table style="width:100%;">
+                                <table class="col-md-12">
                                     <tr>
                                         <td style="width: 20%;">
                                             <div id="allButton">
@@ -41,13 +39,13 @@
                                             <div id="position"> </div>
                                         </td>   
                
-                                        <td style="width: 12%;">
-                                            <div id="showTime">
-                                                 0.0ms
-                                            </div>
-                                            <div id="position"></div>
-              
-                                        </td>
+                                        <!--<td style="width: 12%;">-->
+                                            <!--<div id="showTime">-->
+                                                 <!--0.0ms-->
+                                            <!--</div>-->
+                                            <!--<div id="position"></div>-->
+              <!---->
+                                        <!--</td>-->
 
                                        <td style="width: 67%;">
     <!-- for progress bar -->
@@ -67,30 +65,8 @@
 
 
                             </div>
-                       </div>  
-<!--                         <video id='video' controls></video>
-                        <canvas id='video-overlay'></canvas> -->
-
-                    </div>
-                </div>
-                <!--End Video Area -->
-
-                <!--Answer Area-->
-                <div class="panel panel-primary">
-                    <div id="panel-body-question" class="panel-body">
-                        <div id="answer-panel-title" class="col-md-3">
-                            <div class="vertical-align-center" style="min-height: 52.1px; justify-content: center">
-                                <h class="header">
-                                    Query
-                                </h>
-                            </div>
-                            <div class="vertical-align-center" style="min-height: 52.1px; justify-content: center">
-                                <h class="header">
-                                    System's Answer
-                                </h>
-                            </div>
                         </div>
-                        <div id="sel" class="col-md-9">
+                        <div id="sel" class="col-md-12">
                             <div class="row" >
                                 <div class="input-group col-md-12">
                                     <select id="mySelect" class="col-md-12"> </select>
@@ -101,12 +77,16 @@
                                 <div id="answer" class="well vertical-align-center"></div>
                             </div>
                         </div>
-
                     </div>
+                    <input type="file" id="video_selector" accept="video/*"/>
                 </div>
+                <!--End Video Area -->
+
+                <!--Answer Area-->
+
             </div>
                 <!--End Answer Area-->
-            <div class="col-lg-4" id="explanation-div">
+            <div class="col-lg-5 main-boxes" id="explanation-div">
 
                 <!-- Explanation Panel-->
                 <div class="panel panel-primary" id="explanation-box">
@@ -116,8 +96,8 @@
 
                     <div class="panel-body">
                         <table class="col-md-12">
-                            <td class="table-col">
-                                <div class="list-group" id="list3" >
+                            <td class="table-col" id = "rank">
+                                <div class="list-group list3" id="list3" >
 
                                 </div>
                             </td>
@@ -149,8 +129,8 @@
                     <div class="panel-body">
                         <!--<div class="list-group" id="chart-div-labels"></div>-->
                         <!--<div class="list-group" id="chart-div"></div>-->
-                        <div class="col-md-12 component-header vertical-align-center component" style="justify-content: left">
-                            <h class="component"> Based on answer and input video </h>
+                        <div class="col-md-12 component-header vertical-align-center component">
+                            <h class="component"> Based on Model's Answer and the Input Video </h>
                         </div>
                         <!--<div class="col-md-6 component-header vertical-align-center component" style="justify-content: left">-->
                             <!--<h class="component"> Based on input video </h>-->
