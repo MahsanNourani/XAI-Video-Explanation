@@ -418,7 +418,7 @@ function change_segment(time,end,explanations,associations,flag){
       // vid.play();
     vid.pause();
 
-    t=d3.timer(timeOut);
+    // t=d3.timer(timeOut);
 
      function timeOut(){
 
@@ -434,7 +434,7 @@ function change_segment(time,end,explanations,associations,flag){
 
       if((vid.currentTime) >= end){
         vid.pause();
-        t.stop();
+        // t.stop();
         timer_return_value=true;
       }
 

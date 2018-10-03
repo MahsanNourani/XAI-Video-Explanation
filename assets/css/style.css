@@ -569,6 +569,7 @@ div#selection-panel-body {
     min-height: 35px;
     background-color: #4edcf4;
     justify-content: center;
+    margin-top: 1px;
 }
 
 .component {

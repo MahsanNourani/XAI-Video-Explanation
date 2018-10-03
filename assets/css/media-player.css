@@ -54,7 +54,8 @@ h1 {
 }
 
 .progress-bar-success {
-	background-color: #10a47b;
+	/*background-color: #10a47b;*/
+	background-color: #36c9aef5;
 }
 
 video {
