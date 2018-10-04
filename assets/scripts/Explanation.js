@@ -41,7 +41,7 @@ function loadData(explanationsData, associationData)
     // console.log(associationData);
 
     var header=d3.select('#list').append("div")
-            .classed("explanation-options vertical-align-center", true)
+            .classed("explanation-options explanation-options-header vertical-align-center", true)
             .html(function(d) {
                 var str="Acitvity";
                 return str;
@@ -49,7 +49,7 @@ function loadData(explanationsData, associationData)
         .style("font-size","medium");
 
         d3.select('#list1').append("div")
-        .classed("explanation-options vertical-align-center", true)
+        .classed("explanation-options explanation-options-header vertical-align-center", true)
         .html(function(d) {
             var str="Object";
             return str;
@@ -57,7 +57,7 @@ function loadData(explanationsData, associationData)
         .style("font-size","medium");
 
         d3.select('#list2').append("div")
-        .classed("explanation-options vertical-align-center", true)
+        .classed("explanation-options explanation-options-header vertical-align-center", true)
         .html(function(d) {
             var str="Location";
             return str;
@@ -65,7 +65,7 @@ function loadData(explanationsData, associationData)
         .style("font-size","medium");
 
         d3.select('#list3').append("div")
-        .classed("explanation-options vertical-align-center", true)
+        .classed("explanation-options explanation-options-header vertical-align-center", true)
         .html(function(d) {
             var str="Rank";
             return str;

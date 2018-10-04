@@ -67,7 +67,7 @@ video {
 }
 
 
-button {
+.media-player-btn {
 	/*text-indent:-9999px;*/
 	width:25%;
 	height:20%;
@@ -80,20 +80,20 @@ button {
 	font-size: 20px;
 }
 
-button:focus {outline:0;}
-.btn {
-    background-color: DodgerBlue;
-    /*border: none;*/
-    color: white;
-    /*padding: 12px 16px;*/
-    /*font-size: 16px;*/
-    cursor: pointer;
-    width:16px;
-	height:16px;
-	border:none;
-	/*cursor:pointer;*/
-	margin-top: 1px;
-}
+.media-player-btn:focus {outline:0;}
+/*.btn {*/
+    /*background-color: DodgerBlue;*/
+    /*!*border: none;*!*/
+    /*color: white;*/
+    /*!*padding: 12px 16px;*!*/
+    /*!*font-size: 16px;*!*/
+    /*cursor: pointer;*/
+    /*width:16px;*/
+	/*height:16px;*/
+	/*border:none;*/
+	/*!*cursor:pointer;*!*/
+	/*margin-top: 1px;*/
+/*}*/
 
 
 

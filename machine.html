@@ -6,7 +6,9 @@
     <title>TACOS Corpus</title>
     <!-- Core CSS - Include with every page -->
     <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!--<link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />-->
+    <!--<link href="assets/fonts/glyphicons-halflings-regular.woff" rel="stylesheet"/>-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/main-style.css" rel="stylesheet" />
     <link href='assets/css/media-player.css' rel='stylesheet' />
@@ -32,9 +34,9 @@
                                         <td style="width: 20%;">
                                             <div id="allButton">
 
-                                             <button id='play-pause-button' class='play' title='play' onclick='togglePlayPause();'><i class="fa fa-play" id="transportIcon"></i></button>
-                                             <button id='stop-button' class='stop' title='stop' onclick='stopPlayer();'><i class="fa fa-stop"></i></button>
-                                             <button id='replay-button' class='replay' title='replay' onclick='replayMedia();'><i class="fa fa-repeat"></i></button>
+                                             <button id='play-pause-button' class='play media-player-btn' title='play' onclick='togglePlayPause();'><i class="fa fa-play" id="transportIcon"></i></button>
+                                             <button id='stop-button' class='stop media-player-btn' title='stop' onclick='stopPlayer();'><i class="fa fa-stop"></i></button>
+                                             <button id='replay-button' class='replay media-player-btn' title='replay' onclick='replayMedia();'><i class="fa fa-repeat"></i></button>
                                             </div>
                                             <div id="position"> </div>
                                         </td>   
@@ -141,6 +143,31 @@
                     </div>
 
                 </div>
+            </div>
+            <div class="col-lg-2 main-boxes" id="control-panel-div">
+                <div class="panel panel-primary" id="control-box">
+                    <div class="panel-heading">
+                        <h class="header"><b>Control Panel</b></h>
+                    </div>
+
+                    <div class="panel-body" style="margin-top: 1px;">
+                        <button class="btn btn-default btn-large col-md-12" style="font-size:15px;border-radius:0px;">Go to next query
+                            <span><i class="fas fa-arrow-circle-right"></i></span>
+                        </button>
+                        <button class="btn btn-default btn-large col-md-12" style="font-size:15px;border-radius:0px;">View the correct Answer
+                            <span><i class="fas fa-check-circle"></i></span>
+                        </button>
+                        <button class="btn btn-default btn-large col-md-12 disabled" style="font-size:15px;border-radius:0px;">Prediction Task
+                            <span><i class="fas fa-tasks"></i></span>
+                        </button>
+                        <button class="btn btn-exit btn-large col-md-12" style="font-size:15px;border-radius:0px;">Exit the study
+                            <span><i class="fas fa-times-circle"></i></span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
             </div>
         </div>
     </div>
