@@ -567,6 +567,7 @@ div#selection-panel-body {
     /*min-height: 402px;*/
     min-height: 250px;
     background-color: #f5fbff;
+    margin-bottom: 6px;
 }
 
 .component-header {
@@ -643,6 +644,7 @@ div#selection-panel-body {
     color: #fff;
     background-color: #b19dfe;
     /*border-color: #adadad;*/
+    cursor: not-allowed;
 }
 
 
