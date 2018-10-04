@@ -5,7 +5,7 @@
 
 (function localFileVideoPlayer() {
     'use strict'
-  var URL = window.URL || window.webkitURL
+  var URL = window.URL || window.webkitURL;
   // var displayMessage = function (message, isError) {
   //   var element = document.querySelector('#message')
   //   element.innerHTML = message
@@ -29,6 +29,7 @@ d3.select("#video_selector").on("input", function () {
     d3.select("#mySelect").html("");
     // d3.select("#chart-div-labels").html("");
     // d3.select("#chart-div").html("");
+    // d3.select("#component-score-div").select(".panel-body").html("");
     d3.select("#component-score").html("");
     d3.select("#answer").html("");
     d3.selectAll('.list-group-item').remove();
@@ -53,7 +54,6 @@ function load_question(vid){
     var all_start=[];
     var all_end=[];
 
-    // var button= d3.select("#button1");
     var querySelect = d3.select("#mySelect");
     // CLICK TO SEE THE RESULTS OF THE QUESTIONS AS WELL AS THE EXPLANATIONS
     querySelect.on("change",function(d){
@@ -62,9 +62,9 @@ function load_question(vid){
 
         var x = document.getElementById("mySelect");
         var div= document.getElementById("answer");
-        // console.log(x.options[x.selectedIndex].value);
+
         div.innerHTML=x.options[x.selectedIndex].value;
-        // change_video_time(time[x.selectedIndex]);
+
         console.log(all_start)
 
         d3.select("#chart-div-labels").html("");
