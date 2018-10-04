@@ -68,18 +68,24 @@ function togglePlayPause() {
 }
 
 function changePos(event) {
+    video= document.getElementById('media-video');
+    var X=event.clientX;
+    // var X = event.pageX - document.getElementById('progress-bar').offsetLeft;
+    // var Y=event.clientY;
+    console.log("this is x: " + X);
+    var left=document.getElementById('dynamic').offsetLeft;
+    console.log("this is left: " +left);
+    var P_left=document.getElementById('dynamic').offsetParent.offsetLeft;
+    console.log("this is P_left: " + P_left);
+    var width=document.getElementById('progress-bar').offsetWidth;
+    console.log("this is width: " + width);
+    var pos = (X+2 -(left+P_left)) / width;
+    // var pos = left /width;
+    console.log("this is pos: " + (X+2 -(left+P_left)));
+    console.log("video_duration: " + video.duration);
+    video.currentTime = (pos*video.duration);
+    console.log("this is cTime: " + pos*video.duration);
 
-video= document.getElementById('media-video');
-var X=event.clientX;
-var Y=event.clientY;
-console.log(X);
-var left=document.getElementById('dynamic').offsetLeft;
-console.log(left);
-var P_left=document.getElementById('dynamic').offsetParent.offsetLeft;
-console.log(P_left);
-var width=document.getElementById('progress-bar').offsetWidth;
-var pos = (X+2 -(left+P_left)) / width;
-video.currentTime = (pos*video.duration);
 
 
 }
@@ -126,7 +132,7 @@ function updateProgressBar() {
       // .text(percentage + "% Complete");
      var div= document.getElementById('showTime');
 
-     div.innerHTML=(mediaPlayer.currentTime).toFixed(1)+"ms";
+     // div.innerHTML=(mediaPlayer.currentTime).toFixed(1)+"ms";
 
 }
 
@@ -229,8 +235,8 @@ for(var i=0;i<start.length;i++){
 
 	// var bar = document.getElementById('progress-bar'),
  //    new_mark = document.createElement('div');   //create a div
- //    new_mark.id = 'newid'+i;   
- //    bar.appendChild(new_mark);                 //append to the doc.body                    
+ //    new_mark.id = 'newid'+i;
+ //    bar.appendChild(new_mark);                 //append to the doc.body
 	// var new_id = document.getElementById('newid'+i);
 	// console.log(new_id);
 	// var x=(end[i]-start[i])*5;
@@ -266,9 +272,9 @@ for(var i=0;i<start.length;i++){
             // var labels= ['\uf017','\uf200','\uf183'];
         
             //colors for different button states 
-            var defaultColor= "#7777BB"
-            var hoverColor= "#4d4d99"
-            var pressedColor= "#e5801b"
+            var defaultColor= "#4dcee4"
+            var hoverColor= "#357487"
+            var pressedColor= "#f3aea1"
             var doubleColor="#80002a"
 
 ;
@@ -307,7 +313,7 @@ for(var i=0;i<start.length;i++){
 
 
             var bWidth= 20; //button width
-            var bHeight= 25; //button height
+            var bHeight= 50; //button height
             var bSpace= 10; //space between buttons
             var x0= 20; //x offset
             var y0= 0; //y offset
@@ -378,77 +384,76 @@ for(var i=0;i<start.length;i++){
 }
 
 function change_segment(time,end,explanations,associations,flag){
+    var t1=0;
+    var t2=0;
+    var t3=0;
+    var t4=0;
+    var t=0;
+    var timer_return_value=false;
+    var vid=document.getElementById("media-video");
+    // console.log(vid.currentTime);
+    // console.log(time);
+    // console.log(end);
 
-var t1=0;
-var t2=0;
-var t3=0;
-var t4=0;
-var t=0;
-var timer_return_value=false;
-var vid=document.getElementById("media-video");
-// console.log(vid.currentTime);
-// console.log(time);
-// console.log(end);
+    t1=(time-Math.floor(time))*100;
+    t2=Math.floor(time)*60;
+    t2=t2+t1;
 
-t1=(time-Math.floor(time))*100;
-t2=Math.floor(time)*60;
-t2=t2+t1;
+    console.log(vid.currentTime);
+    console.log(time);
+    console.log(t2);
 
-console.log(vid.currentTime);
-console.log(time);
-console.log(t2);
+    // if(time<1)
+    // {
+    // vid.currentTime=time*100;
 
-// if(time<1)
-// {
-// vid.currentTime=time*100;
+    // }
+    // else
+    // {
+    //   vid.currentTime=t2;
 
-// }
-// else
-// {
-//   vid.currentTime=t2;
+    // }
+    vid.currentTime=time;
 
-// }
-vid.currentTime=time;
+      // vid.play();
+    vid.pause();
 
-  // vid.play();
-vid.pause();
+    // t=d3.timer(timeOut);
 
-t=d3.timer(timeOut);
+     function timeOut(){
 
- function timeOut(){
+      // t3=(end-Math.floor(end))*100;
+      // t4=Math.floor(end)*60;
+      // t4=t3+t4;
+       t4=end*100;
+      // console.log(vid.currentTime);
+      // console.log(end);
+      // console.log(t4);
 
-  // t3=(end-Math.floor(end))*100;
-  // t4=Math.floor(end)*60;
-  // t4=t3+t4;
-   t4=end*100;
-  console.log(vid.currentTime);
-  console.log(end);
-  console.log(t4);
+      // var time_temp=vid.currentTime;
 
-  // var time_temp=vid.currentTime;
+      if((vid.currentTime) >= end){
+        vid.pause();
+        // t.stop();
+        timer_return_value=true;
+      }
 
-  if((vid.currentTime) >= end){
-    vid.pause();  
-    t.stop();
-    timer_return_value=true;
-  }
-   
-  return timer_return_value;
-};
+      return timer_return_value;
+    };
 
-  // t.restart(timeOut);
+      // t.restart(timeOut);
 
-              // if(flag>0) {
-            clear_list(flag);
-            loadData(explanations, associations);
+                  // if(flag>0) {
+                clear_list(flag);
+                loadData(explanations, associations);
 
 
-        // }
-        // else {
-        //     loadData(explanations, associations);
+            // }
+            // else {
+            //     loadData(explanations, associations);
 
-        // }
-        // flag++;
+            // }
+            // flag++;
 
 }
 
