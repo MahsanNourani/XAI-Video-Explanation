@@ -5,7 +5,7 @@ var listItems3;
 
 function createString (explanation) {
     var string = "<b>"
-        + explanation.action;
+        + explanation.activity;
 
     console.log (string);
     return string;
@@ -31,7 +31,7 @@ function createString3 (explanation) {
     // var string =  (explanation.accuracy*100).toFixed(2) +"%";
     // console.log (string);
     // return string;
-    return explanation.accuracy;
+    return explanation.approximation;
 }
 
 // To load explanation data from json files
@@ -43,7 +43,7 @@ function loadData(explanationsData, associationData)
     var header=d3.select('#list').append("div")
             .classed("explanation-options explanation-options-header vertical-align-center", true)
             .html(function(d) {
-                var str="Acitvity";
+                var str="Activity";
                 return str;
              })
         .style("font-size","medium");

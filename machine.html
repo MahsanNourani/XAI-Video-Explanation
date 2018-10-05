@@ -69,19 +69,22 @@
 
                             </div>
                         </div>
-                        <div id="sel" class="col-md-12">
-                            <div class="row" >
-                                <div class="input-group col-md-12">
-                                    <select id="mySelect" class="col-md-12"> </select>
-                                    <!--<button class="btn btn-success col-md-3" id="button1" type="button">Submit Question</button>-->
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div id="answer" class="well vertical-align-center"></div>
-                            </div>
-                        </div>
+                        <!--<div id="sel" class="col-md-12">-->
+                            <!--<div class="row" >-->
+                                <!--<div class="input-group col-md-12">-->
+                                    <!--<select id="mySelect" class="col-md-12"> </select>-->
+                                    <!--&lt;!&ndash;<button class="btn btn-success col-md-3" id="button1" type="button">Submit Question</button>&ndash;&gt;-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row">-->
+                                <!--<div id="answer" class="well vertical-align-center"></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
                     </div>
-                    <input type="file" id="video_selector" accept="video/*"/>
+                    <!--<input type="file" id="video_selector" accept="video/*"/>-->
+                    <div id = "temp">
+                        <b> Print shit here!</b>
+                    </div>
                 </div>
                 <!--End Video Area -->
 
@@ -187,7 +190,7 @@
                     </div>
 
                     <div class="panel-body" style="margin-top: 1px;">
-                        <button class="btn btn-default btn-large col-md-12" style="font-size:15px;border-radius:0px;">Go to next query
+                        <button class="btn btn-default btn-large col-md-12" onclick="loadNextQuery()" style="font-size:15px;border-radius:0px;">Go to next query
                             <span><i class="fas fa-arrow-circle-right"></i></span>
                         </button>
                         <button class="btn btn-default btn-large col-md-12" style="font-size:15px;border-radius:0px;">View the correct Answer
@@ -217,8 +220,6 @@
 <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="assets/plugins/d3.min.js"></script>
 <script src="assets/scripts/Explanation.js"></script>
-<!--<script src="assets/scripts/Video.js"></script>-->
-<script type="text/javascript" src="assets/data/Video.json"></script>
 <script src="assets/scripts/newCharts.js"></script>
 <script src='assets/scripts/media-player.js'></script>
 

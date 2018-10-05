@@ -474,7 +474,7 @@ div#selection-panel-body {
 }
 
 #explanation-div {
-    display: none;
+    /*display: none;*/
 }
 
 .alert{

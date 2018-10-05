@@ -280,38 +280,34 @@ for(var i=0;i<start.length;i++){
 ;
 
             //groups for each button (which will hold a rect and text)
-            var buttonGroups= allButtons.selectAll("g.button")
-                                    .data(data)
-                                    .enter()
-                                    .append("g")
-                                    .attr("class","button")
-                                    .style("cursor","pointer")
-                                    .on("click",function(d,i) {
-                                    	d3.selectAll('image').attr("width","16").attr("height","16");
-                                        updateButtonColors(d3.select(this), d3.select(this.parentNode));
-                                        change_segment(d.start,d.end,explanations[i],associations[i],flag);
-                                        // d3.select("#numberToggle").text(i+1)
-                                    })
-                                    .on("mouseover", function() {
-                                    	flag=false;
-                                        if ((d3.select(this).select("rect").attr("fill") != pressedColor)){
-                                            d3.select(this)
-                                                .select("rect")
-                                                .attr("fill",hoverColor);
-                                        }
-                                    })
-                                    .on("mouseout", function() {
-                                        if ((d3.select(this).select("rect").attr("fill") != pressedColor)) {
-                                            d3.select(this)
-                                                .select("rect")
-                                                .attr("fill",defaultColor);
-                                        }
-                                    })
-
-                                    // })
-
-
-
+            var buttonGroups =
+                allButtons.selectAll("g.button")
+                        .data(data)
+                        .enter()
+                        .append("g")
+                        .attr("class","button")
+                        .style("cursor","pointer")
+                        .on("click",function(d,i) {
+                            d3.selectAll('image').attr("width","16").attr("height","16");
+                            updateButtonColors(d3.select(this), d3.select(this.parentNode));
+                            change_segment(d.start,d.end,explanations[i],associations[i],flag);
+                            // d3.select("#numberToggle").text(i+1)
+                        })
+                        .on("mouseover", function() {
+                            flag=false;
+                            if ((d3.select(this).select("rect").attr("fill") != pressedColor)){
+                                d3.select(this)
+                                    .select("rect")
+                                    .attr("fill",hoverColor);
+                            }
+                        })
+                        .on("mouseout", function() {
+                            if ((d3.select(this).select("rect").attr("fill") != pressedColor)) {
+                                d3.select(this)
+                                    .select("rect")
+                                    .attr("fill",defaultColor);
+                            }
+                        });
             var bWidth= 20; //button width
             var bHeight= 50; //button height
             var bSpace= 10; //space between buttons
@@ -328,37 +324,6 @@ for(var i=0;i<start.length;i++){
                         .attr("rx",3) //rx and ry give the buttons rounded corners
                         .attr("ry",3)
                         .attr("fill",defaultColor);
-               
-
-            // var lock_buttons=svg.selectAll('image').data(data).enter().append('image')
-            //                     .attr("xlink:href", "assets/replay.png")
-            //                     .attr("x", function(d) {return d.pos+(d.width/2)-4;})
-            //                     .attr("y", "25")
-            //                     .attr("width", "16")
-            //                     .attr("height", "16")
-            //                     .on("click",function(d) {
-                                
-            //                     if(d3.select(this).attr("width")!=20){
-            //                     d3.selectAll('rect').attr("fill",defaultColor);
-            //                     d3.select(this).attr("width","20").attr("height","20").attr("opacity",1);
-                      
-            //                     // for(var i=0;i<3;i++)
-            //                         {                               
-            //                            flag=1;
-            //                            loop_segment(d.start,d.end);
-
-
-            //                         }
-            //                     }
-
-            //                     else
-            //                     {
-            //                     	flag=0;
-            //                     	d3.select(this).attr("width","16").attr("height","16");
-
-
-            //                     }
-            //                   });
 
 
             function updateButtonColors(button, parent) {
