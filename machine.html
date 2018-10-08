@@ -23,7 +23,7 @@
             <!--Media Player-->
             <div class="col-lg-5 main-boxes">
                 <!--Video Area -->
-                <div class="panel panel-primary" style="min-height: 692px;">
+                <div class="panel panel-primary" style="min-height: 648px;">
                     <div id="video-panel" class="panel-body">
                         <div id='media-player' class="col-md-12">
                              <video id='media-video' class="col-md-12" controls>
@@ -82,8 +82,7 @@
                         <!--</div>-->
                     </div>
                     <!--<input type="file" id="video_selector" accept="video/*"/>-->
-                    <div id = "temp">
-                        <b> Print shit here!</b>
+                    <div id = "query-section">
                     </div>
                 </div>
                 <!--End Video Area -->
@@ -155,24 +154,36 @@
                     </div>
 
                     <div class="panel-body">
-
                         <div class="col-md-12 component-header vertical-align-center component" style="background-color: #ffffff;">
                             <h class="component"> Do you agree with the system's answer? </h>
                         </div>
-                        <div class="btn-group col-md-12" role="group">
-                            <button type="button" class="btn btn-danger col-md-6">No</button>
-                            <button type="button" class="btn btn-primary col-md-6">Yes</button>
+                        <div class="btn-group col-md-12 btn-group-modified" data-toggle="buttons">
+                            <label for="" class="btn btn-primary col-md-6">
+                                <input type="radio" > No
+                            </label>
+                            <label for="" class="btn btn-primary col-md-6">
+                                <input type="radio" > Yes
+                            </label>
                         </div>
                         <div class="col-md-12 component-header vertical-align-center component" style="background-color: #ffffff;">
                             <h class="component"> How do you evaluate the explanations for this question? </h>
                         </div>
-
-                        <div class="btn-group col-md-12" role="group" style="margin-bottom:  10px;">
-                            <button type="button" class="btn btn-primary col-md-3" style="text-align: center;">Totally Irrelevant</button>
-                            <button type="button" class="btn btn-primary col-md-2">Irrelevant</button>
-                            <button type="button" class="btn btn-primary col-md-2">Neutral</button>
-                            <button type="button" class="btn btn-primary col-md-2">relevant</button>
-                            <button type="button" class="btn btn-primary col-md-3">Totally Relevant</button>
+                        <div class="btn-group col-md-12 btn-group-modified" data-toggle="buttons">
+                            <label for="" class="btn btn-primary col-md-3">
+                                <input type="radio" >Totally Irrelevant
+                            </label>
+                            <label for="" class="btn btn-primary col-md-2">
+                                <input type="radio" >Irrelevant
+                            </label>
+                            <label for="" class="btn btn-primary col-md-2">
+                                <input type="radio" >Neutral
+                            </label>
+                            <label for="" class="btn btn-primary col-md-2">
+                                <input type="radio" >Relevant
+                            </label>
+                            <label for="" class="btn btn-primary col-md-3">
+                                <input type="radio" >Totally Relevant
+                            </label>
                         </div>
                     </div>
                 </div>

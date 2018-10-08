@@ -376,7 +376,7 @@ canvas, img {
 #video-panel {
     height: inherit;
     overflow: auto;
-    min-height: 510px;
+    /*min-height: 510px;*/
     background-color: #ffffff;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -659,4 +659,31 @@ div#selection-panel-body {
     color: white;
     background-color: #3495a6;
     /*border-color: #adadad;*/
+}
+
+.btn-group-modified {
+    margin-bottom: 10px;
+}
+
+#query {
+    background-color: #7e889c;
+    color: #ffffff;
+    min-height: 70px;
+    justify-content: left;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+#system-answer {
+    background-color: #f5fbff;
+    min-height: 40px;
+    justify-content: left;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }

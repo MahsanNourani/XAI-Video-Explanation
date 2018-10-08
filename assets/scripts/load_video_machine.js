@@ -68,13 +68,27 @@
     
     
     function showQueryAndResponse(currentQuestion) {
-        var queryDiv = d3.select("#temp");
+        var queryDiv = d3.select("#query-section");
         queryDiv.html("");
-        queryDiv.append("p")
+        //header
+        queryDiv.append("div")
+            .classed("col-md-12 component-header vertical-align-center component", true)
+            .append("h")
+            .classed("component", true)
+            .html("Query from the Video and the System's Response");
+        //query
+        queryDiv.append("div")
+            .attr("id","query")
+            .classed("col-md-12 vertical-align-center", true)
+            .append("h")
             .html(function () {
                 return currentQuestion.questionText;
             });
-        queryDiv.append("b")
+        //system's answer
+        queryDiv.append("div")
+            .attr("id","system-answer")
+            .classed("col-md-12 vertical-align-center", true)
+            .append("h")
             .html(function () {
                 return currentQuestion.computerAnswer;
             });
@@ -151,120 +165,120 @@
 //
 
 //to load the video specific data,questions and answers
-var flag_que=0;
-function load_question(vid){
-    var x = document.getElementById("mySelect");
-    var time=[];
-    var explanations=[];
-    var associations = [];
-    var all_start=[];
-    var all_end=[];
-
-    var querySelect = d3.select("#mySelect");
-    // CLICK TO SEE THE RESULTS OF THE QUESTIONS AS WELL AS THE EXPLANATIONS
-    querySelect.on("change",function(d){
-
-        $("#explanation-div").show("slow");
-
-        var x = document.getElementById("mySelect");
-        var div= document.getElementById("answer");
-
-        div.innerHTML=x.options[x.selectedIndex].value;
-
-        console.log(all_start)
-
-        d3.select("#chart-div-labels").html("");
-        console.log("jhbfj")
-        console.log(explanations[x.selectedIndex])
-        segment_buttons(all_start[x.selectedIndex],all_end[x.selectedIndex],explanations[x.selectedIndex],associations[x.selectedIndex],flag_que);
-        
-        if(flag_que>0){
-
-        clear_list(flag_que);
-        clear_segment();
-      }
-
-      flag_que++;
-
-    });
-
-    var questions;
-
-    var file='assets/data/video_new.json';
-
-    //FILLING EXPLANATIONS AND ASSOCIATIONS FOR ALL THE QUESTIONS RELATED TO THIS VIDEO
-    d3.json(file, function(data){
-      for(var i=0;i<data.length;i++)
-      {
-        if(data[i].videoName==vid)
-        {
-           var len=data[i].listOfQuestions.length;
-
-           var exp=[];
-           var assc=[];
-
-           //loop on all questions
-           for(var j=0;j<len;j++)
-           {
-               var currentQuestion=data[i].listOfQuestions[j];
-               var option = document.createElement("option");
-               var ans = currentQuestion.computerAnswer.toLowerCase();
-               ans = ans.charAt(0).toUpperCase() + ans.slice(1);
-
-               option.text = currentQuestion.questionText;
-               option.value= ans;
-               x.add(option);
-
-               var len3=currentQuestion.listOfKeyFrames.length;
-
-               var start=[];
-               var end=[];
-               var temp3=[];
-               var temp4=[];
-               // key frames for the current question
-               for(var f=0;f<len3;f++)
-              {
-
-               // time[j]=currentQuestion.listOfKeyFrames.startTime;
-
-               var len2=currentQuestion.listOfKeyFrames[f].textExplanations.length;
-               
-               var listOfTxtExpForFrame=[];
-               // list of explanations for each frame!
-               for(var k=0; k<len2;k++)
-               {
-                 var temp={};
-
-                 // explanations data
-                 temp.action=data[i].listOfQuestions[j].listOfKeyFrames[f].textExplanations[k].activity;
-                 temp.object=data[i].listOfQuestions[j].listOfKeyFrames[f].textExplanations[k].object;
-                 temp.location=data[i].listOfQuestions[j].listOfKeyFrames[f].textExplanations[k].location;
-                 temp.accuracy=data[i].listOfQuestions[j].listOfKeyFrames[f].textExplanations[k].approximation;
-
-                 listOfTxtExpForFrame.push(temp);
-
-               }
-
-                 start.push(data[i].listOfQuestions[j].listOfKeyFrames[f].startTime);
-                 end.push(data[i].listOfQuestions[j].listOfKeyFrames[f].endTime)
-
-               temp3.push(listOfTxtExpForFrame);
-               temp4.push(currentQuestion.listOfKeyFrames[f].associatedFeatures);
-
-                }
-
-               all_start.push(start);
-               all_end.push(end);
-               explanations.push(temp3);
-               associations.push(temp4);
-
-  
-        }
- 
-        }
-      }
-    });
-}
+// var flag_que=0;
+// function load_question(vid){
+//     var x = document.getElementById("mySelect");
+//     var time=[];
+//     var explanations=[];
+//     var associations = [];
+//     var all_start=[];
+//     var all_end=[];
+//
+//     var querySelect = d3.select("#mySelect");
+//     // CLICK TO SEE THE RESULTS OF THE QUESTIONS AS WELL AS THE EXPLANATIONS
+//     querySelect.on("change",function(d){
+//
+//         $("#explanation-div").show("slow");
+//
+//         var x = document.getElementById("mySelect");
+//         var div= document.getElementById("answer");
+//
+//         div.innerHTML=x.options[x.selectedIndex].value;
+//
+//         console.log(all_start)
+//
+//         d3.select("#chart-div-labels").html("");
+//         console.log("jhbfj")
+//         console.log(explanations[x.selectedIndex])
+//         segment_buttons(all_start[x.selectedIndex],all_end[x.selectedIndex],explanations[x.selectedIndex],associations[x.selectedIndex],flag_que);
+//
+//         if(flag_que>0){
+//
+//         clear_list(flag_que);
+//         clear_segment();
+//       }
+//
+//       flag_que++;
+//
+//     });
+//
+//     var questions;
+//
+//     var file='assets/data/video_new.json';
+//
+//     //FILLING EXPLANATIONS AND ASSOCIATIONS FOR ALL THE QUESTIONS RELATED TO THIS VIDEO
+//     d3.json(file, function(data){
+//       for(var i=0;i<data.length;i++)
+//       {
+//         if(data[i].videoName==vid)
+//         {
+//            var len=data[i].listOfQuestions.length;
+//
+//            var exp=[];
+//            var assc=[];
+//
+//            //loop on all questions
+//            for(var j=0;j<len;j++)
+//            {
+//                var currentQuestion=data[i].listOfQuestions[j];
+//                var option = document.createElement("option");
+//                var ans = currentQuestion.computerAnswer.toLowerCase();
+//                ans = ans.charAt(0).toUpperCase() + ans.slice(1);
+//
+//                option.text = currentQuestion.questionText;
+//                option.value= ans;
+//                x.add(option);
+//
+//                var len3=currentQuestion.listOfKeyFrames.length;
+//
+//                var start=[];
+//                var end=[];
+//                var temp3=[];
+//                var temp4=[];
+//                // key frames for the current question
+//                for(var f=0;f<len3;f++)
+//               {
+//
+//                // time[j]=currentQuestion.listOfKeyFrames.startTime;
+//
+//                var len2=currentQuestion.listOfKeyFrames[f].textExplanations.length;
+//
+//                var listOfTxtExpForFrame=[];
+//                // list of explanations for each frame!
+//                for(var k=0; k<len2;k++)
+//                {
+//                  var temp={};
+//
+//                  // explanations data
+//                  temp.action=data[i].listOfQuestions[j].listOfKeyFrames[f].textExplanations[k].activity;
+//                  temp.object=data[i].listOfQuestions[j].listOfKeyFrames[f].textExplanations[k].object;
+//                  temp.location=data[i].listOfQuestions[j].listOfKeyFrames[f].textExplanations[k].location;
+//                  temp.accuracy=data[i].listOfQuestions[j].listOfKeyFrames[f].textExplanations[k].approximation;
+//
+//                  listOfTxtExpForFrame.push(temp);
+//
+//                }
+//
+//                  start.push(data[i].listOfQuestions[j].listOfKeyFrames[f].startTime);
+//                  end.push(data[i].listOfQuestions[j].listOfKeyFrames[f].endTime)
+//
+//                temp3.push(listOfTxtExpForFrame);
+//                temp4.push(currentQuestion.listOfKeyFrames[f].associatedFeatures);
+//
+//                 }
+//
+//                all_start.push(start);
+//                all_end.push(end);
+//                explanations.push(temp3);
+//                associations.push(temp4);
+//
+//
+//         }
+//
+//         }
+//       }
+//     });
+// }
 
 // function change_video_time(time)
 // {
