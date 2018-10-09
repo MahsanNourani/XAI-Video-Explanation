@@ -6,6 +6,7 @@
         "questionId" : 1,
         "questionText" : "Does the person cut off the ends of the orange?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -61,6 +62,7 @@
         "questionId" : 2,
         "questionText" : "Does the person take something out from the cupboard and place it on the counter?",
         "computerAnswer" : "Yes",
+        "correctAnswer": "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -101,6 +103,7 @@
         "questionId" : 3,
         "questionText" : "Does the person take the knife out of the drawer?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -156,6 +159,7 @@
         "questionId" : 4,
         "questionText" : "Does the person peel an apple?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -267,6 +271,7 @@
         "questionId" : 5,
         "questionText" : "Does the person take out anything from the fridge?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -355,6 +360,7 @@
         "questionId" : 6,
         "questionText" : "Does the person cut off the ends of an apple in the sink?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -390,6 +396,7 @@
         "questionId" : 1,
         "questionText" : "Does the person take out the pineapple and the cutting board?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -564,6 +571,7 @@
         "questionId" : 2,
         "questionText" : "Does the person cut something apart on the cutting board?",
         "computerAnswer" : "Yes",
+        "correctAnswer": "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -649,6 +657,7 @@
         "questionId" : 3,
         "questionText" : "Does the move the pineapple from the cutting board to the counter?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -754,6 +763,7 @@
         "questionId" : 4,
         "questionText" : "Does the person move the cutting board?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -957,6 +967,7 @@
         "questionId" : 5,
         "questionText" : "Does the person cut apart anything on the plate?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
             {
               "frameId" : 1,
@@ -1081,6 +1092,7 @@
         "questionId" : 6,
         "questionText" : "Does the person wash the pineapple in the sink?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -1237,6 +1249,7 @@
         "questionId" : 1,
         "questionText" : "Does the person take out the carrot and the side-peeler?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -1446,6 +1459,7 @@
         "questionId" : 2,
         "questionText" : "Does the person take out anything from the drawer and place it on the counter?",
         "computerAnswer" : "Yes",
+        "correctAnswer": "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -1506,6 +1520,7 @@
         "questionId" : 3,
         "questionText" : "Does the person scratch off the peel from the chefs-knife and place it on the cutting board?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -1599,6 +1614,7 @@
         "questionId" : 4,
         "questionText" : "Does the person wash the cutting board?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -1750,6 +1766,7 @@
         "questionId" : 5,
         "questionText" : "Does the person peel anything on the counter?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -1866,6 +1883,7 @@
         "questionId" : 6,
         "questionText" : "Does the person take out the carrot from the drawer?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -1931,6 +1949,7 @@
         "questionId" : 1,
         "questionText" : "Does the person shake the carrot?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -1986,6 +2005,7 @@
         "questionId" : 2,
         "questionText" : "Does the person take anything out from the fridge?",
         "computerAnswer" : "Yes",
+        "correctAnswer": "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2046,6 +2066,7 @@
         "questionId" : 3,
         "questionText" : "Does the person take out the chef's knife from the drawer and place it on the cutting board?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2106,6 +2127,7 @@
         "questionId" : 4,
         "questionText" : "Does the person shake the knife?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2161,6 +2183,7 @@
         "questionId" : 5,
         "questionText" : "Does the person slice anything on the counter?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2201,6 +2224,7 @@
         "questionId" : 6,
         "questionText" : "Does the person wash his hand in the sink?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2309,6 +2333,7 @@
         "questionId" : 1,
         "questionText" : "Does the person cut apart a plum?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2355,6 +2380,7 @@
         "questionId" : 2,
         "questionText" : "Does the person take something out from the fridge?",
         "computerAnswer" : "Yes",
+        "correctAnswer": "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2411,6 +2437,7 @@
         "questionId" : 3,
         "questionText" : "Does the person take out the cutting board from the drawer and place it on the counter?",
         "computerAnswer" : "Yes",
+        "correctAnswer": "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2471,6 +2498,7 @@
         "questionId" : 4,
         "questionText" : "Does the person wash his hands?",
         "computerAnswer" : "Yes",
+        "correctAnswer": "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2526,6 +2554,7 @@
         "questionId" : 5,
         "questionText" : "Does the person cut apart anything on a plate?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2572,6 +2601,7 @@
         "questionId" : 6,
         "questionText" : "Does the person take out the chef's knife from the fridge?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2637,6 +2667,7 @@
         "questionId" : 1,
         "questionText" : "Does the person wash the cutting board and the knife?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
             {
               "frameId" : 1,
@@ -2740,6 +2771,7 @@
         "questionId" : 2,
         "questionText" : "Does the person move something from the cutting board to the plate?",
         "computerAnswer" : "Yes",
+        "correctAnswer": "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2845,6 +2877,7 @@
         "questionId" : 3,
         "questionText" : "Does the person move the pepper from the cutting-board to the plate?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2908,6 +2941,7 @@
         "questionId" : 4,
         "questionText" : "Does the person throw the plate in the garbage?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -2953,6 +2987,7 @@
         "questionId" : 5,
         "questionText" : "Does the person wash anything on the counter?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
             {
               "frameId" : 1,
@@ -3104,6 +3139,7 @@
         "questionId" : 6,
         "questionText" : "Does the person take out a knife from the fridge?",
         "computerAnswer" : "No",
+        "correctAnswer": "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,

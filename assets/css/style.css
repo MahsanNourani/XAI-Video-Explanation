@@ -152,9 +152,9 @@ html {
     color: #428bca;
 }
 
-.btn-success.btn-outline {
-    color: #5cb85c;
-}
+/*.btn-success.btn-outline {*/
+    /*color: #5cb85c;*/
+/*}*/
 
 .btn-info.btn-outline {
     color: #5bc0de;
@@ -468,7 +468,7 @@ div#selection-panel-body {
 /*}*/
 
 #explanation-box {
-    margin-bottom: 6px;
+    margin-bottom: 7.5px;
     min-height: 232px;
     overflow-y: scroll;
 }
@@ -567,7 +567,7 @@ div#selection-panel-body {
     /*min-height: 402px;*/
     min-height: 250px;
     background-color: #f5fbff;
-    margin-bottom: 6px;
+    margin-bottom: 7.5px;
 }
 
 .component-header {
@@ -635,7 +635,7 @@ div#selection-panel-body {
     border-color: #ccc;
 }
 
-.btn-default:hover {
+.btn-default:hover, .btn-default:focus {
     color: #fff;
     background-color: #6542ee;
     /*border-color: #adadad;*/
@@ -646,7 +646,6 @@ div#selection-panel-body {
     /*border-color: #adadad;*/
     cursor: not-allowed;
 }
-
 
 .btn-exit {
     margin-bottom: 1px;
@@ -666,8 +665,8 @@ div#selection-panel-body {
 }
 
 #query {
-    background-color: #7e889c;
-    color: #ffffff;
+    background-color: #c7e5ff;
+    color: #000000;
     min-height: 70px;
     justify-content: left;
     padding: 10px;
@@ -676,7 +675,7 @@ div#selection-panel-body {
     font-style: italic;
 }
 
-#system-answer {
+.system-answer {
     background-color: #f5fbff;
     min-height: 40px;
     justify-content: left;
@@ -686,4 +685,39 @@ div#selection-panel-body {
     font-style: italic;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+}
+
+#question-section-header {
+    background-color: #428bca;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+#correct-answer {
+    display: none;
+}
+
+
+#correct-answer-header {
+    display: none;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d94f68;
+    border-color: #d94f68;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #d53552;
+    border-color: #d53552;
+}
+
+.btn-danger.active, .btn-success.active, .btn-primary.active {
+    color: #fff;
+    background-color: #6542ee;
+    border-color: #285e8e;
 }
