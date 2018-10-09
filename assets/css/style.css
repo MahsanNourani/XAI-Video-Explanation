@@ -630,7 +630,7 @@ div#selection-panel-body {
 
 .btn-default {
     margin-bottom: 1px;
-    color: #fff;
+    color: black;
     background-color: #b19dff;
     border-color: #ccc;
 }
@@ -641,11 +641,12 @@ div#selection-panel-body {
     /*border-color: #adadad;*/
 }
 .btn-default.disabled {
-    color: #fff;
+    color: black;
     background-color: #b19dfe;
     /*border-color: #adadad;*/
     cursor: not-allowed;
 }
+
 
 .btn-exit {
     margin-bottom: 1px;

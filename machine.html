@@ -130,37 +130,37 @@
                         </div>
                         <div class="btn-group col-md-12 btn-group-modified" data-toggle="buttons" id="agree-disagree">
                             <label for="" class="btn btn-danger col-md-6">
-                                <input type="radio" value="0"> No
+                                <input type="radio" value="0" onchange="radioChange()"> No
                             </label>
                             <label for="" class="btn btn-success col-md-6">
-                                <input type="radio" value="1"> Yes
+                                <input type="radio" value="1" onchange="radioChange()"> Yes
                             </label>
                         </div>
                         <div class="col-md-12 component-header vertical-align-center component" style="background-color: #ffffff;">
                             <h class="component"> How do you evaluate the explanations for this question? </h>
                         </div>
                         <div class="btn-group col-md-12 btn-group-modified" data-toggle="buttons" id="evaluation">
-                            <label for="" class="btn btn-primary col-md-3">
+                            <label for="" class="btn btn-primary col-md-3" onchange="radioChange()">
                                 <input type="radio" value="-2">Totally Irrelevant
                             </label>
-                            <label for="" class="btn btn-primary col-md-2">
+                            <label for="" class="btn btn-primary col-md-2" onchange="radioChange()">
                                 <input type="radio" value="-1" >Irrelevant
                             </label>
-                            <label for="" class="btn btn-primary col-md-2">
+                            <label for="" class="btn btn-primary col-md-2" onchange="radioChange()">
                                 <input type="radio" value="0" >Neutral
                             </label>
-                            <label for="" class="btn btn-primary col-md-2">
+                            <label for="" class="btn btn-primary col-md-2" onchange="radioChange()">
                                 <input type="radio" value="1">Relevant
                             </label>
-                            <label for="" class="btn btn-primary col-md-3">
+                            <label for="" class="btn btn-primary col-md-3" onchange="radioChange()">
                                 <input type="radio" value="2">Totally Relevant
                             </label>
                         </div>
                         <div class="col-md-12" style="padding:  0px;border-bottom-right-radius:  3px; border-bottom-left-radius: 3px;">
-                            <button class="btn btn-default btn-large col-md-8" onclick="submitAndShowCorrectAnswer()" style="font-size:15px;border-radius:0px;border-bottom-left-radius: 3px;">Submit and view the correct Answer
+                            <button class="btn btn-default btn-large col-md-8 disabled" id="submit" onclick="submitAndShowCorrectAnswer()" style="font-size:15px;border-radius:0px;border-bottom-left-radius: 3px;">Submit and view the correct Answer
                                 <span><i class="fas fa-check-circle"></i></span>
                             </button>
-                            <button class="btn btn-default btn-large col-md-4" onclick="loadNextQuery()" style="font-size:15px;border-radius:0px;border-bottom-right-radius: 3px;">Go to next query
+                            <button class="btn btn-default btn-large col-md-4 disabled" id="next" onclick="loadNextQuery()" style="font-size:15px;border-radius:0px;border-bottom-right-radius: 3px;">Go to next query
                             <span><i class="fas fa-arrow-circle-right"></i></span>
                         </button>
                         </div>

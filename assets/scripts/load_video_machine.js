@@ -1,13 +1,23 @@
 // This js is used to load the video and associated data
 (function scopeFunction() {
-    var listOfVideos = [];
+    var isPredictionTask = false;
+
+    var listOfVideos = [],
+        listOfPredVideos = [];
+
     var currentVideoData = [];
-    var responses = [];
+
+    var responses = [],
+        predResponses = [];
+
     var startTime;
+
     var currentVideo = {},
         nextVideoIndex = 0,
         nextQueryIndex = 0;
+
     var notFirstTime = 0;
+
     var file = 'assets/data/video_list_main.json';
     d3.json(file, function(error, data) {
         if (error)
@@ -18,7 +28,12 @@
         loadVideo();
     });
 
-    // console.log(currentVideoData[0]);
+    this.radioChange = function () {
+        if (isOptionSelected("#agree-disagree") && isOptionSelected("#evaluation")) {
+            console.log("yes!!!");
+            d3.select("#submit").classed("disabled", false);
+        }
+    };
 
     function loadVideo() {
         var vid = document.getElementById("media-video");
@@ -38,9 +53,11 @@
                     currentVideoData = data[i].listOfQuestions;
                     break;
                 }
-                // console.log(video[0]);
             }
-            loadQuestion();
+            if (!isPredictionTask)
+                loadQuestion();
+            else
+                loadQuestionPrediction();
         });
     }
     
@@ -57,17 +74,32 @@
         console.log("this is the time " + startTime);
     }
 
+    function loadQuestionPrediction() {
+        console.log("blah blah!");
+    }
+
     this.loadNextQuery = function () {
         if (nextQueryIndex == currentVideo.queryCount) {
-            if (nextVideoIndex == listOfVideos.length) {
+            if ((nextVideoIndex == listOfVideos.length) && !isPredictionTask) {
+                console.log("review section done, ready for ");
+                console.log(responses);
+                isPredictionTask = true;
+                listOfVideos = listOfPredVideos;
+                // 1. I have to change window to prediction
+            }
+            else {
                 console.log("study is done!");
                 return;
             }
+
             loadVideo();
         }
         else {
             loadQuestion();
         }
+        d3.select("#next").classed("disabled", true);
+        d3.select("#submit").classed("disabled", true);
+        uncheckAll();
 
     };
 
@@ -80,17 +112,20 @@
         var agreeDisagree = getValueOfSelected("#agree-disagree");
         var evaluation = getValueOfSelected("#evaluation");
         var respondObject = {};
+            respondObject.videoName = currentVideo.videoName;
+            respondObject.queryId = currentVideoData[nextQueryIndex-1].questionId;
             respondObject.agreeDisagree = agreeDisagree;
             respondObject.evaluation = evaluation;
-        recordResults (respondObject);
+        recordResults (respondObject, responses);
         console.log(respondObject.agreeDisagree + " " + respondObject.evaluation);
-        uncheckAll();
+        d3.select("#next").classed("disabled", false);
+        d3.select("#submit").classed("disabled", true);
     };
 
-    function recordResults(recordObject) {
+    function recordResults(recordObject, array) {
         recordObject.startQueryTime = startTime;
-        responses.push(recordObject);
-        console.log(responses);
+        array.push(recordObject);
+        console.log(array);
     }
 
     function getValueOfSelected(id) {
@@ -111,6 +146,17 @@
                 d3.select(this).node().checked = false;
             });
         d3.selectAll('label').classed("active", false);
+    }
+    
+    function isOptionSelected(id) {
+        var isChecked = false;
+        d3.select(id)
+            .selectAll("input").each(function (d) {
+                if (d3.select(this).node().checked == true)
+                    isChecked = true;
+            });
+        console.log("yas queen!! " + id);
+        return isChecked;
     }
     
     function showQueryAndResponse(currentQuestion) {
