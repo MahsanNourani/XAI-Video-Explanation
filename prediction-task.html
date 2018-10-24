@@ -19,11 +19,11 @@
 <div id="wrapper">
     <div id="page-wrapper">
 
-        <div class="row">
+        <div class="col-md-10 col-md-offset-1">
             <!--Media Player-->
-            <div class="col-lg-5 main-boxes">
+            <div class="col-lg-6 col-md-offset-3 main-boxes">
                 <!--Video Area -->
-                <div class="panel panel-primary" style="min-height: 648px;">
+                <div class="panel panel-primary" style="min-height: 594px;">
                     <div id="video-panel" class="panel-body">
                         <div id='media-player' class="col-md-12">
                             <video id='media-video' class="col-md-12" controls></video>
@@ -57,58 +57,6 @@
                     </div>
                 </div>
                 <!--End Video Area -->
-
-                <!--Answer Area-->
-
-            </div>
-            <!--End of Media Player-->
-
-            <!--Explanation Div-->
-            <div class="col-lg-5 main-boxes" id="explanation-div">
-
-                <!-- Explanation Panel-->
-                <div class="panel panel-primary" id="explanation-box">
-                    <div class="panel-heading">
-                        <h class="header"><b>Detected Combinations of Components</b></h>
-                    </div>
-
-                    <div class="panel-body">
-                        <table class="col-md-12">
-                            <td class="table-col" id = "rank">
-                                <div class="list-group list3" id="list3" >
-
-                                </div>
-                            </td>
-                            <td class="table-col">
-                                <div class="list-group list" id="list">
-                                </div>
-                            </td>
-                            <td class="table-col">
-                                <div class="list-group list" id="list1">
-                                </div>
-                            </td>
-
-                            <td class="table-col">
-                                <div class="list-group list" id="list2">
-                                </div>
-                            </td>
-                        </table>
-
-                    </div>
-                </div>
-                <!--End Explanation Panel-->
-                <div class="panel panel-primary" id="component-score-div">
-                    <div class="panel-heading">
-                        <h class="header"><b>Component Score</b></h>
-                    </div>
-
-                    <div class="panel-body">
-
-                    </div>
-
-                </div>
-
-
                 <div class="panel panel-primary" id="questions">
                     <div class="panel-heading">
                         <h class="header"><b>Please answer the following questions</b></h>
@@ -126,26 +74,6 @@
                                 <input type="radio" value="1" onchange="radioChange()"> Yes
                             </label>
                         </div>
-                        <div class="col-md-12 component-header vertical-align-center component" style="background-color: #ffffff;">
-                            <h class="component"> How do you evaluate the explanations for this question? </h>
-                        </div>
-                        <div class="btn-group col-md-12 btn-group-modified" data-toggle="buttons" id="evaluation">
-                            <label for="" class="btn btn-primary col-md-3" onchange="radioChange()">
-                                <input type="radio" value="-2">Totally Irrelevant
-                            </label>
-                            <label for="" class="btn btn-primary col-md-2" onchange="radioChange()">
-                                <input type="radio" value="-1" >Irrelevant
-                            </label>
-                            <label for="" class="btn btn-primary col-md-2" onchange="radioChange()">
-                                <input type="radio" value="0" >Neutral
-                            </label>
-                            <label for="" class="btn btn-primary col-md-2" onchange="radioChange()">
-                                <input type="radio" value="1">Relevant
-                            </label>
-                            <label for="" class="btn btn-primary col-md-3" onchange="radioChange()">
-                                <input type="radio" value="2">Totally Relevant
-                            </label>
-                        </div>
                         <div class="col-md-12" style="padding:  0px;border-bottom-right-radius:  3px; border-bottom-left-radius: 3px;">
                             <button class="btn btn-default btn-large col-md-8 disabled" id="submit" onclick="submitAndShowCorrectAnswer()" style="font-size:15px;border-radius:0px;border-bottom-left-radius: 3px;">Submit and view the correct Answer
                                 <span><i class="fas fa-check-circle"></i></span>
@@ -156,32 +84,9 @@
                         </div>
                     </div>
                 </div>
-                <!--<div>-->
-                <!--<p> Do you agree with the system's answer to the query?</p>-->
-                <!--</div>-->
+
             </div>
-            <!--End of Explanation Div-->
-
-            <!--Control Panel-->
-            <div class="col-lg-2 main-boxes" id="control-panel-div">
-                <div class="panel panel-primary" id="control-box">
-                    <div class="panel-heading">
-                        <h class="header"><b>Control Panel</b></h>
-                    </div>
-
-                    <div class="panel-body" style="margin-top: 1px;">
-
-                        <button class="btn btn-default btn-large col-md-12" style="font-size:15px;border-radius:0px;" data-toggle="modal" data-target="#myModal" id="modal-btn">Prediction Task
-                            <span><i class="fas fa-tasks"></i></span>
-                        </button>
-                        <button class="btn btn-exit btn-large col-md-12" style="font-size:15px;border-radius:0px;" onclick="loadPredictionTask()">Exit the study
-                            <span><i class="fas fa-times-circle"></i></span>
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-            <!--End of Control Panle-->
+            <!--End of Media Player-->
 
             <!--modal-->
             <div class="modal fade" id="myModal" role="dialog">
@@ -215,16 +120,9 @@
 <script src="assets/scripts/Explanation.js"></script>
 <script src="assets/scripts/newCharts.js"></script>
 <script src='assets/scripts/media-player.js'></script>
-<script src='assets/scripts/userStudy.js'></script>
-<script>
 
-    // Must clear storage and check values in index.html
-    // Must generate ID
-    // Must generate random value for the studyies to load.
-    // localStorage.clear();
-    localStorage.setItem("isPredictionTask", "false");
-
-</script>
+<!-- <script>
+</script> -->
 
 
 </body>

@@ -161,7 +161,8 @@
 // }
 var maxWidth = 80, height = "10px";
 function loadCharts (associations, color) {
-    d3.select("#marginal-score").html("");
+    d3.select("#component-score-div").select(".panel-body").html("");
+    // d3.select("#marginal-score").html("");
     var listOfData = [];
     if (associations.listOfAllDetectedAction !== undefined)
         listOfData = listOfData.concat(associations.listOfAllDetectedAction);
@@ -173,18 +174,31 @@ function loadCharts (associations, color) {
     listOfData.sort(function(x, y){
         return d3.descending(x.probability, y.probability);
     });
-    var temp = d3.select("#marginal-score");
-    var dummy = temp.selectAll("div").data(listOfData).enter()
+
+    var parentNode = d3.select("#component-score-div").select(".panel-body");
+
+    parentNode.append("div")
+        .classed("col-md-12 component-header vertical-align-center component", true)
+        .append("h")
+        .classed("component", true)
+        .html("Based on Model's Answer and the Input Video ");
+    //<div class="col-md-12 component-score" id="marginal-score"></div>
+
+    var marginalScoreDiv = parentNode.append("div")
+        .classed("col-md-12 component-score", true)
+        .attr("id", "marginal-score");
+
+    var componentScores = marginalScoreDiv.selectAll("div").data(listOfData).enter()
         .append("div")
         .classed("col-md-6", true);
-    dummy.append("h")
+    componentScores.append("h")
         .html(function (d) {
             if (d == undefined)
                 return "";
             return d.name;
         })
         .classed ("component col-md-12 score-header", true);
-    dummy.append("svg")
+    componentScores.append("svg")
         .classed("score-svg", true)
         .attr("height", function () {
             return height;

@@ -509,7 +509,7 @@ div#selection-panel-body {
     font-size: 17px;
     justify-content: center;
 }
-}
+
 
 #sel {
     padding: 10px;
@@ -721,4 +721,19 @@ div#selection-panel-body {
     color: #fff;
     background-color: #6542ee;
     border-color: #285e8e;
+}
+
+.modal-title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-primary.disabled.active {
+    background-color: #5a3cd7;
+}
+
+.information {
+    font-size: 22px;
+    /*color: white;*/
+    font-weight: bold;
 }

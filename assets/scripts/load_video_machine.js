@@ -1,7 +1,9 @@
 // This js is used to load the video and associated data
 (function scopeFunction() {
-    var isPredictionTask = false;
 
+    // var isPredictionTask = false;
+    //generate a random ID here!
+    var ID;
     var listOfVideos = [],
         listOfPredVideos = [];
 
@@ -16,20 +18,34 @@
         nextVideoIndex = 0,
         nextQueryIndex = 0;
 
-    var notFirstTime = 0;
+    var notFirstTime = 0,
+        isFirstVideo = true;
 
     var file = 'assets/data/video_list_main.json';
+
     d3.json(file, function(error, data) {
         if (error)
             console.log(error);
         for (var i = 0; i < data.length; i++) {
             listOfVideos.push(data[i]);
         }
+
+        // This is to randomize the videos for each participant!
+        listOfVideos = shuffle(listOfVideos);
+
+        //I donno if it should be commented out or not! I guess I should put this every time I change the video!
+        // notFirstTime = 0;
+
+        // if (isPredictionTask) {
+        if (localStorage.getItem("isPredictionTask") == "true") {
+            responses = JSON.parse(localStorage.getItem("responses"));
+        }
         loadVideo();
     });
 
     this.radioChange = function () {
-        if (isOptionSelected("#agree-disagree") && isOptionSelected("#evaluation")) {
+        if ((isOptionSelected("#agree-disagree") && isOptionSelected("#evaluation")) ||
+            (isOptionSelected("#agree-disagree") && localStorage.getItem("isPredictionTask") == "true")) {
             console.log("yes!!!");
             d3.select("#submit").classed("disabled", false);
         }
@@ -37,12 +53,16 @@
 
     function loadVideo() {
         var vid = document.getElementById("media-video");
+        if (!isFirstVideo)
+        document.getElementById("modal-btn").click();
+
         currentVideo = listOfVideos[nextVideoIndex++];
         nextQueryIndex = 0;
         console.log("changed the video! " + currentVideo.videoName);
         var sourceVideo = 'assets/videos/' + currentVideo.videoName;
         vid.src = sourceVideo;
         vid.load();
+        isFirstVideo = false;
 
         file = 'assets/data/video_new.json';
         d3.json(file, function(error, data){
@@ -51,55 +71,73 @@
             for (var i = 0; i<data.length; i++){
                 if (data[i].videoName == currentVideo.videoName) {
                     currentVideoData = data[i].listOfQuestions;
+
+                    // shuffle the list of questions for each each video.
+                    currentVideoData = shuffle(currentVideoData);
+
                     break;
                 }
             }
-            if (!isPredictionTask)
+            // if (!isPredictionTask)
+            if (localStorage.getItem("isPredictionTask") == "false")
                 loadQuestion();
             else
                 loadQuestionPrediction();
         });
     }
-    
+
     function loadQuestion() {
         var currentQuestion =  currentVideoData[nextQueryIndex++];
         console.log(currentQuestion);
-        
+
     //    1 . show the question and respond on the page. (D3)
-        showQueryAndResponse(currentQuestion);
-    //    2 . show the explanations 
+        showQuery(currentQuestion);
+        showResponse(currentQuestion);
+    //    2 . show the explanations
         showExplanations(currentQuestion);
     //    3. record current time
         startTime = new Date().getTime();
-        console.log("this is the time " + startTime);
+        // console.log("this is the time " + startTime);
     }
 
     function loadQuestionPrediction() {
-        console.log("blah blah!");
+        var currentQuestion =  currentVideoData[nextQueryIndex++];
+        showQuery(currentQuestion);
+        startTime = new Date().getTime();
     }
 
     this.loadNextQuery = function () {
         if (nextQueryIndex == currentVideo.queryCount) {
-            if ((nextVideoIndex == listOfVideos.length) && !isPredictionTask) {
-                console.log("review section done, ready for ");
-                console.log(responses);
-                isPredictionTask = true;
+
+            if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "false") {
+                // console.log("review section done, ready for ");
+                // console.log(responses);
+                localStorage.setItem("isPredictionTask", "true");
                 listOfVideos = listOfPredVideos;
                 // 1. I have to change window to prediction
             }
-            else {
+            // else if ((nextVideoIndex == listOfVideos.length) && isPredictionTask){
+            else if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "true"){
+                //maybe open the modal and then reload the page!
                 console.log("study is done!");
                 return;
             }
+            else {
+                loadVideo();
+            }
+        }
 
-            loadVideo();
-        }
         else {
-            loadQuestion();
+            if (localStorage.getItem("isPredictionTask") == "false")
+                loadQuestion();
+            else
+                loadQuestionPrediction();
         }
+
         d3.select("#next").classed("disabled", true);
         d3.select("#submit").classed("disabled", true);
         uncheckAll();
+        toggleDisabilityRadioButtons();
 
     };
 
@@ -109,8 +147,14 @@
         d3.select("#correct-answer-header")
             .style("display","flex");
 
+        // So to avoid misunderstanding of the user when they select confirmed the selection.
+        // I want the user to not be able to change their respond in order to compare their answer with the correct answer.
+
+        toggleDisabilityRadioButtons();
+
         var agreeDisagree = getValueOfSelected("#agree-disagree");
         var evaluation = getValueOfSelected("#evaluation");
+        console.log(currentVideoData[nextQueryIndex-1]);
         var respondObject = {};
             respondObject.videoName = currentVideo.videoName;
             respondObject.queryId = currentVideoData[nextQueryIndex-1].questionId;
@@ -122,9 +166,18 @@
         d3.select("#submit").classed("disabled", true);
     };
 
+    this.loadPredictionTask = function () {
+        localStorage.setItem("responses", JSON.stringify(responses));
+        localStorage.setItem("isPredictionTask", "true");
+        // window.location.pathname = "XAI-Video-Explanation/prediction-task.html" ;
+        location.href = "./prediction-task.html";
+    };
+
     function recordResults(recordObject, array) {
         recordObject.startQueryTime = startTime;
+        recordObject.userID = localStorage.getItem("id");
         array.push(recordObject);
+        console.log("ino check kn!");
         console.log(array);
     }
 
@@ -147,7 +200,18 @@
             });
         d3.selectAll('label').classed("active", false);
     }
-    
+
+    function toggleDisabilityRadioButtons() {
+        d3.selectAll("label")
+            .each(function (d) {
+                if (d3.select(this).classed("disabled")) {
+                    d3.select(this).classed("disabled", false);
+                }
+                else
+                    d3.select(this).classed("disabled", true);
+            });
+    }
+
     function isOptionSelected(id) {
         var isChecked = false;
         d3.select(id)
@@ -155,11 +219,10 @@
                 if (d3.select(this).node().checked == true)
                     isChecked = true;
             });
-        console.log("yas queen!! " + id);
         return isChecked;
     }
-    
-    function showQueryAndResponse(currentQuestion) {
+
+    function showQuery(currentQuestion) {
         var queryDiv = d3.select("#query-section");
         queryDiv.html("");
         //header
@@ -168,7 +231,7 @@
             .attr("id", "question-section-header")
             .append("h")
             .classed("component", true)
-            .html("Query from the Video and the System's Response");
+            .html("Query from the Video");
         //query
         queryDiv.append("div")
             .attr("id","query")
@@ -177,10 +240,18 @@
             .html(function () {
                 return currentQuestion.questionText;
             });
+    }
+
+    function showResponse(currentQuestion) {
+
+        var queryDiv = d3.select("#query-section");
         //system's answer
-        queryDiv.append("div")
-            .classed("col-md-12 vertical-align-center system-answer", true)
-            .append("h")
+        var responseDiv = queryDiv.append("div")
+            .classed("col-md-12 vertical-align-center system-answer", true);
+        responseDiv.append("h")
+            .style("color", "#428bca")
+            .html("System's Answer:&nbsp;");
+        responseDiv.append("h")
             .html(function () {
                 return currentQuestion.computerAnswer;
             });
@@ -191,15 +262,18 @@
             .append("h")
             .classed("component", true)
             .html("Correct Answer");
-        queryDiv.append("div")
+        var correctAnswerDiv = queryDiv.append("div")
             .classed("col-md-12 vertical-align-center system-answer", true)
-            .attr("id","correct-answer")
-            .append("h")
+            .attr("id","correct-answer");
+        correctAnswerDiv.append("h")
+            .style("color", "#428bca")
+            .html("Correct Answer:&nbsp;");
+        correctAnswerDiv.append("h")
             .html(function () {
                 return currentQuestion.correctAnswer;
             });
     }
-    
+
     function showExplanations(currentQuestion) {
         // var listOfFrames = currentQuestion.listOfKeyFrames;
         var length = currentQuestion.listOfKeyFrames.length;
@@ -213,12 +287,44 @@
             explanations.push(currentQuestion.listOfKeyFrames[i].textExplanations);
             associations.push(currentQuestion.listOfKeyFrames[i].associatedFeatures);
         }
+        // This will make sure the video's metadata is load before plotting the segments
+        // if (!notFirstTime)
+        //     segment_buttons_first(startTimes, endTimes, explanations, associations, notFirstTime);
+        //
+        // else {
+        //     segment_buttons(startTimes, endTimes, explanations, associations, notFirstTime);
+        //     clear_list(notFirstTime);
+        //     clear_segment();
+        // }
 
         segment_buttons(startTimes, endTimes, explanations, associations, notFirstTime);
+        console.log(associations[0]);
+        // loadData(explanations[0], associations[0]);
+        // loadCharts(associations[0], "#4dcee4");
         if (notFirstTime) {
+
             clear_list(notFirstTime);
             clear_segment();
         }
         notFirstTime +=1;
+    }
+
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
     }
 })();
