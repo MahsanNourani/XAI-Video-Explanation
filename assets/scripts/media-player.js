@@ -216,7 +216,7 @@ function resetPlayer() {
 
 
 
-function segment_buttons(start,end,explanations,associations,flag){
+function segment_buttons(start,end,explanations,associations,/*flag*/ temp){
 
     var elmnt = document.getElementById("progress-bar");
     var w= elmnt.offsetWidth;
@@ -234,14 +234,6 @@ function segment_buttons(start,end,explanations,associations,flag){
     for(var i=0;i<start.length;i++){
 
         var obj={};
-
-        // var bar = document.getElementById('progress-bar'),
-        //    new_mark = document.createElement('div');   //create a div
-        //    new_mark.id = 'newid'+i;
-        //    bar.appendChild(new_mark);                 //append to the doc.body
-        // var new_id = document.getElementById('newid'+i);
-        // console.log(new_id);
-        // var x=(end[i]-start[i])*5;
         var percentage = Math.floor((100 / mPlayer.duration) * (start[i]));
         position[i]=(percentage/100)*w;
         console.log(position[i]);
@@ -254,8 +246,6 @@ function segment_buttons(start,end,explanations,associations,flag){
         obj.start=start[i];
         obj.end=end[i];
         data.push(obj);
-        // new_id.setAttribute('style', 'width:'+ x +'px; height: 20px; position: absolute; background: #f0ad4e;right:'+percentage+5+'%');
-        // new_id.setAttribute('style', 'width:'+ x +'px; height: 16px; position: absolute; background: #f0ad4e;right:40%');
     }
 
 
@@ -270,17 +260,14 @@ function segment_buttons(start,end,explanations,associations,flag){
     var allButtons= svg.append("g")
         .attr("id","allButtons")
 
-    //fontawesome button labels and
-    // var labels= ['\uf017','\uf200','\uf183'];
-
     //colors for different button states
-    var defaultColor= "#4dcee4";
-    var hoverColor= "#357487";
-    var pressedColor= "#f3aea1";
-    var doubleColor="#80002a";
+    var defaultColor = "#4dcee4";
+    var hoverColor = "#357487";
+    var pressedColor = "#f3aea1";
+    var doubleColor ="#80002a";
 
     //groups for each button (which will hold a rect and text)
-    var buttonGroups= allButtons.selectAll("g.button")
+    var buttonGroups = allButtons.selectAll("g.button")
         .data(data)
         .enter()
         .append("g")
@@ -306,13 +293,14 @@ function segment_buttons(start,end,explanations,associations,flag){
                     .select("rect")
                     .attr("fill",defaultColor);
             }
-        })
+        });
 
-    // })
+    console.log("explanations " + explanations);
+    console.log("association" + associations);
+    loadData(explanations[0],associations[0]);
 
 
-
-    var bWidth= 20; //button width
+var bWidth= 20; //button width
     var bHeight= 50; //button height
     var bSpace= 10; //space between buttons
     var x0= 20; //x offset
@@ -331,7 +319,11 @@ function segment_buttons(start,end,explanations,associations,flag){
             // The first button is always pressed!
             return (i!=0) ? defaultColor: pressedColor;
         });
-
+    // console.log("this is when I expect the data is being loaded for the first explanation.");
+    // console.log(explanations[0]);
+    // console.log(associations[0]);
+    // loadData(explanations[0], associations[0]);
+    // console.log("well now I should see some data!");
 
     function updateButtonColors(button, parent) {
         parent.selectAll("rect")
@@ -385,6 +377,7 @@ function change_segment(time,end,explanations,associations,flag){
     vid.currentTime=time-0.20; //this -0.20 is for lagging the cursor a little bit if you want to play it automatically
 
     // this block is for playing the segment automatically
+
     if(vid.play());
     else
         vid.play();
@@ -417,7 +410,6 @@ function change_segment(time,end,explanations,associations,flag){
 
     clear_list(flag);
     loadData(explanations, associations);
-
 }
 
 function loop_segment(time,end) {
@@ -428,15 +420,15 @@ function loop_segment(time,end) {
     var t=0;
     var timer_return_value=false;
     var vid=document.getElementById("media-video");
-    console.log(vid.currentTime);
-    console.log(time);
-    console.log(end);
+    // console.log(vid.currentTime);
+    // console.log(time);
+    // console.log(end);
 
     t1=(time-Math.floor(time))*100;
     t2=Math.floor(time)*60;
     t2=t2+t1;
-
-    console.log(t2);
+    //
+    // console.log(t2);
 
 // if(time<1)
 // {

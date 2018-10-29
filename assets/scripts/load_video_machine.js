@@ -89,7 +89,6 @@
     function loadQuestion() {
         var currentQuestion =  currentVideoData[nextQueryIndex++];
         console.log(currentQuestion);
-
     //    1 . show the question and respond on the page. (D3)
         showQuery(currentQuestion);
         showResponse(currentQuestion);
@@ -133,9 +132,11 @@
             else
                 loadQuestionPrediction();
         }
-
-        d3.select("#next").classed("disabled", true);
+        //
         d3.select("#submit").classed("disabled", true);
+        // d3.select("#submit").classed("disabled", true);
+        d3.select("#next").style("display", "none");
+        d3.select("#submit").style("display", "block");
         uncheckAll();
         toggleDisabilityRadioButtons();
 
@@ -162,8 +163,10 @@
             respondObject.evaluation = evaluation;
         recordResults (respondObject, responses);
         console.log(respondObject.agreeDisagree + " " + respondObject.evaluation);
-        d3.select("#next").classed("disabled", false);
-        d3.select("#submit").classed("disabled", true);
+        // d3.select("#next").classed("disabled", false);
+        d3.select("#next").style("display", "block");
+        // d3.select("#submit").classed("disabled", true);
+        d3.select("#submit").style("display", "none");
     };
 
     this.loadPredictionTask = function () {
@@ -296,7 +299,6 @@
         //     clear_list(notFirstTime);
         //     clear_segment();
         // }
-
         segment_buttons(startTimes, endTimes, explanations, associations, notFirstTime);
         console.log(associations[0]);
         // loadData(explanations[0], associations[0]);

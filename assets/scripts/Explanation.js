@@ -4,11 +4,8 @@ var listItems2;
 var listItems3;
 
 // To load explanation data from json files
-function loadData(explanationsData, associationData)
-{
-    console.log(explanationsData);
-    console.log(associationData);
-
+function loadData(explanationsData, associationData) {
+    console.log("data is loaded!");
     var header=d3.select('#list').append("div")
             .classed("explanation-options explanation-options-header vertical-align-center", true)
             .html(function(d) {
@@ -40,8 +37,9 @@ function loadData(explanationsData, associationData)
             return str;
         })
         .style("font-size","medium");
-
+    console.log("before rendering the explanations")
     for (var j = 0; j <explanationsData.length; j++) {
+        console.log("this is j: " + j);
         loadExplanation(explanationsData);
     }
     loadCharts(associationData, "#4dcee4");

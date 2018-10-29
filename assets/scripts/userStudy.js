@@ -58,23 +58,62 @@ function showBackgroundQuestionnaire() {
     instructions.style("display","block");
 
     instructions.select("div")
-        .style("margin-top","30px");
+        .style("margin-top","15px");
 
     d3.select("#main-container")
         .style("height","70%");
 
     instructions.select("p")
-        .html("Please answer the questions in this form and once you are done, press submit. <br>" +
-            "Your <u>participant id</u> is <b style='color: deeppink; font-style: italic;'>" + localStorage.getItem("id") + "</b>." +
-            " You should insert it in the required field." +
-            " Once you submitted the form, press continue.");
+        .html("Your <u>participant id</u> is <b style='color: deeppink; font-style: italic;'>" + localStorage.getItem("id") + "</b>." +
+            " You should insert it in the required field below." +
+            " After you submitted the form, press Done!");
 
     var button = d3.select("#instructions-btn")
         .classed("disabled", true)
-        .html("Continue")
+        .html("Done")
         .on("click", function (e) {
+            d3.select("#check")
+                .style("visibility", "visible");
+            d3.select("#info-text")
+                .html("Please insert the number given below after submitting the form and press continue.")
+            d3.select(this).remove();
+            // location.href = localStorage.getItem("conditionLink");
+        });
+
+    var checkIfSubmit = instructions.append("div")
+        .classed("form-group col-md-8 col-md-offset-2", true)
+        .attr("id", "check")
+        .style("visibility","hidden");
+        // .append("label")
+        // .attr("for", "submit-check")
+        // .html("Enter the response number from the form: ")
+    checkIfSubmit.append("input")
+        .classed("form-control", true)
+        .attr("type", "text")
+        .attr("id", "submit-check")
+        .on("input", function () {
+            // window.alert(d3.select(this).node().value);
+            if (d3.select("#submit-check").node().value == 125)
+                d3.select("#submit").classed("disabled", false);
+        });
+
+    checkIfSubmit.append("button")
+        .classed("btn btn-primary btn-large btn-block disabled", true)
+        .attr("id","submit")
+        .style("font-size", "18px")
+        .style("font-weight", "bold")
+        .html("Continue")
+        .on("click", function () {
             location.href = localStorage.getItem("conditionLink");
         });
+
+    //
+    // instructions.append("input")
+    //     .classed("form-control", true)
+    //     .attr("type", "text")
+    //     .attr("id", "submit-check")
+    //     .style("visibility", "hidden")
+    //     .style("margin-top", "20px");
 
     var mainContainer = d3.select("#main-container");
     mainContainer.html("");
@@ -85,10 +124,11 @@ function showBackgroundQuestionnaire() {
     mainContainer.append("iframe")
         .attr("src", "https://docs.google.com/forms/d/e/1FAIpQLSfaQ64PfQuLaLqFkKENT1Sz1pCUCIGw-HO3psT11Gl5sqYy3A/viewform?embedded=true")
         .attr("width", "100%")
-        .attr("height", "580px")
+        .attr("height", "600px")
         .attr("frameborder", "0")
         .attr("marginheight", "0")
         .attr("marginwidth", "0")
+        .style("margin-top", "40px")
         .html("Loading...")
         .on("load", function () {
             button.classed ("disabled", false);
@@ -101,7 +141,7 @@ function showConsentForm() {
     instructions.style("display","block");
 
     instructions.select("div")
-        .style("margin-top","30px");
+        .style("margin-top","15px");
 
     d3.select("#main-container")
         .style("height","70%");
