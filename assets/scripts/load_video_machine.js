@@ -108,12 +108,14 @@
     this.loadNextQuery = function () {
         if (nextQueryIndex == currentVideo.queryCount) {
 
-            if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "false") {
-                // console.log("review section done, ready for ");
-                // console.log(responses);
+            if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "false") {\
                 localStorage.setItem("isPredictionTask", "true");
+
+                // I don't know if I'm actually using this?!
                 listOfVideos = listOfPredVideos;
-                // 1. I have to change window to prediction
+
+                //save the answers and go to the next task (either questionnaire or prediction task
+                this.loadNextTask();
             }
             // else if ((nextVideoIndex == listOfVideos.length) && isPredictionTask){
             else if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "true"){
@@ -163,37 +165,40 @@
             respondObject.evaluation = evaluation;
         recordResults (respondObject, responses);
         console.log(respondObject.agreeDisagree + " " + respondObject.evaluation);
-        // d3.select("#next").classed("disabled", false);
+
         d3.select("#next").style("display", "block");
-        // d3.select("#submit").classed("disabled", true);
         d3.select("#submit").style("display", "none");
+        // d3.select("#next").classed("disabled", false);
+        // d3.select("#submit").classed("disabled", true);
     };
 
-    this.loadPredictionTask = function () {
+    this.loadNextTask = function () {
         localStorage.setItem("responses", JSON.stringify(responses));
         localStorage.setItem("isPredictionTask", "true");
-        // window.location.pathname = "XAI-Video-Explanation/prediction-task.html" ;
-        location.href = "./prediction-task.html";
+
+        // We don't need a survey for the no explanation conditions; hence, directly to the
+        if (localStorage.getItem("condition") == "3")
+            location.href = './prediction-task.html';
+        else
+            location.href = './shortq.html';
     };
 
     function recordResults(recordObject, array) {
         recordObject.startQueryTime = startTime;
         recordObject.userID = localStorage.getItem("id");
         array.push(recordObject);
-        console.log("ino check kn!");
-        console.log(array);
     }
 
     function getValueOfSelected(id) {
-        var agreeDisagree = -100;
+        var value = -100;
         d3.select(id)
             .selectAll("input")
             .each(function (d) {
                 if (d3.select(this).node().checked) {
-                    agreeDisagree = d3.select(this).attr("value");
+                    value = d3.select(this).attr("value");
                 }
             });
-        return agreeDisagree;
+        return value;
     }
 
     function uncheckAll(){

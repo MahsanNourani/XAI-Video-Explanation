@@ -629,7 +629,7 @@ div#selection-panel-body {
 }
 
 .btn-default {
-    margin-bottom: 1px;
+    /*margin-bottom: 1px;*/
     color: black;
     background-color: #b19dff;
     border-color: #ccc;
@@ -663,6 +663,10 @@ div#selection-panel-body {
 
 .btn-group-modified {
     margin-bottom: 10px;
+}
+
+.btn-group-modified-questionnaire {
+    margin-bottom: 30px;
 }
 
 #query {
