@@ -216,35 +216,34 @@ function resetPlayer() {
 
 
 
-function segment_buttons(start,end,explanations,associations,/*flag*/ temp){
+function segment_buttons(start,end,explanations,associations) {
 
     var elmnt = document.getElementById("progress-bar");
     var w= elmnt.offsetWidth;
     // var w=300;
     var h= 50;
 
-    // start=[33,78];
-    // end=[68,100];
     var data=[];
-    var position=[];
     var mPlayer = document.getElementById("media-video");
-    console.log(mPlayer.duration);
+    console.log("video length: " + mPlayer.duration);
+    if (!mPlayer.duration)
+        console.log("ERROR: video has not been loaded yet !!")
 
-
-    for(var i=0;i<start.length;i++){
+    for(var i=0; i<start.length; i++){
 
         var obj={};
-        var percentage = Math.floor((100 / mPlayer.duration) * (start[i]));
-        position[i]=(percentage/100)*w;
-        console.log(position[i]);
-        percentage = Math.floor((100 / mPlayer.duration) * (end[i]));
-        temp=(percentage/100)*w;
-        width=temp-position[i];
+        var startPercentage = start[i] / mPlayer.duration;
+        var startPosition = Math.floor(startPercentage * w);
+        console.log(startPosition);
 
-        obj.pos=position[i];
-        obj.width=width;
-        obj.start=start[i];
-        obj.end=end[i];
+        var endPercentage = end[i] / mPlayer.duration;
+        var endPosition = Math.floor(endPercentage * w);
+        var sequenceDuration = endPosition - startPosition;
+
+        obj.pos = startPosition;
+        obj.width = sequenceDuration;
+        obj.start = start[i];
+        obj.end = end[i];
         data.push(obj);
     }
 
@@ -276,7 +275,7 @@ function segment_buttons(start,end,explanations,associations,/*flag*/ temp){
         .on("click",function(d,i) {
             d3.selectAll('image').attr("width","16").attr("height","16");
             updateButtonColors(d3.select(this), d3.select(this.parentNode));
-            change_segment(d.start,d.end,explanations[i],associations[i],flag);
+            change_segment(d.start,d.end,explanations[i],associations[i]);
             // d3.select("#numberToggle").text(i+1)
         })
         .on("mouseover", function() {
@@ -300,7 +299,7 @@ function segment_buttons(start,end,explanations,associations,/*flag*/ temp){
     loadData(explanations[0],associations[0]);
 
 
-var bWidth= 20; //button width
+    var bWidth= 20; //button width
     var bHeight= 50; //button height
     var bSpace= 10; //space between buttons
     var x0= 20; //x offset
@@ -347,7 +346,7 @@ var bWidth= 20; //button width
 
 }
 
-function change_segment(time,end,explanations,associations,flag){
+function change_segment(time,end,explanations,associations){
     var t1=0;
     var t2=0;
     var t3=0;
@@ -408,7 +407,7 @@ function change_segment(time,end,explanations,associations,flag){
     //     return timer_return_value;
     // };
 
-    clear_list(flag);
+    clear_list();
     loadData(explanations, associations);
 }
 

@@ -6,42 +6,32 @@ var listItems3;
 // To load explanation data from json files
 function loadData(explanationsData, associationData) {
     console.log("data is loaded!");
-    var header=d3.select('#list').append("div")
+    d3.select('#list').append("div")
             .classed("explanation-options explanation-options-header vertical-align-center", true)
-            .html(function(d) {
-                var str="Activity";
-                return str;
-             })
+            .html("Activity")
         .style("font-size","medium");
 
-        d3.select('#list1').append("div")
+    d3.select('#list1').append("div")
         .classed("explanation-options explanation-options-header vertical-align-center", true)
-        .html(function(d) {
-            var str="Object";
-            return str;
-        })
+        .html("Object")
         .style("font-size","medium");
 
-        d3.select('#list2').append("div")
+    d3.select('#list2').append("div")
         .classed("explanation-options explanation-options-header vertical-align-center", true)
-        .html(function(d) {
-            var str="Location";
-            return str;
-        })
+        .html("Location")
         .style("font-size","medium");
 
-        d3.select('#list3').append("div")
+    d3.select('#list3').append("div")
         .classed("explanation-options explanation-options-header vertical-align-center", true)
-        .html(function(d) {
-            var str="Rank";
-            return str;
-        })
+        .html("Rank")
         .style("font-size","medium");
-    console.log("before rendering the explanations")
-    for (var j = 0; j <explanationsData.length; j++) {
-        console.log("this is j: " + j);
-        loadExplanation(explanationsData);
-    }
+    // console.log("before rendering the explanations")
+    // for (var j = 0; j <explanationsData.length; j++) {
+    //     console.log("this is j: " + j);
+    //     loadExplanation(explanationsData);
+    // }
+    // Mahsan: I'm not sure about this!
+    loadExplanation(explanationsData);
     loadCharts(associationData, "#4dcee4");
 }
 
@@ -108,7 +98,7 @@ function loadExplanation (data) {
 }
 
 //to clear the prevous list before loading new list dor each question
-function clear_list(flag){
+function clear_list() {
     //listItems.remove();
     // d3.selectAll('g.button').remove();
     d3.selectAll('.list-group-item').remove();

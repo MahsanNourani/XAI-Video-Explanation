@@ -18,8 +18,7 @@
         nextVideoIndex = 0,
         nextQueryIndex = 0;
 
-    var notFirstTime = 0,
-        isFirstVideo = true;
+    var isFirstVideo = true;
 
     var file = 'assets/data/video_list_main.json';
 
@@ -54,7 +53,7 @@
     function loadVideo() {
         var vid = document.getElementById("media-video");
         if (!isFirstVideo)
-        document.getElementById("modal-btn").click();
+                document.getElementById("modal-btn").click();
 
         currentVideo = listOfVideos[nextVideoIndex++];
         nextQueryIndex = 0;
@@ -63,7 +62,9 @@
         vid.src = sourceVideo;
         vid.load();
         isFirstVideo = false;
+    }
 
+    this.onVideoLoaded = function() {
         file = 'assets/data/video_new.json';
         d3.json(file, function(error, data){
             if (error)
@@ -108,7 +109,7 @@
     this.loadNextQuery = function () {
         if (nextQueryIndex == currentVideo.queryCount) {
 
-            if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "false") {\
+            if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "false") {
                 localStorage.setItem("isPredictionTask", "true");
 
                 // I don't know if I'm actually using this?!
@@ -295,25 +296,11 @@
             explanations.push(currentQuestion.listOfKeyFrames[i].textExplanations);
             associations.push(currentQuestion.listOfKeyFrames[i].associatedFeatures);
         }
-        // This will make sure the video's metadata is load before plotting the segments
-        // if (!notFirstTime)
-        //     segment_buttons_first(startTimes, endTimes, explanations, associations, notFirstTime);
-        //
-        // else {
-        //     segment_buttons(startTimes, endTimes, explanations, associations, notFirstTime);
-        //     clear_list(notFirstTime);
-        //     clear_segment();
-        // }
-        segment_buttons(startTimes, endTimes, explanations, associations, notFirstTime);
-        console.log(associations[0]);
-        // loadData(explanations[0], associations[0]);
-        // loadCharts(associations[0], "#4dcee4");
-        if (notFirstTime) {
 
-            clear_list(notFirstTime);
-            clear_segment();
-        }
-        notFirstTime +=1;
+        // This will make sure the video's metadata is load before plotting the segments
+        clear_list();
+        clear_segment();
+        segment_buttons(startTimes, endTimes, explanations, associations);
     }
 
     function shuffle(array) {
