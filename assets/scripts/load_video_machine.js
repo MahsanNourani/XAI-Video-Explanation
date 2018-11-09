@@ -1,16 +1,24 @@
+$(document).ready(function () {
+    var condition = localStorage.getItem("condition");
+
+    if (condition == "4") /* This is when video segments are not shown!*/
+        d3.select("#segment").style("visibility", "hidden");
+    else if (condition == "5") /* This is when component explanations are not shown!*/ {
+        d3.select("#explanation-box")
+            .style("visibility", "hidden");
+        d3.select("#component-score-div")
+            .style("visibility", "hidden");
+    }
+});
+
 // This js is used to load the video and associated data
 (function scopeFunction() {
 
-    // var isPredictionTask = false;
-    //generate a random ID here!
-    var ID;
-    var listOfVideos = [],
-        listOfPredVideos = [];
+    var listOfVideos = [];
 
     var currentVideoData = [];
 
-    var responses = [],
-        predResponses = [];
+    var responses = [];
 
     var startTime;
 
@@ -25,27 +33,34 @@
     d3.json(file, function(error, data) {
         if (error)
             console.log(error);
-        for (var i = 0; i < data.length; i++) {
-            listOfVideos.push(data[i]);
+
+        var videos;
+        // To know which set of videos to load
+        if (localStorage.getItem("isPredictionTask") == "false")
+            videos = data.reviewTask;
+        else
+            videos = data.predictionTask;
+
+        for (var i = 0; i < videos.length; i++) {
+            listOfVideos.push(videos[i]);
         }
 
         // This is to randomize the videos for each participant!
         listOfVideos = shuffle(listOfVideos);
 
-        //I donno if it should be commented out or not! I guess I should put this every time I change the video!
-        // notFirstTime = 0;
+        // Wanted to do something here but I forgot lol
 
         // if (isPredictionTask) {
-        if (localStorage.getItem("isPredictionTask") == "true") {
-            responses = JSON.parse(localStorage.getItem("responses"));
-        }
+        // if (localStorage.getItem("isPredictionTask") == "true") {
+        //     responses = JSON.parse(localStorage.getItem("responses"));
+        // }
         loadVideo();
     });
 
     this.radioChange = function () {
         if ((isOptionSelected("#agree-disagree") && isOptionSelected("#evaluation")) ||
-            (isOptionSelected("#agree-disagree") && localStorage.getItem("isPredictionTask") == "true")) {
-            console.log("yes!!!");
+            (isOptionSelected("#agree-disagree") && localStorage.getItem("isPredictionTask") == "true") ||
+            (isOptionSelected("#agree-disagree") && localStorage.getItem("condition") == "3")) {
             d3.select("#submit").classed("disabled", false);
         }
     };
@@ -53,7 +68,7 @@
     function loadVideo() {
         var vid = document.getElementById("media-video");
         if (!isFirstVideo)
-                document.getElementById("modal-btn").click();
+            document.getElementById("modal-btn").click();
 
         currentVideo = listOfVideos[nextVideoIndex++];
         nextQueryIndex = 0;
@@ -61,6 +76,7 @@
         var sourceVideo = 'assets/videos/' + currentVideo.videoName;
         vid.src = sourceVideo;
         vid.load();
+        vid.currentTime = 0;
         isFirstVideo = false;
     }
 
@@ -112,16 +128,15 @@
             if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "false") {
                 localStorage.setItem("isPredictionTask", "true");
 
-                // I don't know if I'm actually using this?!
-                listOfVideos = listOfPredVideos;
-
                 //save the answers and go to the next task (either questionnaire or prediction task
-                this.loadNextTask();
+                this.loadTaskAfterReview();
             }
-            // else if ((nextVideoIndex == listOfVideos.length) && isPredictionTask){
             else if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "true"){
-                //maybe open the modal and then reload the page!
+                // 1. Open the modal to say thanks all videos are done.
+
+                // 2. go to the post-study questionnaire
                 console.log("study is done!");
+                loadTaskAfterPrediction();
                 return;
             }
             else {
@@ -135,9 +150,7 @@
             else
                 loadQuestionPrediction();
         }
-        //
         d3.select("#submit").classed("disabled", true);
-        // d3.select("#submit").classed("disabled", true);
         d3.select("#next").style("display", "none");
         d3.select("#submit").style("display", "block");
         uncheckAll();
@@ -147,9 +160,13 @@
 
     this.submitAndShowCorrectAnswer = function () {
         d3.select("#correct-answer")
-            .style("display", "flex");
+            // .style("visibility", "visible");
+            .classed ("correct-answer-visible", true)
+            .classed ("correct-answer-hidden", false);
         d3.select("#correct-answer-header")
-            .style("display","flex");
+        // .style("visibility", "visible");
+            .classed ("correct-answer-visible", true)
+            .classed ("correct-answer-hidden", false);
 
         // So to avoid misunderstanding of the user when they select confirmed the selection.
         // I want the user to not be able to change their respond in order to compare their answer with the correct answer.
@@ -169,19 +186,22 @@
 
         d3.select("#next").style("display", "block");
         d3.select("#submit").style("display", "none");
-        // d3.select("#next").classed("disabled", false);
-        // d3.select("#submit").classed("disabled", true);
     };
 
-    this.loadNextTask = function () {
-        localStorage.setItem("responses", JSON.stringify(responses));
+    this.loadTaskAfterReview = function () {
+        localStorage.setItem("responsesReviewTask", JSON.stringify(responses));
         localStorage.setItem("isPredictionTask", "true");
 
-        // We don't need a survey for the no explanation conditions; hence, directly to the
+        // We don't need a survey for the no explanation conditions; hence, directly to the prediction task
         if (localStorage.getItem("condition") == "3")
             location.href = './prediction-task.html';
         else
             location.href = './shortq.html';
+    };
+
+    function loadTaskAfterPrediction () {
+        localStorage.setItem("responsesPredictionTask", JSON.stringify(responses));
+        location.href = './index.html';
     };
 
     function recordResults(recordObject, array) {
@@ -265,14 +285,14 @@
                 return currentQuestion.computerAnswer;
             });
         queryDiv.append("div")
-            .classed("col-md-12 component-header vertical-align-center component", true)
+            .classed("col-md-12 component-header vertical-align-center component correct-answer-hidden", true)
             .attr("id", "correct-answer-header")
             .style("margin-top", "0px")
             .append("h")
             .classed("component", true)
             .html("Correct Answer");
         var correctAnswerDiv = queryDiv.append("div")
-            .classed("col-md-12 vertical-align-center system-answer", true)
+            .classed("col-md-12 vertical-align-center system-answer correct-answer-hidden", true)
             .attr("id","correct-answer");
         correctAnswerDiv.append("h")
             .style("color", "#428bca")

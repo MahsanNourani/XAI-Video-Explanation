@@ -19,14 +19,14 @@
 <div id="wrapper">
     <div id="page-wrapper">
 
-        <div class="row">
+        <div class="row col-md-10 col-md-offset-1">
             <!--Media Player-->
-            <div class="col-lg-5 main-boxes">
+            <div class="col-lg-6 main-boxes">
                 <!--Video Area -->
                 <div class="panel panel-primary" style="min-height: 648px;">
                     <div id="video-panel" class="panel-body">
                         <div id='media-player' class="col-md-12">
-                            <video id='media-video' class="col-md-12" onloadeddata="onVideoLoaded()" controls></video>
+                            <video id='media-video' class="col-md-12 img-responsive" onloadeddata="onVideoLoaded()" controls></video>
                             <div id='media-controls'>
                                 <table class="col-md-12">
                                     <tr>
@@ -47,7 +47,7 @@
                                                 </div>
                                             </div>
                                             <!-- for buttons -->
-                                            <div id="segment" style="width:100%"></div>
+                                            <div id="segment" style="width:100%; visibility: hidden;"></div>
                                         </td>
                                     </tr>
                                 </table>
@@ -64,10 +64,9 @@
             <!--End of Media Player-->
 
             <!--Explanation Div-->
-            <div class="col-lg-5 main-boxes" id="explanation-div">
-
+            <div class="col-lg-6 main-boxes" id="explanation-div">
                 <!-- Explanation Panel-->
-                <div class="panel panel-primary" id="explanation-box">
+                <div class="panel panel-primary" style="visibility: hidden;" id="explanation-box">
                     <div class="panel-heading">
                         <h class="header"><b>Detected Combinations of Components</b></h>
                     </div>
@@ -95,9 +94,9 @@
                         </table>
 
                     </div>
-                </div>
+                </div sty>
                 <!--End Explanation Panel-->
-                <div class="panel panel-primary" id="component-score-div">
+                <div class="panel panel-primary" style="visibility: hidden;" id="component-score-div">
                     <div class="panel-heading">
                         <h class="header"><b>Component Score</b></h>
                     </div>
@@ -108,7 +107,6 @@
 
                 </div>
 
-
                 <div class="panel panel-primary" id="questions">
                     <div class="panel-heading">
                         <h class="header"><b>Please answer the following questions</b></h>
@@ -116,86 +114,45 @@
 
                     <div class="panel-body">
                         <div class="col-md-12 component-header vertical-align-center component" style="background-color: #ffffff;">
-                            <h class="component"> Do you agree with the system's answer? </h>
+                            <h class="component"> What is your answer to the query? </h>
                         </div>
-                        <div class="btn-group col-md-12 btn-group-modified" data-toggle="buttons" id="agree-disagree">
-                            <label for="" class="btn btn-primary col-md-6">
+                        <div class="btn-group col-md-8 col-md-offset-2 btn-group-modified" data-toggle="buttons" id="agree-disagree">
+                            <label for="" class="btn btn-primary col-md-5" style="margin-right:52px; border-bottom-right-radius: 4px;border-top-right-radius: 4px;">
                                 <input type="radio" value="0" onchange="radioChange()"> No
                             </label>
-                            <label for="" class="btn btn-primary col-md-6">
+                            <label for="" class="btn btn-primary col-md-5" style=" border-bottom-left-radius: 4px;border-top-left-radius: 4px;">
                                 <input type="radio" value="1" onchange="radioChange()"> Yes
                             </label>
                         </div>
-                        <div class="col-md-12 component-header vertical-align-center component" style="background-color: #ffffff;">
-                            <h class="component"> How do you evaluate the explanations for this question? </h>
-                        </div>
-                        <div class="btn-group col-md-12 btn-group-modified" data-toggle="buttons" id="evaluation">
-                            <label for="" class="btn btn-primary col-md-3" onchange="radioChange()">
-                                <input type="radio" value="-2">Totally Irrelevant
-                            </label>
-                            <label for="" class="btn btn-primary col-md-2" onchange="radioChange()">
-                                <input type="radio" value="-1" >Irrelevant
-                            </label>
-                            <label for="" class="btn btn-primary col-md-2" onchange="radioChange()">
-                                <input type="radio" value="0" >Neutral
-                            </label>
-                            <label for="" class="btn btn-primary col-md-2" onchange="radioChange()">
-                                <input type="radio" value="1">Relevant
-                            </label>
-                            <label for="" class="btn btn-primary col-md-3" onchange="radioChange()">
-                                <input type="radio" value="2">Totally Relevant
-                            </label>
-                        </div>
                         <div class="col-md-12" style="padding:  0px;border-bottom-right-radius:  3px; border-bottom-left-radius: 3px;">
-                            <button class="btn btn-default btn-large col-md-8 disabled" id="submit" onclick="submitAndShowCorrectAnswer()" style="font-size:15px;border-radius:0px;border-bottom-left-radius: 3px;">Submit and view the correct Answer
+                            <button class="btn btn-default btn-large col-md-12 disabled" id="submit" onclick="submitAndShowCorrectAnswer()" style="font-size:15px;border-radius:0px;border-bottom-left-radius: 3px;">Submit and view the correct Answer
                                 <span><i class="fas fa-check-circle"></i></span>
                             </button>
-                            <button class="btn btn-default btn-large col-md-4 disabled" id="next" onclick="loadNextQuery()" style="font-size:15px;border-radius:0px;border-bottom-right-radius: 3px;">Go to next query
+                            <button class="btn btn-default btn-large col-md-12" id="next" onclick="loadNextQuery()" style="font-size:15px;border-radius:0px;border-bottom-right-radius: 3px; display: none;">Go to next query
                                 <span><i class="fas fa-arrow-circle-right"></i></span>
                             </button>
                         </div>
                     </div>
                 </div>
-                <!--<div>-->
-                <!--<p> Do you agree with the system's answer to the query?</p>-->
-                <!--</div>-->
+
             </div>
             <!--End of Explanation Div-->
-
-            <!--Control Panel-->
-            <div class="col-lg-2 main-boxes" id="control-panel-div">
-                <div class="panel panel-primary" id="control-box">
-                    <div class="panel-heading">
-                        <h class="header"><b>Control Panel</b></h>
-                    </div>
-
-                    <div class="panel-body" style="margin-top: 1px;">
-
-                        <button class="btn btn-default btn-large col-md-12" style="font-size:15px;border-radius:0px;" data-toggle="modal" data-target="#myModal" id="modal-btn">Prediction Task
-                            <span><i class="fas fa-tasks"></i></span>
-                        </button>
-                        <button class="btn btn-exit btn-large col-md-12" style="font-size:15px;border-radius:0px;" onclick="loadNextTask()">Exit the study
-                            <span><i class="fas fa-times-circle"></i></span>
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-            <!--End of Control Panle-->
-
+            <button class="btn btn-default btn-large col-md-12" style="visibility: hidden;" data-toggle="modal" data-target="#myModal" id="modal-btn">Prediction Task
+                <span><i class="fas fa-tasks"></i></span>
+            </button>
             <!--modal-->
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Video Completed!</h4>
+                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <h4 class="modal-title">Video Completed</h4>
                         </div>
                         <div class="modal-body" style="font-size: 19px;">
-                            <p style="text-align: center;">You have viewed all the queries for this video. Press continue to load a new video. </p>
+                            <p style="text-align: center;">You have viewed all the queries for this video. Press Ok to continue to a new video. </p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-success" data-dismiss="modal">Continue</button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
                         </div>
                     </div>
                 </div>
@@ -207,14 +164,13 @@
 </div>
 <!-- end wrapper -->
 
-
-<script src="assets/scripts/load_video_machine.js"></script>
 <script src="assets/plugins/jquery-1.10.2.js"></script>
 <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="assets/plugins/d3.min.js"></script>
 <script src="assets/scripts/Explanation.js"></script>
 <script src="assets/scripts/newCharts.js"></script>
 <script src='assets/scripts/media-player.js'></script>
+<script src="assets/scripts/load_video_machine.js"></script>
 <script src='assets/scripts/userStudy.js'></script>
 <script>
 

@@ -185,7 +185,7 @@ function loadCharts (associations, color) {
     //<div class="col-md-12 component-score" id="marginal-score"></div>
 
     var marginalScoreDiv = parentNode.append("div")
-        .classed("col-md-12 component-score", true)
+        .classed("col-md-10 col-md-offset-1 component-score", true)
         .attr("id", "marginal-score");
 
     var componentScores = marginalScoreDiv.selectAll("div").data(listOfData).enter()

@@ -83,9 +83,11 @@ function loadExplanation (data) {
     listItems3.append("a")
         .classed("list-group-item list3", true)
         .style({
-            "background-color": "#0686da",
+            // "background-color": "#0686da",
+            "background-color": "#4edcf4",
             /*border: 1px solid #428aca24;*/
-            "color": "white"
+            // "color": "white"
+            "color": "#333333"
         })
         .append("p")
         .classed("explanation-options vertical-align-center", true)

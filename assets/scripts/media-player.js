@@ -68,27 +68,27 @@ function togglePlayPause() {
 }
 
 function changePos(event) {
-    video= document.getElementById('media-video');
-    // var X=event.clientX;
-    var X = event.pageX - document.getElementById('progress-bar').offsetLeft;
-    // var Y=event.clientY;
-    console.log("this is x: " + X);
-    var left=document.getElementById('dynamic').offsetLeft;
-    console.log("this is left: " +left);
-    var P_left=document.getElementById('dynamic').offsetParent.offsetLeft;
-    console.log("this is P_left: " + P_left);
-    var width=document.getElementById('progress-bar').offsetWidth;
-    console.log("this is width: " + width);
-    var pos = (X-2.4*P_left-left) / width;  //play with the constant value to align properly.It is screen dependant so the value works for my screen but not sure about yours
-    // var pos = left /width;
-    console.log("this is pos: " + pos);
-    console.log("video_duration: " + video.duration);
-    console.log("this is cTime: " + pos*video.duration);
-    console.log("this is real time:" +video.currentTime);
-    video.currentTime = (pos*video.duration);
-
-
-
+    // video= document.getElementById('media-video');
+    // // var X=event.clientX;
+    // var X = event.pageX - document.getElementById('progress-bar').offsetLeft;
+    // // var Y=event.clientY;
+    // console.log("this is x: " + X);
+    // var left=document.getElementById('dynamic').offsetLeft;
+    // console.log("this is left: " +left);
+    // var P_left=document.getElementById('dynamic').offsetParent.offsetLeft;
+    // console.log("this is P_left: " + P_left);
+    // var width=document.getElementById('progress-bar').offsetWidth;
+    // console.log("this is width: " + width);
+    // var pos = (X-2.4*P_left-left) / width;  //play with the constant value to align properly.It is screen dependant so the value works for my screen but not sure about yours
+    // // var pos = left /width;
+    // console.log("this is pos: " + pos);
+    // console.log("video_duration: " + video.duration);
+    // console.log("this is cTime: " + pos*video.duration);
+    // console.log("this is real time:" +video.currentTime);
+    // video.currentTime = (pos*video.duration);
+    var box = progressBar.getBoundingClientRect();
+    var pos = (event.pageX - box.left) / box.width;
+    mediaPlayer.currentTime = (pos * mediaPlayer.duration);
 }
 
 // Stop the current media from playing, and return it to the start position
@@ -340,7 +340,13 @@ function segment_buttons(start,end,explanations,associations) {
             .attr("fill",doubleColor)
     }
 
-    mPlayer.currentTime=start[0];
+    // If no explanation or isPredictionTask, the progress bar should not move!;
+    if (localStorage.getItem("condition") == "3" || localStorage.getItem("isPredictionTask") == "true") {
+        console.log("hello");
+        mPlayer.currentTime = 0;
+    }
+    else
+        mPlayer.currentTime=start[0];
 
 
 

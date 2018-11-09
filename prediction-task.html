@@ -26,7 +26,7 @@
                 <div class="panel panel-primary" style="min-height: 594px;">
                     <div id="video-panel" class="panel-body">
                         <div id='media-player' class="col-md-12">
-                            <video id='media-video' class="col-md-12" onloadeddata="onVideoLoaded()" controls></video>
+                            <video id='media-video' class="col-md-12 img-responsive" onloadeddata="onVideoLoaded()" controls></video>
                             <div id='media-controls'>
                                 <table class="col-md-12">
                                     <tr>
@@ -107,19 +107,21 @@
             </div>
         </div>
         <!--end of modal-->
+        <button class="btn btn-default btn-large col-md-12" style="display: none;" data-toggle="modal" data-target="#myModal" id="modal-btn">Prediction Task
+            <span><i class="fas fa-tasks"></i></span>
+        </button>
     </div>
 </div>
 </div>
 <!-- end wrapper -->
 
-
-<script src="assets/scripts/load_video_machine.js"></script>
 <script src="assets/plugins/jquery-1.10.2.js"></script>
 <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="assets/plugins/d3.min.js"></script>
 <script src="assets/scripts/Explanation.js"></script>
 <script src="assets/scripts/newCharts.js"></script>
 <script src='assets/scripts/media-player.js'></script>
+<script src="assets/scripts/load_video_machine.js"></script>
 
 <!-- <script>
 </script> -->
