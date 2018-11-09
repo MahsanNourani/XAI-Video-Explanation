@@ -48,12 +48,6 @@ $(document).ready(function () {
         // This is to randomize the videos for each participant!
         listOfVideos = shuffle(listOfVideos);
 
-        // Wanted to do something here but I forgot lol
-
-        // if (isPredictionTask) {
-        // if (localStorage.getItem("isPredictionTask") == "true") {
-        //     responses = JSON.parse(localStorage.getItem("responses"));
-        // }
         loadVideo();
     });
 
@@ -155,7 +149,8 @@ $(document).ready(function () {
         d3.select("#submit").style("display", "block");
         uncheckAll();
         toggleDisabilityRadioButtons();
-
+        var clickLocation = (localStorage.getItem("isPredictionTask")) == "false"?"performanceTask":"predictionTask";
+        createClickLog("loadNextQuery", clickLocation);
     };
 
     this.submitAndShowCorrectAnswer = function () {
@@ -183,6 +178,9 @@ $(document).ready(function () {
             respondObject.evaluation = evaluation;
         recordResults (respondObject, responses);
         console.log(respondObject.agreeDisagree + " " + respondObject.evaluation);
+
+        var clickLocation = (localStorage.getItem("isPredictionTask")) == "false"?"performanceTask":"predictionTask";
+        createClickLog("submitAnswer", clickLocation);
 
         d3.select("#next").style("display", "block");
         d3.select("#submit").style("display", "none");
@@ -321,6 +319,19 @@ $(document).ready(function () {
         clear_list();
         clear_segment();
         segment_buttons(startTimes, endTimes, explanations, associations);
+    }
+
+    this.createClickLog = function (clickInstrument, clickLocation) {
+        var logObject = {};
+            logObject.video = currentVideo.videoName;
+            logObject.question = currentVideoData[nextQueryIndex-1].questionId;
+            logObject.clickInstrument = clickInstrument;
+            logObject.clickLocation = clickLocation;
+            logObject.time = new Date().getTime();
+
+        var allTheLogs = JSON.parse(localStorage.getItem("logs"));
+        allTheLogs.push(logObject);
+        localStorage.setItem("logs", JSON.stringify(allTheLogs));
     }
 
     function shuffle(array) {

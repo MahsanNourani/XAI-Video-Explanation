@@ -89,6 +89,7 @@ function changePos(event) {
     var box = progressBar.getBoundingClientRect();
     var pos = (event.pageX - box.left) / box.width;
     mediaPlayer.currentTime = (pos * mediaPlayer.duration);
+    createClickLog("progressbar", (pos * mediaPlayer.duration));
 }
 
 // Stop the current media from playing, and return it to the start position
@@ -276,6 +277,7 @@ function segment_buttons(start,end,explanations,associations) {
             d3.selectAll('image').attr("width","16").attr("height","16");
             updateButtonColors(d3.select(this), d3.select(this.parentNode));
             change_segment(d.start,d.end,explanations[i],associations[i]);
+            createClickLog("segment", i);
             // d3.select("#numberToggle").text(i+1)
         })
         .on("mouseover", function() {
@@ -318,11 +320,6 @@ function segment_buttons(start,end,explanations,associations) {
             // The first button is always pressed!
             return (i!=0) ? defaultColor: pressedColor;
         });
-    // console.log("this is when I expect the data is being loaded for the first explanation.");
-    // console.log(explanations[0]);
-    // console.log(associations[0]);
-    // loadData(explanations[0], associations[0]);
-    // console.log("well now I should see some data!");
 
     function updateButtonColors(button, parent) {
         parent.selectAll("rect")
@@ -346,7 +343,9 @@ function segment_buttons(start,end,explanations,associations) {
         mPlayer.currentTime = 0;
     }
     else
-        mPlayer.currentTime=start[0];
+        mediaPlayer.currentTime=start[0];
+
+    // mediaPlayer.currentTime = (pos * mediaPlayer.duration);
 
 
 
@@ -360,9 +359,6 @@ function change_segment(time,end,explanations,associations){
     var t=0;
     var timer_return_value=false;
     var vid=document.getElementById("media-video");
-    // console.log(vid.currentTime);
-    // console.log(time);
-    // console.log(end);
 
     t1=(time-Math.floor(time))*100;
     t2=Math.floor(time)*60;
@@ -391,27 +387,6 @@ function change_segment(time,end,explanations,associations){
     // vid.pause();
 
     // t=d3.timer(timeOut); //if you want the segment playing to stop, comment this line out
-
-    // function timeOut(){
-    //
-    //     // t3=(end-Math.floor(end))*100;
-    //     // t4=Math.floor(end)*60;
-    //     // t4=t3+t4;
-    //     t4=end*100;
-    //     // console.log(vid.currentTime);
-    //     // console.log(end);
-    //     // console.log(t4);
-    //
-    //     // var time_temp=vid.currentTime;
-    //
-    //     if((vid.currentTime) >= end){
-    //         vid.pause();
-    //         // t.stop();
-    //         timer_return_value=true;
-    //     }
-    //
-    //     return timer_return_value;
-    // };
 
     clear_list();
     loadData(explanations, associations);

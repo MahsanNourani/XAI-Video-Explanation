@@ -238,6 +238,7 @@ function prepareResults() {
     var results = {};
     results.reviewTask = JSON.parse(localStorage.getItem("responses"));
     results.predictionTask = JSON.parse(localStorage.getItem("responsesPredictionTask"));
+    results.logs = JSON.parse(localStorage.getItem("logs"));
     return JSON.stringify(results);
 
 }
