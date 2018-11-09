@@ -12,6 +12,7 @@ $(document).ready(function () {
 });
 
 function grantConsentToParticipate() {
+    localStorage.clear();
     localStorage.setItem("id", generateID());
     var condition = generateConditionLink();
     localStorage.setItem("condition", condition[0]);
@@ -236,11 +237,25 @@ function createResultsInterface() {
 function prepareResults() {
 
     var results = {};
+    results.condition = localStorage.getItem("condition");
+    results.userID = localStorage.getItem("id");
     results.reviewTask = JSON.parse(localStorage.getItem("responses"));
     results.predictionTask = JSON.parse(localStorage.getItem("responsesPredictionTask"));
     results.logs = JSON.parse(localStorage.getItem("logs"));
+
     return JSON.stringify(results);
 
+}
+
+function backToTutorial() {
+    location.href = "./Tutorial.html";
+}
+
+function continueToNextTask() {
+    if (localStorage.getItem("isPredictionTask") == "false")
+        location.href = localStorage.getItem("conditionLink");
+    else
+        location.href = './prediction-task.html';
 }
 
 (function createClipboardAPI(document){

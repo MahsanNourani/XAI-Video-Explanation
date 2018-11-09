@@ -28,13 +28,6 @@ function loadNextImage() {
             .classed("disabled", false);
 }
 
-function continueToNextTask() {
-    if (localStorage.getItem("isPredictionTask") == "false")
-        location.href = localStorage.getItem("conditionLink");
-    else
-        location.href = './prediction-task.html';
-}
-
 function loadPreviousImage() {
     var imageNumber = extractFileName();
     // Prev image exists?e
