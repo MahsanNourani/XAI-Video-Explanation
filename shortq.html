@@ -12,68 +12,182 @@
     <link href='assets/css/media-player.css' rel='stylesheet' />
 </head>
 <body style="height: 100%;">
-<div style="height: 100%;">
+<!--<div style="height: 100%;">-->
 
-    <div class="col-md-8 col-md-offset-2"style="height: 100%;">
-        <div class="col-md-12 component-header vertical-align-center component" style="background-color: transparent;" id="general-eval-header">
-            <h class="component"> In general, how do you evaluate the explanations in this task? </h>
+    <div class="container" style=" padding-top:15px; padding-bottom: 15px;  background-color: #eef488;">
+        <div class="row" style="margin-bottom: 10px;" id="video-segment">
+            <image src="assets/images/1.png" class="col-md-6"></image>
+            <div class="col-md-6 component-header vertical-align-center component" style="background-color: transparent;">
+                <h class="component"> How much did you use the video segments? </h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" id="video-segment-use">
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="-2" onchange="radioChange()"> Barely
+                </label>
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="-1" onchange="radioChange()"> Some of the Time
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="0" onchange="radioChange()"> Never
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="2" onchange="radioChange()"> Every Time
+                </label>
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="1" onchange="radioChange()"> Most of the Time
+                </label>
+            </div>
+            <div class="col-md-6 component-header vertical-align-center component" style="background-color: transparent;">
+                <h class="component"> How helpful did you find these video segments?</h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" id="video-segment-help">
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="-2" onchange="radioChange()">Very Unhelpful
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="-1" onchange="radioChange()">Unhelpful
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="0" onchange="radioChange()">Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="1" onchange="radioChange()">Helpful
+                </label>
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="2" onchange="radioChange()">Very Helpful
+                </label>
+            </div>
         </div>
-        <div class="btn-group col-md-12 btn-group-modified-questionnaire" data-toggle="buttons" id="general-eval">
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="-1" onchange="radioChange()">Not useful
-            </label>
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="0" onchange="radioChange()">Somewhat useful
-            </label>
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="1" onchange="radioChange()">Useful
-            </label>
+        <div class="row" style="margin-bottom: 10px;" id="detected-combinations">
+            <image src="assets/images/1.png" class="col-md-6"></image>
+            <div class="col-md-6 component-header vertical-align-center component" style="background-color: transparent;">
+                <h class="component"> How much did you use the detected combination of components? </h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" id="detected-combinations-use">
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="-2" onchange="radioChange()"> Barely
+                </label>
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="-1" onchange="radioChange()"> Some of the Time
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="0" onchange="radioChange()"> Never
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="2" onchange="radioChange()"> Every Time
+                </label>
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="1" onchange="radioChange()"> Most of the Time
+                </label>
+            </div>
+            <div class="col-md-6 component-header vertical-align-center component" style="background-color: transparent;">
+                <h class="component"> How helpful did you find these detected combination of components?</h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" id="detected-combinations-help">
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="-2" onchange="radioChange()">Very Unhelpful
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="-1" onchange="radioChange()">Unhelpful
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="0" onchange="radioChange()">Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="1" onchange="radioChange()">Helpful
+                </label>
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="2" onchange="radioChange()">Very Helpful
+                </label>
+            </div>
         </div>
+        <div class="row" style="margin-bottom: 10px;" id="component-scores">
+            <image src="assets/images/1.png" class="col-md-6"></image>
+            <div class="col-md-6 component-header vertical-align-center component" style="background-color: transparent;">
+                <h class="component"> How much did you use the component-scores? </h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" id="component-scores-use">
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="-2" onchange="radioChange()"> Barely
+                </label>
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="-1" onchange="radioChange()"> Some of the Time
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="0" onchange="radioChange()"> Never
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="2" onchange="radioChange()"> Every Time
+                </label>
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="1" onchange="radioChange()"> Most of the Time
+                </label>
+            </div>
+            <div class="col-md-6 component-header vertical-align-center component" style="background-color: transparent;">
+                <h class="component"> How helpful did you find these component-scores?</h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" id="component-scores-help">
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="-2" onchange="radioChange()">Very Unhelpful
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="-1" onchange="radioChange()">Unhelpful
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="0" onchange="radioChange()">Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2">
+                    <input type="radio" value="1" onchange="radioChange()">Helpful
+                </label>
+                <label for="" class="btn btn-primary col-md-3">
+                    <input type="radio" value="2" onchange="radioChange()">Very Helpful
+                </label>
+            </div>
+        </div>
+        <!--<div class="col-md-12 component-header vertical-align-center component" style="background-color: transparent;" id="video-segment-eval-header">-->
+            <!--<h class="component"> How do you evaluate the usability of the video segments explanations? </h>-->
+        <!--</div>-->
+        <!--<div class="btn-group col-md-12 btn-group-modified-questionnaire" data-toggle="buttons" id="video-segment-eval">-->
+            <!--<label for="" class="btn btn-primary col-md-4">-->
+                <!--<input type="radio" value="-1" onchange="radioChange()">Not useful-->
+            <!--</label>-->
+            <!--<label for="" class="btn btn-primary col-md-4">-->
+                <!--<input type="radio" value="0" onchange="radioChange()">Somewhat useful-->
+            <!--</label>-->
+            <!--<label for="" class="btn btn-primary col-md-4">-->
+                <!--<input type="radio" value="1" onchange="radioChange()">Useful-->
+            <!--</label>-->
+        <!--</div>-->
 
-        <div class="col-md-12 component-header vertical-align-center component" style="background-color: transparent;" id="video-segment-eval-header">
-            <h class="component"> How do you evaluate the usability of the video segments explanations? </h>
-        </div>
-        <div class="btn-group col-md-12 btn-group-modified-questionnaire" data-toggle="buttons" id="video-segment-eval">
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="-1" onchange="radioChange()">Not useful
-            </label>
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="0" onchange="radioChange()">Somewhat useful
-            </label>
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="1" onchange="radioChange()">Useful
-            </label>
-        </div>
+        <!--<div class="col-md-12 component-header vertical-align-center component" style="background-color: transparent;" id="combination-eval-header">-->
+            <!--<h class="component"> How do you evaluate the usability of the detected combination of components? </h>-->
+        <!--</div>-->
+        <!--<div class="btn-group col-md-12 btn-group-modified-questionnaire" data-toggle="buttons" id="combination-eval">-->
+            <!--<label for="" class="btn btn-primary col-md-4">-->
+                <!--<input type="radio" value="-1" onchange="radioChange()">Not useful-->
+            <!--</label>-->
+            <!--<label for="" class="btn btn-primary col-md-4">-->
+                <!--<input type="radio" value="0" onchange="radioChange()">Somewhat useful-->
+            <!--</label>-->
+            <!--<label for="" class="btn btn-primary col-md-4">-->
+                <!--<input type="radio" value="1" onchange="radioChange()">Useful-->
+            <!--</label>-->
+        <!--</div>-->
 
-        <div class="col-md-12 component-header vertical-align-center component" style="background-color: transparent;" id="combination-eval-header">
-            <h class="component"> How do you evaluate the usability of the detected combination of components? </h>
-        </div i>
-        <div class="btn-group col-md-12 btn-group-modified-questionnaire" data-toggle="buttons" id="combination-eval">
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="-1" onchange="radioChange()">Not useful
-            </label>
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="0" onchange="radioChange()">Somewhat useful
-            </label>
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="1" onchange="radioChange()">Useful
-            </label>
-        </div>
-
-        <div class="col-md-12 component-header vertical-align-center component" style="background-color: transparent;" id="component-score-eval-header">
-            <h class="component"> How do you evaluate the usability of the component scores? </h>
-        </div>
-        <div class="btn-group col-md-12 btn-group-modified-questionnaire" data-toggle="buttons" id="component-score-eval">
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="-1" onchange="radioChange()">Not useful
-            </label>
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="0" onchange="radioChange()">Somewhat useful
-            </label>
-            <label for="" class="btn btn-primary col-md-4">
-                <input type="radio" value="1" onchange="radioChange()">Useful
-            </label>
-        </div>
+        <!--<div class="col-md-12 component-header vertical-align-center component" style="background-color: transparent;" id="component-score-eval-header">-->
+            <!--<h class="component"> How do you evaluate the usability of the component scores? </h>-->
+        <!--</div>-->
+        <!--<div class="btn-group col-md-12 btn-group-modified-questionnaire" data-toggle="buttons" id="component-score-eval">-->
+            <!--<label for="" class="btn btn-primary col-md-4">-->
+                <!--<input type="radio" value="-1" onchange="radioChange()">Not useful-->
+            <!--</label>-->
+            <!--<label for="" class="btn btn-primary col-md-4">-->
+                <!--<input type="radio" value="0" onchange="radioChange()">Somewhat useful-->
+            <!--</label>-->
+            <!--<label for="" class="btn btn-primary col-md-4">-->
+                <!--<input type="radio" value="1" onchange="radioChange()">Useful-->
+            <!--</label>-->
+        <!--</div>-->
 
         <div class="col-md-12" style="padding:  0px;border-bottom-right-radius:  3px; border-bottom-left-radius: 3px;">
             <button class="btn btn-default btn-large col-md-12 disabled" id="next" onclick="continueToPredictionTask()" style="font-size:15px;border-radius:0px;border-bottom-right-radius: 3px;">Continue
@@ -83,7 +197,7 @@
     </div>
     <!-- end page-wrapper -->
 
-</div>
+<!--</div>-->
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="assets/plugins/d3.js"></script>

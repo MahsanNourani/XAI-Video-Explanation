@@ -669,7 +669,8 @@ div#selection-panel-body {
 }
 
 .btn-group-modified-questionnaire {
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #query {
