@@ -248,6 +248,7 @@ function segment_buttons(start,end,explanations,associations) {
         data.push(obj);
     }
 
+    console.log(data);
 
     var svg= d3.select("#segment")
         .append("svg")
@@ -338,7 +339,7 @@ function segment_buttons(start,end,explanations,associations) {
     }
 
     // If no explanation or isPredictionTask, the progress bar should not move!;
-    if (localStorage.getItem("condition") == "3" || localStorage.getItem("isPredictionTask") == "true") {
+    if (localStorage.getItem("condition") == "3" || localStorage.getItem("isPredictionTask") == "true" || localStorage.getItem("condition") == "6") {
         console.log("hello");
         mPlayer.currentTime = 0;
     }
@@ -347,7 +348,9 @@ function segment_buttons(start,end,explanations,associations) {
 
     // mediaPlayer.currentTime = (pos * mediaPlayer.duration);
 
-
+    if (localStorage.getItem("condition") == "4") {
+        createDropDownForNoSegmentConditions(data, explanations, associations);
+    }
 
 }
 
@@ -474,4 +477,59 @@ function clear_segment(){
 
     d3.select('svg').remove();
 
+}
+
+function createDropDownForNoSegmentConditions(dataToChangeTime, explanations, associations) {
+
+    console.log(explanations);
+    d3.select("#segment").remove();
+    d3.select("#dropdown-div").remove();
+    var mainDiv =
+        d3.select("#segments-control")
+            .append("div")
+                .style("width", "100%")
+                .style("height", "50px")
+                .attr("id", "dropdown-div")
+            .append("div")
+                .classed("dropdown", true);
+    mainDiv.append("button")
+            .classed("btn btn-primary dropdown-toggle", true)
+            .attr("id", "dropdown-btn")
+            .attr("value", "0")
+            .attr("type", "button")
+            .attr("data-toggle", "dropdown")
+            .html("Select Explanation Set ")
+            .append("span")
+            .classed("caret", true);
+
+    var dropdownMenu =
+        mainDiv.append("ul")
+        .classed("dropdown-menu", true);
+
+    dropdownMenu.selectAll("li")
+        .data(explanations)
+        .enter()
+        .append("li")
+        .append("a")
+        .html(function (d, i) {
+            console.log("here! " + d);
+            return "Explanation Set #" + i + " ";
+        })
+        .on("click", function (d, i) {
+
+            d3.select("#dropdown-btn")
+                .attr("value", function () {
+                    return i;
+                })
+                .html(function () {
+                    return "Explanation Set #" + i + " ";
+                })
+                .append("span")
+                .classed("caret", true);
+
+            clear_list();
+            mediaPlayer.currentTime=dataToChangeTime[i].start-0.20;
+            createClickLog ("Review Task", "dropdownAsSegment");
+            loadData(explanations[i], associations[i]);
+        });
 }

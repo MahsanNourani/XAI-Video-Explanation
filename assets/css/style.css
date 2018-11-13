@@ -673,6 +673,11 @@ div#selection-panel-body {
     margin-bottom: 10px;
 }
 
+.dropdown {
+    float: right;
+    margin-top: 10px;
+}
+
 #query {
     background-color: #c7e5ff;
     color: #000000;

@@ -104,6 +104,8 @@ $(document).ready(function () {
     }
 
     this.onVideoLoaded = function() {
+
+        // This should be a different file for bad explanations!
         file = 'assets/data/video_new.json';
         d3.json(file, function(error, data){
             if (error)
