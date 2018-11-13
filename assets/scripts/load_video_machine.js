@@ -1,13 +1,42 @@
 $(document).ready(function () {
     var condition = localStorage.getItem("condition");
 
-    if (condition == "4") /* This is when video segments are not shown!*/
-        d3.select("#segment").style("visibility", "hidden");
-    else if (condition == "5") /* This is when component explanations are not shown!*/ {
-        d3.select("#explanation-box")
-            .style("visibility", "hidden");
-        d3.select("#component-score-div")
-            .style("visibility", "hidden");
+    if (localStorage.getItem("isPredictionTask") == "false") {
+        if (condition == "3") /* This is no explanations */{
+            d3.select("#segment").style("visibility", "hidden");
+            d3.select("#explanation-box")
+                .style("visibility", "hidden");
+            d3.select("#component-score-div")
+                .style("visibility", "hidden");
+            d3.select("#evaluation-question")
+                .style("display", "none");
+            d3.select("#evaluation")
+                .style("display", "none");
+        }
+        else if (condition == "4") /* This is when video segments are not shown!*/
+            d3.select("#segment").style("visibility", "hidden");
+        else if (condition == "5") /* This is when component explanations are not shown!*/ {
+            d3.select("#explanation-box")
+                .style("visibility", "hidden");
+            d3.select("#component-score-div")
+                .style("visibility", "hidden");
+        }
+        else if (condition == "6") /* Literally no AI*/{
+            d3.select("#segment").style("visibility", "hidden");
+            d3.select("#explanation-box")
+                .style("visibility", "hidden");
+            d3.select("#component-score-div")
+                .style("visibility", "hidden");
+            d3.select("#evaluation-question")
+                .style("display", "none");
+            d3.select("#evaluation")
+                .style("display", "none");
+            d3.select("#segment").style("visibility", "hidden");
+            d3.select("#explanation-box")
+                .style("visibility", "hidden");
+            d3.select("#component-score-div")
+                .style("visibility", "hidden");
+        }
     }
 });
 
@@ -53,8 +82,8 @@ $(document).ready(function () {
 
     this.radioChange = function () {
         if ((isOptionSelected("#agree-disagree") && isOptionSelected("#evaluation")) ||
-            (isOptionSelected("#agree-disagree") && localStorage.getItem("isPredictionTask") == "true") ||
-            (isOptionSelected("#agree-disagree") && localStorage.getItem("condition") == "3")) {
+            (isOptionSelected("#agree-disagree") && localStorage.getItem("condition") == "6") ||
+            (isOptionSelected("#agree-disagree") && localStorage.getItem("condition") == "3" && localStorage.getItem("isPredictionTask") == "false")) {
             d3.select("#submit").classed("disabled", false);
         }
     };
@@ -117,6 +146,10 @@ $(document).ready(function () {
     }
 
     this.loadNextQuery = function () {
+        // Log the Click for current task
+        var clickLocation = (localStorage.getItem("isPredictionTask")) == "false"?"performanceTask":"predictionTask";
+        createClickLog("loadNextQuery", clickLocation);
+
         if (nextQueryIndex == currentVideo.queryCount) {
 
             if ((nextVideoIndex == listOfVideos.length) && localStorage.getItem("isPredictionTask") == "false") {
@@ -129,7 +162,7 @@ $(document).ready(function () {
                 // 1. Open the modal to say thanks all videos are done.
 
                 // 2. go to the post-study questionnaire
-                console.log("study is done!");
+                // console.log("study is done!");
                 loadTaskAfterPrediction();
                 return;
             }
@@ -149,8 +182,6 @@ $(document).ready(function () {
         d3.select("#submit").style("display", "block");
         uncheckAll();
         toggleDisabilityRadioButtons();
-        var clickLocation = (localStorage.getItem("isPredictionTask")) == "false"?"performanceTask":"predictionTask";
-        createClickLog("loadNextQuery", clickLocation);
     };
 
     this.submitAndShowCorrectAnswer = function () {
@@ -190,21 +221,64 @@ $(document).ready(function () {
         localStorage.setItem("responsesReviewTask", JSON.stringify(responses));
         localStorage.setItem("isPredictionTask", "true");
 
-        // We don't need a survey for the no explanation conditions; hence, directly to the prediction task
-        if (localStorage.getItem("condition") == "3")
-            location.href = './prediction-task.html';
-        else
-            location.href = './shortq.html';
+        // Changing the modal content to show a message before going to the next task!
+        d3.select(".modal-title")
+            .html("Task Complete!");
+        d3.select(".modal-body > p")
+            .html(function () {
+                if (localStorage.getItem("condition") == "3" || localStorage.getItem("condition") == "6")
+                    return "You have completed the task. Press continue.";
+                else
+                    return "You have completed the task. Press continue to answer a questionnaire about this task.";
+            });
+        d3.select(".modal-footer")
+            .select("button").remove();
+        d3.select(".modal-footer")
+            .append("button")
+            .classed("btn btn-success", true)
+            .attr("type","button")
+            .html("Continue")
+            .on("click", function () {
+                // We don't need a survey for the no explanation conditions; hence, directly to the prediction task
+                if (localStorage.getItem("condition") == "3")
+                    location.href = './prediction-task.html';
+                // No AI conditions go directly to the post-study questionnaire
+                else if (localStorage.getItem("condition") == "6") {
+                    localStorage.setItem("isPredictionTask", "true");
+                    location.href = './index.html';
+                }
+                else
+                    location.href = './shortq.html';
+            });
+
+        document.getElementById("modal-btn").click();
     };
 
     function loadTaskAfterPrediction () {
         localStorage.setItem("responsesPredictionTask", JSON.stringify(responses));
-        location.href = './index.html';
+
+        // Changing the modal content to show a message before going to the next task!
+        d3.select(".modal-title")
+            .html("Task Complete!");
+        d3.select(".modal-body > p")
+            .html("You have completed the task. Press continue to answer a questionnaire about this task.");
+        d3.select(".modal-footer")
+            .select("button").remove();
+        d3.select(".modal-footer")
+            .append("button")
+            .classed("btn btn-success", true)
+            .attr("type","button")
+            .html("Continue")
+            .on("click", function () {
+                location.href = './index.html';
+            });
+
+        document.getElementById("modal-btn").click();
     };
 
     function recordResults(recordObject, array) {
         recordObject.startQueryTime = startTime;
-        recordObject.userID = localStorage.getItem("id");
+        // recordObject.userID = localStorage.getItem("id");
         array.push(recordObject);
     }
 
@@ -273,22 +347,25 @@ $(document).ready(function () {
 
         var queryDiv = d3.select("#query-section");
         //system's answer
-        var responseDiv = queryDiv.append("div")
-            .classed("col-md-12 vertical-align-center system-answer", true);
-        responseDiv.append("h")
-            .style("color", "#428bca")
-            .html("System's Answer:&nbsp;");
-        responseDiv.append("h")
-            .html(function () {
-                return currentQuestion.computerAnswer;
-            });
-        queryDiv.append("div")
-            .classed("col-md-12 component-header vertical-align-center component correct-answer-hidden", true)
-            .attr("id", "correct-answer-header")
-            .style("margin-top", "0px")
-            .append("h")
-            .classed("component", true)
-            .html("Correct Answer");
+
+        if (localStorage.getItem("condition") != "6") {
+            var responseDiv = queryDiv.append("div")
+                .classed("col-md-12 vertical-align-center system-answer", true);
+            responseDiv.append("h")
+                .style("color", "#428bca")
+                .html("System's Answer:&nbsp;");
+            responseDiv.append("h")
+                .html(function () {
+                    return currentQuestion.computerAnswer;
+                });
+            queryDiv.append("div")
+                .classed("col-md-12 component-header vertical-align-center component correct-answer-hidden", true)
+                .attr("id", "correct-answer-header")
+                .style("margin-top", "0px")
+                .append("h")
+                .classed("component", true)
+                .html("Correct Answer");
+        }
         var correctAnswerDiv = queryDiv.append("div")
             .classed("col-md-12 vertical-align-center system-answer correct-answer-hidden", true)
             .attr("id","correct-answer");
@@ -324,6 +401,8 @@ $(document).ready(function () {
     this.createClickLog = function (clickInstrument, clickLocation) {
         var logObject = {};
             logObject.video = currentVideo.videoName;
+            console.log("current question Index: " + nextQueryIndex + " and the instrument is " + clickInstrument);
+            console.log("current video data: " + currentVideoData[nextQueryIndex-1] );
             logObject.question = currentVideoData[nextQueryIndex-1].questionId;
             logObject.clickInstrument = clickInstrument;
             logObject.clickLocation = clickLocation;

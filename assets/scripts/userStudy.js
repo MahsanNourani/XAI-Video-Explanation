@@ -13,10 +13,11 @@ $(document).ready(function () {
 
 function grantConsentToParticipate() {
     localStorage.clear();
+    localStorage.setItem("isPredictionTask", "false");
     localStorage.setItem("id", generateID());
-    var condition = generateConditionLink();
-    localStorage.setItem("condition", condition[0]);
-    localStorage.setItem("conditionLink",condition[1]);
+    // var condition = Link();
+    localStorage.setItem("condition", generateCondition());
+    // localStorage.setItem("conditionLink",condition[1]);
     // location.href = condition[1];
 }
 
@@ -31,32 +32,9 @@ function generateID() {
     return text+number;
 }
 
-function generateConditionLink() {
-    var conditionRandomCode = Math.floor(Math.random() * 5) + 1;
-    var conditionLink = "";
-    switch (conditionRandomCode) {
-        case 1:
-            // XAI - Good exp
-            conditionLink = "./machine.html";
-            break;
-        case 2:
-            // XAI - Bad exp
-            conditionLink = "./machine.html";
-            break;
-        case 3:
-            // XAI - no exp
-            conditionLink = "./no.html";
-            break;
-        case 4:
-            // XAI - no segment exp
-            conditionLink = "./machine.html";
-            break;
-        case 5:
-            // XAI - no component exp
-            conditionLink = "./machine.html";
-            break;
-    }
-    return [conditionRandomCode, conditionLink];
+// Condition link is useless! remove it
+function generateCondition() {
+    return Math.floor(Math.random() * 6) + 1;
 }
 
 function showQuestionnaire() {
@@ -139,9 +117,12 @@ function showQuestionnaire() {
         .html("Continue")
         .on("click", function () {
             // location.href = localStorage.getItem("conditionLink");
-            if (localStorage.getItem("isPredictionTask") == "false")
+            if (localStorage.getItem("isPredictionTask") == "false") {
+                localStorage.setItem("backgroundDone", getDateTime());
                 location.href = './Tutorial.html';
+            }
             else {
+                localStorage.setItem("postStudyDone", getDateTime());
                 createResultsInterface();
                 // window.alert("done");
             }
@@ -154,7 +135,8 @@ function showQuestionnaire() {
         .attr("src", function () {
             if (localStorage.getItem("isPredictionTask") == "false")
                 return "https://docs.google.com/forms/d/e/1FAIpQLSfaQ64PfQuLaLqFkKENT1Sz1pCUCIGw-HO3psT11Gl5sqYy3A/viewform?embedded=true";
-            else return "https://docs.google.com/forms/d/e/1FAIpQLSd6tEuv6VlsJoCXNRGHELpcsOxC3jJX-C0PiDpK43CwK8U1vw/viewform?embedded=true";
+            else
+                return "https://docs.google.com/forms/d/e/1FAIpQLSd6tEuv6VlsJoCXNRGHELpcsOxC3jJX-C0PiDpK43CwK8U1vw/viewform?embedded=true";
         })
         .attr("width", "100%")
         .attr("height", "600px")
@@ -239,8 +221,10 @@ function prepareResults() {
     var results = {};
     results.condition = localStorage.getItem("condition");
     results.userID = localStorage.getItem("id");
-    results.reviewTask = JSON.parse(localStorage.getItem("responses"));
+    results.backgroundDone = localStorage.getItem("backgroundDone");
+    results.reviewTask = JSON.parse(localStorage.getItem("responsesReviewTask"));
     results.predictionTask = JSON.parse(localStorage.getItem("responsesPredictionTask"));
+    results.postStudyDone = localStorage.getItem("postStudyDone");
     results.logs = JSON.parse(localStorage.getItem("logs"));
 
     return JSON.stringify(results);
@@ -253,9 +237,17 @@ function backToTutorial() {
 
 function continueToNextTask() {
     if (localStorage.getItem("isPredictionTask") == "false")
-        location.href = localStorage.getItem("conditionLink");
+        location.href = './machine.html';
     else
         location.href = './prediction-task.html';
+}
+
+function getDateTime() {
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    return date + ' ' + time;
+
 }
 
 (function createClipboardAPI(document){

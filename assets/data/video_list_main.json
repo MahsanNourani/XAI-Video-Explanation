@@ -2,41 +2,21 @@
   "reviewTask":[
     {
     "videoName": "s21-d28.mp4",
-    "queryCount": 6
+    "queryCount": 2
     },
     {
     "videoName": "s23-d46.mp4",
-    "queryCount": 6
-    },
-    {
-    "videoName": "s24-d23.mp4",
-    "queryCount": 6
-    },
-    {
-    "videoName": "s25-d23.mp4",
-    "queryCount": 6
-    },
-    {
-    "videoName": "s25-d35.mp4",
-    "queryCount": 6
-    },
-    {
-    "videoName": "s33-d45.mp4",
-    "queryCount": 6
+    "queryCount": 2
     }
   ],
   "predictionTask": [
     {
-      "videoName": "s27-d21.mp4",
-      "queryCount": 6
-    },
-    {
       "videoName": "s17-d48.mp4",
-      "queryCount": 6
+      "queryCount": 3
     },
     {
       "videoName": "s17-d55.mp4",
-      "queryCount": 6
+      "queryCount": 2
     }
   ]
 }
