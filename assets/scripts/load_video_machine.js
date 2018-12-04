@@ -254,7 +254,8 @@ $(document).ready(function () {
                 // No AI conditions go directly to the post-study questionnaire
                 else if (localStorage.getItem("condition") == "6") {
                     localStorage.setItem("isPredictionTask", "true");
-                    location.href = './index.html';
+                    // location.href = './index.html';
+                    location.href = './post-study.html'
                 }
                 else
                     location.href = './shortq.html';
@@ -279,7 +280,8 @@ $(document).ready(function () {
             .attr("type","button")
             .html("Continue")
             .on("click", function () {
-                location.href = './index.html';
+                // location.href = './index.html';
+                location.href = './post-study.html';
             });
 
         document.getElementById("modal-btn").click();

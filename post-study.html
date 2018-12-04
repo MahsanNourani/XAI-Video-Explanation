@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TACOS Corpus</title>
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/main-style.css" rel="stylesheet" />
+    <link href='assets/css/media-player.css' rel='stylesheet' />
+</head>
+<body style="height: 100%;">
+<!--<div style="height: 100%;">-->
+
+    <div class="container" style="padding-bottom: 15px;  background-color: #2b2d39;"> //#eef488
+        <div class="row component" id="short-q-title">
+            <h> Almost Done. Please complete the questionnaire below.</h>
+        </div>
+        <div class="row without-exp" style="margin-bottom: 10px;">
+            <div class="col-md-8 shortq-questions vertical-align-center">
+                <h class="component-question"> On a scale of 0 to 100 percent, what do you think the system’s accuracy is? <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+
+            <div class="btn-group col-md-4 btn-group-modified-questionnaire" data-toggle="buttons" style="padding-right: 47px;">
+                <input type="number" class="form-control" id="pred" onchange="radioChange();">
+            </div>
+            <div class="col-md-7 shortq-questions vertical-align-center">
+                <h class="component-question"> Please briefly explain your reason for guessing this number. <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-5 btn-group-modified-questionnaire" data-toggle="buttons" style="padding-right: 47px;">
+                <textarea class="form-control" id="pred-exp"></textarea>
+            </div>
+        </div>
+
+        <div class="row component section-header">
+            <h>For the following questions, select the most proper option on how much you agree with the given statement. </h>
+        </div>
+
+        <div class="row without-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study"> I am confident that the accuracy I have predicted for the system is close to its actual accuracy. <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q1">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row with-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study"> The explanations in the system let me judge when I should trust the system. <b style="color: #ffa6a6;">*</b></h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q2">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row with-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study"> The explanations helped me understand the accuracy of the system in answering the questions. <b style="color: #ffa6a6;">*</b>  </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q3">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row with-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study"> My answers to the questions in the previous task (prediction task) would differ if I was not provided with explanations. </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q4">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row with-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study"> The explanations helped me understand what the system was trying to do. </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q5">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row with-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study"> The explanations were relevant to the system’s answer to each question. </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q6">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row with-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">The explanations contained correct and enough amount and level of detail.</h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q7">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row with-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">The explanations made the tasks complicated.</h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q8">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row with-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">In general, I would rather use the same system with explanations rather than not having them. </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q9">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row with-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">I find the explanations insufficient to judge the system’s outcome in the future. <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q10">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row baseline" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">In General, the system was easy to use and understand. <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q11">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row baseline" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">The tasks were easy to understand. <b style="color: #ffa6a6;">*</b></h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q12">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row baseline" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">The goals in each task were easy to achieve. <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q13">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row baseline" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">I want to know why the system did not make some other decision. <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q14">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row baseline" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">I am surprised by the system’s actions and I want to know why it acted in a certain way. <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q15">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row without-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">I am curious how the system achieved these results. <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q16">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row without-exp" style="margin-bottom: 10px;">
+            <div class="col-md-12 shortq-questions vertical-align-center">
+                <h class="component-question component-post-study">I am confident that the accuracy I have predicted for the system is close to its actual accuracy. <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-10 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="q17">
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-2" onchange="radioChange()"> Strongly Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="-1" onchange="radioChange()"> Disagree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-post">
+                    <input type="radio" value="0" onchange="radioChange()"> Neutral
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="1" onchange="radioChange()"> Agree
+                </label>
+                <label for="" class="btn btn-primary col-md-2 radio-btn-post">
+                    <input type="radio" value="2" onchange="radioChange()"> Strongly Agree
+                </label>
+            </div>
+        </div>
+        <div class="row component section-header">
+            <h>Based on your experience with the system, please answer the following questions. </h>
+        </div>
+
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-7 shortq-questions vertical-align-center" style="text-align: center;">
+                <h class="component-question"> What factors most affected your decisions or your ability to answer each question? <b style="color: #ffa6a6;">*</b> </h>
+            </div>
+            <div class="btn-group col-md-5 btn-group-modified-questionnaire" data-toggle="buttons" style="padding-right: 47px;">
+                <textarea class="form-control" id="affect" onchange="radioChange();"></textarea>
+            </div>
+            <div class="col-md-7 shortq-questions vertical-align-center">
+                <h class="component-question"> Do you have any other thoughts or feedback about this experience? </h>
+            </div>
+            <div class="btn-group col-md-5 btn-group-modified-questionnaire" data-toggle="buttons" style="padding-right: 47px;">
+                <textarea class="form-control" id="cmnt"></textarea>
+            </div>
+        </div>
+
+        <div class="col-md-12" style="padding:  0px;border-bottom-right-radius:  3px; border-bottom-left-radius: 3px;">
+            <button class="btn btn-default btn-large col-md-12 disabled" id="next" onclick="continueToLastPage()" style="font-size:15px;border-radius:0px;border-bottom-right-radius: 3px;">Continue
+                <span><i class="fas fa-arrow-circle-right"></i></span>
+            </button>
+        </div>
+    </div>
+    <!-- end page-wrapper -->
+
+<!--</div>-->
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="assets/plugins/d3.js"></script>
+<script src="assets/scripts/post_study.js"></script>
+
+</body>
+
+</html>
