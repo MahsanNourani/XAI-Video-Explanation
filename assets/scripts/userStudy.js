@@ -1,8 +1,8 @@
-$(document).ready(function () {
-   if (localStorage.getItem("isPredictionTask") == "true") {
-       showQuestionnaire();
-   }
-});
+// $(document).ready(function () {
+//    if (localStorage.getItem("isPredictionTask") == "true") {
+//        showQuestionnaire();
+//    }
+// });
 
 function grantConsentToParticipate() {
     localStorage.clear();
@@ -175,7 +175,8 @@ function showConsentForm() {
         .on("click", function (e) {
             // window.alert("THANKS!");
             grantConsentToParticipate();
-            showQuestionnaire();
+            // showQuestionnaire();
+            location.href = "./background.html";
         });
 
     var mainContainer = d3.select("#main-container");
@@ -230,7 +231,8 @@ function prepareResults() {
     results.pred = JSON.parse(localStorage.getItem("responsesPredictionTask"));
     results.ptDone = localStorage.getItem("postStudyDone");
     results.logs = JSON.parse(localStorage.getItem("logs"));
-    results.shortq = JSON.parse(localStorage.getItem("shortQ"));
+    results.midQ = JSON.parse(localStorage.getItem("shortQ"));
+    results.bgQ = JSON.parse(localStorage.getItem("bgQ"));
 
     return JSON.stringify(results);
 

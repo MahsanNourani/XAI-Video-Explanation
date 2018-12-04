@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TACOS Corpus</title>
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/main-style.css" rel="stylesheet" />
+    <link href='assets/css/media-player.css' rel='stylesheet' />
+</head>
+<body style="height: 100%;">
+<!--<div style="height: 100%;">-->
+
+    <div class="container" style="padding-bottom: 15px;  background-color: #2b2d39;"> //#eef488
+        <div class="row component" id="short-q-title">
+            <h> Background Questionnaire: Please answer the following carefully.</h>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-6 shortq-questions vertical-align-center">
+                <h class="component"> Gender </h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" id="gender">
+                <label for="" class="btn btn-primary col-md-4 radio-btn-group">
+                    <input type="radio" value="m" onchange="radioChange()"> Male
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-group">
+                    <input type="radio" value="f" onchange="radioChange()"> Female
+                </label>
+                <label for="" class="btn btn-primary col-md-4 radio-btn-group">
+                    <input type="radio" value="o" onchange="radioChange()"> Other
+                </label>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-6 shortq-questions vertical-align-center">
+                <h class="component"> Age </h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" style="padding-right: 47px;">
+                <input type="number" class="form-control" id="age" onchange="radioChange();">
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-6 shortq-questions vertical-align-center">
+                <h class="component"> Occupation </h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" style="padding-right: 47px;">
+                <input type="text" class="form-control" id="occupation" onchange="radioChange();">
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+            <!--<image src="assets/images/Detected-combinations.png" class="col-md-6"></image>-->
+            <div class="col-md-6 shortq-questions vertical-align-center">
+                <h class="component"> Highest obtained degree</h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" id="degree">
+                <label for="" class="btn btn-primary col-md-4 radio-btn-group" style="margin-bottom: 5px;">
+                    <input type="radio" value="HsD" onchange="radioChange()"> High school Diploma
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-group" style="margin-bottom: 5px;">
+                    <input type="radio" value="-1" onchange="radioChange()"> Associate Degree
+                </label>
+                <label for="" class="btn btn-primary col-md-4 radio-btn-group" style="margin-bottom: 5px;">
+                    <input type="radio" value="0" onchange="radioChange()"> Bachelor's Degree
+                </label>
+                <label for="" class="btn btn-primary col-md-4 radio-btn-group">
+                    <input type="radio" value="2" onchange="radioChange()"> Master's Degree
+                </label>
+                <label for="" class="btn btn-primary col-md-3 radio-btn-group">
+                    <input type="radio" value="1" onchange="radioChange()"> Ph.D.
+                </label>
+                <label for="" class="btn btn-primary col-md-4 radio-btn-group">
+                    <input type="radio" value="1" onchange="radioChange()"> Post-Doctorate
+                </label>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-6 shortq-questions vertical-align-center">
+                <h class="component"> Do you have a history of color blindness? </h>
+            </div>
+            <div class="btn-group col-md-4 col-md-offset-1 btn-group-modified-questionnaire" data-toggle="buttons" id="c-blind">
+                <label for="" class="btn btn-primary col-md-5 radio-btn-binary" style="margin-right: 55px;">
+                    <input type="radio" value="0" onchange="radioChange()"> No
+                </label>
+                <label for="" class="btn btn-primary col-md-5 radio-btn-binary">
+                    <input type="radio" value="1" onchange="radioChange()"> yes
+                </label>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-6 shortq-questions vertical-align-center">
+                <h class="component" style="text-align: center"> How would you rate your understanding of Artificial Intelligence and Machine Learning? </h>
+            </div>
+            <div class="btn-group col-md-6 btn-group-modified-questionnaire" data-toggle="buttons" id="ml-exp">
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="0" onchange="radioChange()"> 0
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="1" onchange="radioChange()"> 1
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="2" onchange="radioChange()"> 2
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="3" onchange="radioChange()"> 3
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="4" onchange="radioChange()"> 4
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="5" onchange="radioChange()"> 5
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="6" onchange="radioChange()"> 6
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="7" onchange="radioChange()"> 7
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="8" onchange="radioChange()"> 8
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="9" onchange="radioChange()"> 9
+                </label>
+                <label for="" class="btn btn-primary col-md-1 radio-btn-options">
+                    <input type="radio" value="10" onchange="radioChange()"> 10
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-12" style="padding:  0px;border-bottom-right-radius:  3px; border-bottom-left-radius: 3px;">
+            <button class="btn btn-default btn-large col-md-12 disabled" id="next" onclick="continueToPredictionTask()" style="font-size:15px;border-radius:0px;border-bottom-right-radius: 3px;">Continue
+                <span><i class="fas fa-arrow-circle-right"></i></span>
+            </button>
+        </div>
+    </div>
+    <!-- end page-wrapper -->
+
+<!--</div>-->
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="assets/plugins/d3.js"></script>
+<script src="assets/scripts/background.js"></script>
+
+</body>
+
+</html>

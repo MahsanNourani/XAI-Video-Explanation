@@ -776,6 +776,17 @@ div#selection-panel-body {
     border-radius: 4px !important;
 }
 
+
+.radio-btn-binary {
+    /*margin-right: 9px !important;*/
+    border-radius: 4px !important;
+}
+
+.radio-btn-options {
+    margin-right: 4px !important;
+    border-radius: 4px !important;
+}
+
 #short-q-title {
     padding: 10px;
     margin-bottom: 10px;
