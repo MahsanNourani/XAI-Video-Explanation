@@ -586,6 +586,10 @@ div#selection-panel-body {
     font-weight: bold;
 }
 
+.component-post-study {
+    text-align: center;
+}
+
 .header {
     font-size: 19px;
     font-style: oblique;
@@ -787,6 +791,15 @@ div#selection-panel-body {
     border-radius: 4px !important;
 }
 
+.radio-btn-post {
+    margin-right: 16px !important;
+    border-radius: 4px !important;
+}
+
+.component-question {
+    font-size: 20px;
+}
+
 #short-q-title {
     padding: 10px;
     margin-bottom: 10px;
@@ -798,6 +811,16 @@ div#selection-panel-body {
     margin-right: 0px;
 }
 
+.section-header {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f69d2e; /*#ffbe2b*/
+    text-align: center;
+    font-size: 22px;
+    color: #6b0000;
+    margin-left: 0px;
+    margin-right: 0px;
+}
 
 .shortq-questions {
     min-height: 35px;
@@ -805,4 +828,8 @@ div#selection-panel-body {
     justify-content: center;
     margin-top: 1px;
     color: white;
+}
+
+textarea.form-control {
+    min-height: 100px;
 }

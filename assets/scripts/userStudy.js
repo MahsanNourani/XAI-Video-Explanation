@@ -1,8 +1,8 @@
-// $(document).ready(function () {
-//    if (localStorage.getItem("isPredictionTask") == "true") {
-//        showQuestionnaire();
-//    }
-// });
+$(document).ready(function () {
+   if (localStorage.getItem("isPredictionTask") == "true") {
+       createResultsInterface();
+   }
+});
 
 function grantConsentToParticipate() {
     localStorage.clear();
@@ -213,12 +213,16 @@ function createResultsInterface() {
     document.ClipboardApi.setCopyButton('.copy','.selection');
 
     var instructions = d3.select("#instructions");
+    instructions.style("display", "block");
+    instructions.style("padding", "20px");
+    instructions.style("height", "auto");
+    instructions.select("button").remove();
     instructions.select("p")
         .html("Thank you for participating in the study. Make sure you copy your results from below " +
             "and paste them in the required field in Amazon Mechanical Turk to receive your compensation." +
             "You can press the button below to automatically copy your results to the clipboard.");
     d3.select("#check").remove();
-    localStorage.clear();
+    // localStorage.clear();
 }
 
 function prepareResults() {
@@ -233,7 +237,7 @@ function prepareResults() {
     results.logs = JSON.parse(localStorage.getItem("logs"));
     results.midQ = JSON.parse(localStorage.getItem("shortQ"));
     results.bgQ = JSON.parse(localStorage.getItem("bgQ"));
-
+    results.psQ = JSON.parse(localStorage.getItem("post"));
     return JSON.stringify(results);
 
 }
