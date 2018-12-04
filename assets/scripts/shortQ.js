@@ -16,17 +16,25 @@ $(document).ready(function () {
 
 function continueToPredictionTask() {
     var responsesShortQ = {};
-        responsesShortQ.video_segment = {};
-            responsesShortQ.video_segment.help = getValueOfSelected("#video-segment-help");
-            responsesShortQ.video_segment.use = getValueOfSelected("#video-segment-use");
-        responsesShortQ.detected_comb = {};
-            responsesShortQ.detected_comb.help = getValueOfSelected("#detected-combinations-help");
-            responsesShortQ.detected_comb.use = getValueOfSelected("#detected-combinations-use");
-        responsesShortQ.component_score = {};
-            responsesShortQ.component_score.help = getValueOfSelected("#component-scores-help");
-            responsesShortQ.component_score.use = getValueOfSelected("#component-scores-use");
+        responsesShortQ.seg = {};
+            responsesShortQ.seg.help = getValueOfSelected("#video-segment-help");
+            responsesShortQ.seg.use = getValueOfSelected("#video-segment-use");
+        responsesShortQ.comb = {};
+            responsesShortQ.comb.help = getValueOfSelected("#detected-combinations-help");
+            responsesShortQ.comb.use = getValueOfSelected("#detected-combinations-use");
+        responsesShortQ.score = {};
+            responsesShortQ.score.help = getValueOfSelected("#component-scores-help");
+            responsesShortQ.score.use = getValueOfSelected("#component-scores-use");
+        responsesShortQ.ans = {};
+            responsesShortQ.ans.help = getValueOfSelected("#computer-answer-help");
+            responsesShortQ.ans.use = getValueOfSelected("#computer-answer-use");
+        responsesShortQ.vid = {};
+            responsesShortQ.vid.help = getValueOfSelected("#video-player-help");
+            responsesShortQ.vid.use = getValueOfSelected("#video-player-use");
+
     localStorage.setItem("shortQ", JSON.stringify(responsesShortQ));
-    location.href = "./prediction-task.html";
+    // location.href = "./prediction-task.html";
+    location.href ="./Tutorial.html";
 }
 
 function radioChange() {

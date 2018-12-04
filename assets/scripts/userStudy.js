@@ -1,10 +1,3 @@
-// (function() {
-//     console.log("in user study!");
-//     localStorage.setItem("id", generateID());
-//     console.log(localStorage.getItem("id"));
-//     console.log("leaving user study!");
-// })();
-
 $(document).ready(function () {
    if (localStorage.getItem("isPredictionTask") == "true") {
        showQuestionnaire();
@@ -43,15 +36,24 @@ function showQuestionnaire() {
     instructions.style("display","block");
 
     instructions.select("div")
-        .style("margin-top","15px");
+        .style("margin-top","5px");
 
     d3.select("#main-container")
         .style("height","70%");
 
     instructions.select("p")
-        .html("Your <u>participant id</u> is <b style='color: deeppink; font-style: italic;'>" + localStorage.getItem("id") + "</b>." +
-            " You should insert it in the required field below." +
-            " After you submitted the form, press Done!");
+        .html(function () {
+            if (localStorage.getItem("isPredictionTask") == "false")
+                return "Your <u>participant id</u> is <b style='color: deeppink; font-style: italic;'>" + localStorage.getItem("id") + "</b>." +
+                    " You should insert it in the required field below." +
+                    " After you submit the form, press Done!";
+            else
+                return "<b style='color: #2e52a4;'>Almost done! Please complete the questionnaire below.</b><br>" +
+                    "Your <u>participant id</u> is <b style='color: deeppink; font-style: italic;'>" + localStorage.getItem("id") + "</b>." +
+                    " You should insert it in the required field below." +
+                    " After you submit the form, press Done!";
+        });
+        // .style("height", "150px !important");
 
     var button = d3.select("#instructions-btn")
         .classed("disabled", true)
@@ -79,13 +81,10 @@ function showQuestionnaire() {
         .attr("id", "submit-check")
         .on("input", function () {
             // window.alert(d3.select(this).node().value);
-            console.log("yo");
             if (d3.select("#submit-check").node().value == 125 && localStorage.getItem("isPredictionTask") == "false") {
-                console.log("here");
                 d3.select("#submit").classed("disabled", false);
             }
-            else if (d3.select("#submit-check").node().value == 125 && localStorage.getItem("isPredictionTask") == "true") {
-                console.log("and here")
+            else if (d3.select("#submit-check").node().value == 251 && localStorage.getItem("isPredictionTask") == "true") {
                 d3.select("#submit").classed("disabled", false);
             }
         });
@@ -135,15 +134,20 @@ function showQuestionnaire() {
         .attr("src", function () {
             if (localStorage.getItem("isPredictionTask") == "false")
                 return "https://docs.google.com/forms/d/e/1FAIpQLSfaQ64PfQuLaLqFkKENT1Sz1pCUCIGw-HO3psT11Gl5sqYy3A/viewform?embedded=true";
-            else
-                return "https://docs.google.com/forms/d/e/1FAIpQLSd6tEuv6VlsJoCXNRGHELpcsOxC3jJX-C0PiDpK43CwK8U1vw/viewform?embedded=true";
+            else {
+                var condition = localStorage.getItem("condition");
+                if (condition == "3")
+                    return "https://docs.google.com/forms/d/e/1FAIpQLSedqbw63h7pXHClBbyS2Y3HyeOxSC876iMv5ZcQuSrdVQJSMg/viewform?embedded=true";
+                else if (condition == "6")
+                    return "https://docs.google.com/forms/d/e/1FAIpQLScYDckBD8pR2o9FkP3XriZ8aiE5hcMBid3Ko_xzYhU0XhS_3A/viewform?embedded=true";
+                    return "https://docs.google.com/forms/d/e/1FAIpQLSd6tEuv6VlsJoCXNRGHELpcsOxC3jJX-C0PiDpK43CwK8U1vw/viewform?embedded=true";
+            }
         })
         .attr("width", "100%")
-        .attr("height", "600px")
+        .attr("height", "700px")
         .attr("frameborder", "0")
         .attr("marginheight", "0")
         .attr("marginwidth", "0")
-        .style("margin-top", "40px")
         .html("Loading...")
         .on("load", function () {
             button.classed ("disabled", false);
@@ -156,7 +160,7 @@ function showConsentForm() {
     instructions.style("display","block");
 
     instructions.select("div")
-        .style("margin-top","15px");
+        .style("margin-top","5px");
 
     d3.select("#main-container")
         .style("height","70%");
@@ -213,19 +217,20 @@ function createResultsInterface() {
             "and paste them in the required field in Amazon Mechanical Turk to receive your compensation." +
             "You can press the button below to automatically copy your results to the clipboard.");
     d3.select("#check").remove();
-
+    localStorage.clear();
 }
 
 function prepareResults() {
 
     var results = {};
-    results.condition = localStorage.getItem("condition");
-    results.userID = localStorage.getItem("id");
-    results.backgroundDone = localStorage.getItem("backgroundDone");
-    results.reviewTask = JSON.parse(localStorage.getItem("responsesReviewTask"));
-    results.predictionTask = JSON.parse(localStorage.getItem("responsesPredictionTask"));
-    results.postStudyDone = localStorage.getItem("postStudyDone");
+    results.cond = localStorage.getItem("condition");
+    results.id = localStorage.getItem("id");
+    results.bgDone = localStorage.getItem("backgroundDone");
+    results.rev = JSON.parse(localStorage.getItem("responsesReviewTask"));
+    results.pred = JSON.parse(localStorage.getItem("responsesPredictionTask"));
+    results.ptDone = localStorage.getItem("postStudyDone");
     results.logs = JSON.parse(localStorage.getItem("logs"));
+    results.shortq = JSON.parse(localStorage.getItem("shortQ"));
 
     return JSON.stringify(results);
 

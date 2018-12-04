@@ -5,7 +5,6 @@ var listItems3;
 
 // To load explanation data from json files
 function loadData(explanationsData, associationData) {
-    console.log("data is loaded!");
     d3.select('#list').append("div")
             .classed("explanation-options explanation-options-header vertical-align-center", true)
             .html("Activity")
@@ -25,19 +24,9 @@ function loadData(explanationsData, associationData) {
         .classed("explanation-options explanation-options-header vertical-align-center", true)
         .html("Rank")
         .style("font-size","medium");
-    // console.log("before rendering the explanations")
-    // for (var j = 0; j <explanationsData.length; j++) {
-    //     console.log("this is j: " + j);
-    //     loadExplanation(explanationsData);
-    // }
-    // Mahsan: I'm not sure about this!
     loadExplanation(explanationsData);
     loadCharts(associationData, "#4dcee4");
 }
-
-
-
-//to show explanations in panel 2
 
 function loadExplanation (data) {
     listItems = d3.select("#list").selectAll("a")
@@ -83,10 +72,7 @@ function loadExplanation (data) {
     listItems3.append("a")
         .classed("list-group-item list3", true)
         .style({
-            // "background-color": "#0686da",
             "background-color": "#4edcf4",
-            /*border: 1px solid #428aca24;*/
-            // "color": "white"
             "color": "#333333"
         })
         .append("p")
@@ -101,8 +87,6 @@ function loadExplanation (data) {
 
 //to clear the prevous list before loading new list dor each question
 function clear_list() {
-    //listItems.remove();
-    // d3.selectAll('g.button').remove();
     d3.selectAll('.list-group-item').remove();
     d3.select("#component-score-div").select(".panel-body").html("");
     d3.selectAll('.explanation-options').remove();

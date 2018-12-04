@@ -57,8 +57,8 @@ $(document).ready(function () {
 
     var isFirstVideo = true;
 
-    var file = 'assets/data/video_list_main.json';
-
+    var file = 'assets/data/video_list_main_new.json';
+    // var file = 'assets/data/video_list_main Original.json';
     d3.json(file, function(error, data) {
         if (error)
             console.log(error);
@@ -99,14 +99,17 @@ $(document).ready(function () {
         var sourceVideo = 'assets/videos/' + currentVideo.videoName;
         vid.src = sourceVideo;
         vid.load();
-        vid.currentTime = 0;
         isFirstVideo = false;
     }
 
     this.onVideoLoaded = function() {
 
+        document.getElementById("media-video").currentTime = 0;
         // This should be a different file for bad explanations!
-        file = 'assets/data/video_new.json';
+        if (localStorage.getItem("condition") == "2")
+            file = 'assets/data/video_new_bad.json';
+        else
+            file = 'assets/data/video_new_good.json';
         d3.json(file, function(error, data){
             if (error)
                 console.log(error);
@@ -130,7 +133,7 @@ $(document).ready(function () {
 
     function loadQuestion() {
         var currentQuestion =  currentVideoData[nextQueryIndex++];
-        console.log(currentQuestion);
+        // console.log(currentQuestion);
     //    1 . show the question and respond on the page. (D3)
         showQuery(currentQuestion);
         showResponse(currentQuestion);
@@ -150,7 +153,10 @@ $(document).ready(function () {
     this.loadNextQuery = function () {
         // Log the Click for current task
         var clickLocation = (localStorage.getItem("isPredictionTask")) == "false"?"performanceTask":"predictionTask";
-        createClickLog("loadNextQuery", clickLocation);
+        createClickLog("nxtQ", clickLocation);
+
+        // Make sure the video Progress bar is zero (basically for tasks without segment explanations
+        document.getElementById("media-video").currentTime = 0;
 
         if (nextQueryIndex == currentVideo.queryCount) {
 
@@ -203,17 +209,17 @@ $(document).ready(function () {
 
         var agreeDisagree = getValueOfSelected("#agree-disagree");
         var evaluation = getValueOfSelected("#evaluation");
-        console.log(currentVideoData[nextQueryIndex-1]);
+        // console.log(currentVideoData[nextQueryIndex-1]);
         var respondObject = {};
-            respondObject.videoName = currentVideo.videoName;
-            respondObject.queryId = currentVideoData[nextQueryIndex-1].questionId;
-            respondObject.agreeDisagree = agreeDisagree;
-            respondObject.evaluation = evaluation;
+            respondObject.vid = currentVideo.videoName;
+            respondObject.qid = currentVideoData[nextQueryIndex-1].questionId;
+            respondObject.yesNo = agreeDisagree;
+            respondObject.eval = evaluation;
         recordResults (respondObject, responses);
-        console.log(respondObject.agreeDisagree + " " + respondObject.evaluation);
+        // console.log(respondObject.agreeDisagree + " " + respondObject.evaluation);
 
-        var clickLocation = (localStorage.getItem("isPredictionTask")) == "false"?"performanceTask":"predictionTask";
-        createClickLog("submitAnswer", clickLocation);
+        var clickLocation = (localStorage.getItem("isPredictionTask")) == "false"?"rev":"pred";
+        createClickLog("submit", clickLocation);
 
         d3.select("#next").style("display", "block");
         d3.select("#submit").style("display", "none");
@@ -243,7 +249,8 @@ $(document).ready(function () {
             .on("click", function () {
                 // We don't need a survey for the no explanation conditions; hence, directly to the prediction task
                 if (localStorage.getItem("condition") == "3")
-                    location.href = './prediction-task.html';
+                    // location.href = './prediction-task.html';
+                    location.href = './Tutorial.html';
                 // No AI conditions go directly to the post-study questionnaire
                 else if (localStorage.getItem("condition") == "6") {
                     localStorage.setItem("isPredictionTask", "true");
@@ -279,7 +286,7 @@ $(document).ready(function () {
     };
 
     function recordResults(recordObject, array) {
-        recordObject.startQueryTime = startTime;
+        recordObject.qtime = startTime;
         // recordObject.userID = localStorage.getItem("id");
         array.push(recordObject);
     }
@@ -334,7 +341,7 @@ $(document).ready(function () {
             .attr("id", "question-section-header")
             .append("h")
             .classed("component", true)
-            .html("Query from the Video");
+            .html("Question from the Video");
         //query
         queryDiv.append("div")
             .attr("id","query")
@@ -402,13 +409,11 @@ $(document).ready(function () {
 
     this.createClickLog = function (clickInstrument, clickLocation) {
         var logObject = {};
-            logObject.video = currentVideo.videoName;
-            console.log("current question Index: " + nextQueryIndex + " and the instrument is " + clickInstrument);
-            console.log("current video data: " + currentVideoData[nextQueryIndex-1] );
-            logObject.question = currentVideoData[nextQueryIndex-1].questionId;
-            logObject.clickInstrument = clickInstrument;
-            logObject.clickLocation = clickLocation;
-            logObject.time = new Date().getTime();
+            logObject.vid = currentVideo.videoName;
+            logObject.qid = currentVideoData[nextQueryIndex-1].questionId;
+            logObject.obj = clickInstrument;
+            logObject.clickLoc = clickLocation;
+            logObject.t = new Date().getTime();
 
         var allTheLogs = JSON.parse(localStorage.getItem("logs"));
         allTheLogs.push(logObject);

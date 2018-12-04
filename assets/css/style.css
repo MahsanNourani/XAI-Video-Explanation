@@ -770,3 +770,28 @@ div#selection-panel-body {
     /*color: white;*/
     font-weight: bold;
 }
+
+.radio-btn-group {
+    margin-right: 9px !important;
+    border-radius: 4px !important;
+}
+
+#short-q-title {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f3f62e; /*#ffbe2b*/
+    text-align: center;
+    font-size: 22px;
+    color: #6b0000;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+
+.shortq-questions {
+    min-height: 35px;
+    /*background-color: #4edcf4;*/
+    justify-content: center;
+    margin-top: 1px;
+    color: white;
+}

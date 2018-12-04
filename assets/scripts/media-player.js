@@ -89,7 +89,7 @@ function changePos(event) {
     var box = progressBar.getBoundingClientRect();
     var pos = (event.pageX - box.left) / box.width;
     mediaPlayer.currentTime = (pos * mediaPlayer.duration);
-    createClickLog("progressbar", (pos * mediaPlayer.duration));
+    createClickLog("progBar", (pos * mediaPlayer.duration));
 }
 
 // Stop the current media from playing, and return it to the start position
@@ -226,7 +226,7 @@ function segment_buttons(start,end,explanations,associations) {
 
     var data=[];
     var mPlayer = document.getElementById("media-video");
-    console.log("video length: " + mPlayer.duration);
+    // console.log("video length: " + mPlayer.duration);
     if (!mPlayer.duration)
         console.log("ERROR: video has not been loaded yet !!")
 
@@ -235,7 +235,7 @@ function segment_buttons(start,end,explanations,associations) {
         var obj={};
         var startPercentage = start[i] / mPlayer.duration;
         var startPosition = Math.floor(startPercentage * w);
-        console.log(startPosition);
+        // console.log(startPosition);
 
         var endPercentage = end[i] / mPlayer.duration;
         var endPosition = Math.floor(endPercentage * w);
@@ -248,7 +248,7 @@ function segment_buttons(start,end,explanations,associations) {
         data.push(obj);
     }
 
-    console.log(data);
+    // console.log(data);
 
     var svg= d3.select("#segment")
         .append("svg")
@@ -297,8 +297,8 @@ function segment_buttons(start,end,explanations,associations) {
             }
         });
 
-    console.log("explanations " + explanations);
-    console.log("association" + associations);
+    // console.log("explanations " + explanations);
+    // console.log("association" + associations);
     loadData(explanations[0],associations[0]);
 
 
@@ -339,8 +339,9 @@ function segment_buttons(start,end,explanations,associations) {
     }
 
     // If no explanation or isPredictionTask, the progress bar should not move!;
-    if (localStorage.getItem("condition") == "3" || localStorage.getItem("isPredictionTask") == "true" || localStorage.getItem("condition") == "6") {
-        console.log("hello");
+    if (localStorage.getItem("condition") == "3" || localStorage.getItem("isPredictionTask") == "true" ||
+        localStorage.getItem("condition") == "6" || localStorage.getItem("condition") == "4") {
+        // console.log("hello");
         mPlayer.currentTime = 0;
     }
     else
@@ -481,7 +482,7 @@ function clear_segment(){
 
 function createDropDownForNoSegmentConditions(dataToChangeTime, explanations, associations) {
 
-    console.log(explanations);
+    // console.log(explanations);
     d3.select("#segment").remove();
     d3.select("#dropdown-div").remove();
     var mainDiv =
@@ -498,7 +499,7 @@ function createDropDownForNoSegmentConditions(dataToChangeTime, explanations, as
             .attr("value", "0")
             .attr("type", "button")
             .attr("data-toggle", "dropdown")
-            .html("Select Explanation Set ")
+            .html("Explanation Set #1 ")
             .append("span")
             .classed("caret", true);
 
@@ -512,24 +513,23 @@ function createDropDownForNoSegmentConditions(dataToChangeTime, explanations, as
         .append("li")
         .append("a")
         .html(function (d, i) {
-            console.log("here! " + d);
-            return "Explanation Set #" + i + " ";
+            // console.log("here! " + d);
+            return "Explanation Set #" + parseInt(i+1) + " ";
         })
         .on("click", function (d, i) {
-
             d3.select("#dropdown-btn")
                 .attr("value", function () {
                     return i;
                 })
                 .html(function () {
-                    return "Explanation Set #" + i + " ";
+                    return "Explanation Set #" + parseInt(i+1) + " ";
                 })
                 .append("span")
                 .classed("caret", true);
 
             clear_list();
-            mediaPlayer.currentTime=dataToChangeTime[i].start-0.20;
-            createClickLog ("Review Task", "dropdownAsSegment");
+            // mediaPlayer.currentTime=dataToChangeTime[i].start-0.20;
+            createClickLog ("rev", "dropdown");
             loadData(explanations[i], associations[i]);
         });
 }
