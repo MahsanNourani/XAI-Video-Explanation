@@ -6,6 +6,7 @@ $(document).ready(function () {
 
 function grantConsentToParticipate() {
     localStorage.clear();
+    localStorage.setItem("start", getDateTime());
     localStorage.setItem("isPredictionTask", "false");
     localStorage.setItem("id", generateID());
     // var condition = Link();
@@ -27,7 +28,12 @@ function generateID() {
 
 // Condition link is useless! remove it
 function generateCondition() {
-    return Math.floor(Math.random() * 6) + 1;
+    // return Math.floor(Math.random() * 6) + 1;
+    var condition = getUrlVars()['cond'];
+    if (condition == undefined)
+        return Math.floor(Math.random() * 6) + 1;
+    console.log(condition + " is the condition!");
+    return condition;
 }
 
 function showQuestionnaire() {
@@ -222,22 +228,30 @@ function createResultsInterface() {
             "and paste them in the required field in Amazon Mechanical Turk to receive your compensation." +
             "You can press the button below to automatically copy your results to the clipboard.");
     d3.select("#check").remove();
-    // localStorage.clear();
+    localStorage.clear();
 }
 
 function prepareResults() {
 
     var results = {};
+
     results.cond = localStorage.getItem("condition");
     results.id = localStorage.getItem("id");
-    results.bgDone = localStorage.getItem("backgroundDone");
+    // results.bgDone = localStorage.getItem("backgroundDone");
     results.rev = JSON.parse(localStorage.getItem("responsesReviewTask"));
     results.pred = JSON.parse(localStorage.getItem("responsesPredictionTask"));
-    results.ptDone = localStorage.getItem("postStudyDone");
+    // results.ptDone = localStorage.getItem("postStudyDone");
     results.logs = JSON.parse(localStorage.getItem("logs"));
     results.midQ = JSON.parse(localStorage.getItem("shortQ"));
     results.bgQ = JSON.parse(localStorage.getItem("bgQ"));
     results.psQ = JSON.parse(localStorage.getItem("post"));
+    results.strt = localStorage.getItem("start");
+    results.end = getDateTime();
+    results.revStrt = localStorage.getItem("revStart");
+    results.revEnd = localStorage.getItem("revEnd");
+    results.predStart = localStorage.getItem("predStart");
+    results.predEnd = localStorage.getItem("predEnd");
+
     return JSON.stringify(results);
 
 }
@@ -247,10 +261,14 @@ function backToTutorial() {
 }
 
 function continueToNextTask() {
-    if (localStorage.getItem("isPredictionTask") == "false")
+    if (localStorage.getItem("isPredictionTask") == "false") {
+        localStorage.setItem("revStart", getDateTime());
         location.href = './machine.html';
-    else
+    }
+    else {
+        localStorage.setItem("predStart", getDateTime());
         location.href = './prediction-task.html';
+    }
 }
 
 function getDateTime() {
@@ -305,3 +323,12 @@ function getDateTime() {
 
 
 }(window.document));
+
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}

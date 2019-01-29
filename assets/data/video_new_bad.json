@@ -1606,6 +1606,67 @@
             }
           }
         ]
+      },
+      {
+        "questionId" : 7,
+        "questionText" : "Is the sky dark during the night?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 7,
+            "endTime" : 9,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.5291
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.2347
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.1333
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   },
@@ -2264,6 +2325,67 @@
             "frameId" : 2,
             "startTime" : 34,
             "endTime" : 38,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.5291
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.2347
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.1333
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 7,
+        "questionText" : "Is the earth flat?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 7,
+            "endTime" : 9,
             "textExplanations" : [
               {
                 "approximation" : 1,

@@ -5,6 +5,11 @@ $(document).ready(function () {
         // d3.select("#video-segment").style("display", "none");
         d3.select("#video-segment").remove();
     }
+    else if (condition == 3) {
+        d3.select("#video-segment").remove();
+        d3.select("#detected-combinations").remove();
+        d3.select("#component-scores").remove();
+    }
     else if (condition == 5) /*no component scores*/ {
         // d3.select("#detected-combinations").style("display", "none");
         // d3.select("#component-scores").style("display", "none");

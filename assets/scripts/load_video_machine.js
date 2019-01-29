@@ -247,12 +247,13 @@ $(document).ready(function () {
             .attr("type","button")
             .html("Continue")
             .on("click", function () {
+                localStorage.setItem("revEnd", getDateTime());
                 // We don't need a survey for the no explanation conditions; hence, directly to the prediction task
-                if (localStorage.getItem("condition") == "3")
-                    // location.href = './prediction-task.html';
-                    location.href = './Tutorial.html';
+                // if (localStorage.getItem("condition") == "3")
+                //     // location.href = './prediction-task.html';
+                //     location.href = './Tutorial.html';
                 // No AI conditions go directly to the post-study questionnaire
-                else if (localStorage.getItem("condition") == "6") {
+                if (localStorage.getItem("condition") == "6") {
                     localStorage.setItem("isPredictionTask", "true");
                     // location.href = './index.html';
                     location.href = './post-study.html'
@@ -281,6 +282,7 @@ $(document).ready(function () {
             .html("Continue")
             .on("click", function () {
                 // location.href = './index.html';
+                localStorage.setItem("predEnd", getDateTime());
                 location.href = './post-study.html';
             });
 
