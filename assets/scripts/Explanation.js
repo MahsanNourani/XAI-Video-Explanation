@@ -6,15 +6,14 @@ var listItems3;
 function createString (explanation) {
     var string = "<b>"
         + explanation.action;
-
-    console.log (string);
+    string = string.replace(/-/g, " ");
     return string;
 }
 
 function createString1 (explanation) {
     var string = "<b>"
         + explanation.object;
-    console.log (string);
+    string = string.replace(/-/g, " ");
     return string;
 }
 
@@ -22,7 +21,7 @@ function createString1 (explanation) {
 function createString2 (explanation) {
     var string = "<b>"
         + explanation.location;
-    console.log (string);
+    string = string.replace(/-/g, " ");
     return string;
 }
 
@@ -75,7 +74,7 @@ function loadData(explanationsData, associationData)
     for (var j = 0; j <explanationsData.length; j++) {
         loadExplanation(explanationsData)
     }
-    loadCharts(associationData, "#4dcee4");
+    loadCharts(associationData, "#8aabff");
     // loadChartsTemp(associationData, "#008185");
 
 }
@@ -131,9 +130,9 @@ function loadExplanation (data) {
     listItems3.append("a")
         .classed("list-group-item list3", true)
         .style({
-            "background-color": "#0686da",
+            "background-color": "#8aabff"
             /*border: 1px solid #428aca24;*/
-            "color": "white"
+            // "color": "white"
         })
         .append("p")
         .classed("explanation-options vertical-align-center", true)

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TACOS Corpus</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/main-style.css" rel="stylesheet" />
+    <script src="assets/plugins/d3.js"></script>
+</head>
+<body>
+<!--  wrapper -->
+<div id="wrapper">
+    <!--  page-wrapper -->
+    <div id="page-wrapper">
+
+        <div class="row">
+
+            <div style="margin-left: 400px;margin-top: 300px;">
+
+                <button class="btn btn-success" id="no" type="button">No Explanation</button>
+                <br> <br>
+                <button class="btn btn-success" id="machine" type="button">Machine Explanation</button>
+                <br>
+            </div>
+        </div>
+
+    </div>
+    <!-- end page-wrapper -->
+
+</div>
+
+<script>
+
+
+    var btn1= d3.select("#no");
+
+    btn1.on("click",function(d){
+
+        location.href="./no.html";
+
+    });
+
+
+
+    var btn2= d3.select("#machine");
+
+    btn2.on("click",function(d){
+
+        location.href="./machine.html"
+
+    })
+
+</script>
+
+</body>
+
+</html>

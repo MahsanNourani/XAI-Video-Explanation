@@ -7,54 +7,188 @@
     <!-- Core CSS - Include with every page -->
     <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!--<link href="assets/fonts/glyphicons-halflings-regular.woff" rel="stylesheet"/>-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/main-style.css" rel="stylesheet" />
+    <link href="assets/css/checkbox.css" rel="stylesheet"/>
+    <link href="assets/css/questions-video.css" rel="stylesheet"/>
+    <link href='assets/css/media-player.css' rel='stylesheet' />
     <script src="assets/plugins/d3.js"></script>
-   </head>
+</head>
 <body>
-    <!--  wrapper -->
-    <div id="wrapper">
-        <!--  page-wrapper -->
-        <div id="page-wrapper">
+<!--  wrapper -->
+<div id="wrapper">
+    <div id="page-wrapper">
+        <div class="row">
+            <!--Media Player-->
+            <div class="col-lg-5 main-boxes">
+                <!--Video Area -->
+                <div class="panel panel-primary">
+                    <div id="video-panel" class="panel-body">
+                        <div id='media-player' class="col-md-12">
+                            <video id='media-video' class="col-md-12" controls>
+                                <!-- <source src='s22-d23.mp4' type='video/mp4'> -->
+                            </video>
+                            <div id='media-controls'>
+                                <table class="col-md-12">
+                                    <tr>
+                                        <td style="width: 20%;">
+                                            <div id="allButton">
 
-            <div class="row">
+                                                <button id='play-pause-button' class='play media-player-btn' title='play' onclick='togglePlayPause();'><i class="fa fa-play" id="transportIcon"></i></button>
+                                                <button id='stop-button' class='stop media-player-btn' title='stop' onclick='stopPlayer();'><i class="fa fa-stop"></i></button>
+                                                <button id='replay-button' class='replay media-player-btn' title='replay' onclick='replayMedia();'><i class="fa fa-repeat"></i></button>
+                                            </div>
+                                            <div id="position"> </div>
+                                        </td>
 
-                <div style="margin-left: 400px;margin-top: 300px;">
+                                        <!--<td style="width: 12%;">-->
+                                        <!--<div id="showTime">-->
+                                        <!--0.0ms-->
+                                        <!--</div>-->
+                                        <!--<div id="position"></div>-->
+                                        <!---->
+                                        <!--</td>-->
 
-                    <button class="btn btn-success" id="no" type="button">No Explanation</button>
-                    <br> <br>
-                    <button class="btn btn-success" id="machine" type="button">Machine Explanation</button>
-                    <br>
+                                        <td style="width: 67%;">
+                                            <!-- for progress bar -->
+                                            <div class="progress" id="progress-bar" onclick='changePos(event);'>
+                                                <div class="progress-bar progress-bar-success" id='dynamic' role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                                    <span id="current-progress"></span>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- for buttons -->
+                                            <div id="segment" style="width:100%">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Video Area -->
+
+            </div>
+            <!--End of Media Player-->
+
+
+            <!-- Explanation Panel-->
+            <div class="col-lg-5 main-boxes">
+                <div class="panel panel-primary" id="explanation-box">
+                <div class="panel-heading output-panel-header">
+                    <h class="header"><b>Detected Combinations of Components</b></h>
+                </div>
+
+                <div class="panel-body">
+                    <table class="col-md-12">
+                        <td class="table-col" id = "rank">
+                            <div class="list-group list3" id="list3" >
+
+                            </div>
+                        </td>
+                        <td class="table-col">
+                            <div class="list-group list" id="list">
+                            </div>
+                        </td>
+                        <td class="table-col">
+                            <div class="list-group list" id="list1">
+                            </div>
+                        </td>
+
+                        <td class="table-col">
+                            <div class="list-group list" id="list2">
+                            </div>
+                        </td>
+                    </table>
+
                 </div>
             </div>
+            </div>
+            <!--End Explanation Panel-->
+            <div class="col-lg-2 main-boxes">
+                <div class="panel panel-primary" id="component-score-div">
+                <div class="panel-heading output-panel-header">
+                    <h class="header"><b>Component Score</b></h>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-md-12 component-score" id="marginal-score"></div>
+                </div>
+
+            </div>
+            </div>
+            <!--</div>-->
+            <!--End of Explanation Div-->
 
         </div>
-        <!-- end page-wrapper -->
+        <div class="row">
+            <div class="col-md-3 main-boxes">
+                <div class="panel panel-primary">
+                    <div class="panel-heading user-task-panel-header">
+                        <h class="header"><b>Select Video</b></h>
+                    </div>
+                    <div class="panel-body" id="video-select">
+                        <input type="file" id="video_selector" accept="video/*"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 main-boxes">
+                <div class="panel panel-primary">
+                    <div class="panel-heading user-task-panel-header">
+                        <h class="header"><b>Select Query</b></h>
+                    </div>
+                    <div class="panel-body" id="queries">
+                        <div id="sel" class="col-md-12">
+                            <div class="row" >
+                                <div class="input-group col-md-12">
+                                    <select id="mySelect" class="col-md-12"> </select>
+                                    <!--<button class="btn btn-success col-md-3" id="button1" type="button">Submit Question</button>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="answer" class="well vertical-align-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 main-boxes">
+                <div class="panel panel-primary">
+                    <div class="panel-heading user-task-panel-header">
+                        <h class="header"><b>Options</b></h>
+                    </div>
+                    <div class="panel-body" id="options">
 
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-<script>
-
-
-    var btn1= d3.select("#no");
-
-    btn1.on("click",function(d){
-
-        location.href="./no.html";
-
-    });
+</div>
+</div>
+<!-- end wrapper -->
 
 
+<script src="assets/scripts/load_video_machine.js"></script>
+<script src="assets/plugins/jquery-1.10.2.js"></script>
+<script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="assets/plugins/d3.min.js"></script>
+<script src="assets/scripts/Explanation.js"></script>
+<!--<script src="assets/scripts/Video.js"></script>-->
+<script type="text/javascript" src="assets/data/Video.json"></script>
+<script src="assets/scripts/newCharts.js"></script>
+<script src="assets/scripts/options.js"></script>
+<script src='assets/scripts/media-player.js'></script>
 
-    var btn2= d3.select("#machine");
+<!-- <script>
+</script> -->
 
-    btn2.on("click",function(d){
-
-        location.href="./machine.html"
-
-    })
-
-</script>
 
 </body>
 

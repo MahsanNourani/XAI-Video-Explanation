@@ -17,7 +17,7 @@ limitations under the License.*/
 /* ------------------------------- */
 
 body {
-    background-color: #d2d4d9;
+    background-color: #bad8dc;
     /*overflow-y: hidden;*/
     height: 100%;
 }
@@ -39,7 +39,7 @@ html {
     padding: 0 15px;
     min-height: 568px;
     width: 100%;
-    background-color:rgb(209, 212, 216);
+    background-color:#bad8dc;
 }
 
 
@@ -376,10 +376,9 @@ canvas, img {
 #video-panel {
     height: inherit;
     overflow: auto;
-    min-height: 510px;
+    min-height: 497px;
     background-color: #ffffff;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-radius: 4px;
 }
 
 .selection-panel {
@@ -452,15 +451,15 @@ div#selection-panel-body {
     border: none;
 }
 .list3 {
-    background-color: #0686da;
+    background-color: #8aabff;
     /*border: 1px solid #428aca24;*/
-    color: white;
+    /*color: white;*/
 }
 
 .table-col {
     width: 30%;
     text-align: center;
-    border-top: 0.5px solid white;
+    /*border-top: 0.5px solid white;*/
 }
 
 /*.panel-body {*/
@@ -469,7 +468,7 @@ div#selection-panel-body {
 
 #explanation-box {
     margin-bottom: 6px;
-    min-height: 232px;
+    min-height: 231px;
     overflow-y: scroll;
 }
 
@@ -534,7 +533,7 @@ div#selection-panel-body {
 
 .list{
     /*width: 30%;*/
-    background-color: #4eddf4;
+    background-color: #8aabff;
 }
 
 /*#list1{*/
@@ -565,8 +564,8 @@ div#selection-panel-body {
 
 #component-score-div {
     /*min-height: 402px;*/
-    min-height: 250px;
-    background-color: #f5fbff;
+    min-height: 233px;
+    /*background-color: #f5fbff;*/
     margin-bottom: 6px;
 }
 
@@ -659,4 +658,23 @@ div#selection-panel-body {
     color: white;
     background-color: #3495a6;
     /*border-color: #adadad;*/
+}
+
+
+.user-task-panel-header {
+    background-color: #135b62 !important;
+    border-color: #135b62 !important;
+}
+
+.output-panel-header {
+    background-color: #001e63 !important;
+    border-color: #001e63 !important;
+}
+
+#options {
+    height: 180px;
+}
+
+.option-item {
+    margin-top: 23px;
 }
