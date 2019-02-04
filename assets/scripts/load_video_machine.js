@@ -21,7 +21,7 @@
       $("#panel-body-question").show("slow");
   };
   var inputNode = document.querySelector('input');
-  inputNode.addEventListener('change', playSelectedFile, false)
+  // inputNode.addEventListener('change', playSelectedFile, false)
 
 })()
 

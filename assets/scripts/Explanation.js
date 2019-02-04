@@ -5,7 +5,7 @@ var listItems3;
 
 function createString (explanation) {
     var string = "<b>"
-        + explanation.action;
+        + explanation.activity;
     string = string.replace(/-/g, " ");
     return string;
 }
@@ -30,7 +30,7 @@ function createString3 (explanation) {
     // var string =  (explanation.accuracy*100).toFixed(2) +"%";
     // console.log (string);
     // return string;
-    return explanation.accuracy;
+    return explanation.approximation;
 }
 
 // To load explanation data from json files
@@ -150,7 +150,7 @@ function clear_list(flag){
     //listItems.remove();
     // d3.selectAll('g.button').remove();
     d3.selectAll('.list-group-item').remove();
-
+    d3.select('#marginal-score').html("");
     d3.selectAll('.explanation-options').remove();
 
 }

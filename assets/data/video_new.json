@@ -1,71 +1,17 @@
 [
   {
-    "videoName" : "s21-d28.mp4",
+    "videoName" : "s13-d27.mp4",
     "listOfQuestions" : [
       {
         "questionId" : 1,
-        "questionText" : "Does the person cut off the ends of the orange?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 33,
-            "endTime" : 68,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "knife",
-                "activity" : "cut-off-ends",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "cutting-board",
-                "activity" : "cut-off-ends",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "carrot",
-                "activity" : "cut-off-ends",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "knife",
-                  "probability" : 0.8682
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.1270
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.0193
-                }
-              ],
-              "listOfAllDetectedLocation" : [ ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "cut-off-ends",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 2,
-        "questionText" : "Does the person take something out from the cupboard and place it on the counter?",
+        "questionText" : "Does the person take out a plate from the cupboard and place it on the counter?",
         "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 27,
-            "endTime" : 32,
+            "startTime" : 30,
+            "endTime" : 37,
             "textExplanations" : [
               {
                 "approximation" : 1,
@@ -75,73 +21,18 @@
               }
             ],
             "associatedFeatures" : {
-                "listOfAllDetectedObject" : [
-                  {
-                    "name" : "plate",
-                    "probability" : 1.0000
-                  }
-                ],
-                "listOfAllDetectedLocation" : [
-                  {
-                    "name" : "cupboard-counter",
-                    "probability" : 1.0000
-                  }
-                ],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "take-out",
-                    "probability" : 0.9993
-                  }
-                ]
-              }
-            }
-          ]
-      },
-      {
-        "questionId" : 3,
-        "questionText" : "Does the person take the knife out of the drawer?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 9,
-            "endTime" : 12,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "knife",
-                "activity" : "take-out",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "cutting-board",
-                "activity" : "take-out",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "carrot",
-                "activity" : "take-out",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
               "listOfAllDetectedObject" : [
                 {
-                  "name" : "knife",
-                  "probability" : 0.7433
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.2195
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.0371
+                  "name" : "plate",
+                  "probability" : 1.0000
                 }
               ],
-              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cupboard-counter",
+                  "probability" : 1.0000
+                }
+              ],
               "listOfAllDetectedAction" : [
                 {
                   "name" : "take-out",
@@ -153,14 +44,15 @@
         ]
       },
       {
-        "questionId" : 4,
-        "questionText" : "Does the person peel an apple?",
+        "questionId" : 2,
+        "questionText" : "Does the person peel an onion?",
         "computerAnswer" : "No",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 33,
-            "endTime" : 50,
+            "startTime" : 53,
+            "endTime" : 66,
             "textExplanations" : [
               {
                 "approximation" : 1,
@@ -170,14 +62,14 @@
               },
               {
                 "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "throw-in-garbage",
+                "object" : "hand",
+                "activity" : "peel",
                 "location" : "n/a"
               },
               {
                 "approximation" : 3,
-                "object" : "hand",
-                "activity" : "shake",
+                "object" : "knife",
+                "activity" : "peel",
                 "location" : "n/a"
               }
             ],
@@ -185,34 +77,30 @@
               "listOfAllDetectedObject" : [
                 {
                   "name" : "carrot",
-                  "probability" : 1.0000
+                  "probability" : 0.4575
                 },
                 {
                   "name" : "hand",
-                  "probability" : 0.8520
+                  "probability" : 0.4228
+                },
+                {
+                  "name" : "knife",
+                  "probability" : 0.0986
                 }
               ],
-              "listOfAllDetectedLocation" : [ ],
+              "listOfAllDetectedLocation" : [],
               "listOfAllDetectedAction" : [
                 {
                   "name" : "peel",
                   "probability" : 0.9706
-                },
-                {
-                  "name" : "throw-in-garbage",
-                  "probability" : 0.0187
-                },
-                {
-                  "name" : "shake",
-                  "probability" : 0.0108
                 }
               ]
             }
           },
           {
             "frameId" : 2,
-            "startTime" : 56,
-            "endTime" : 61,
+            "startTime" : 82,
+            "endTime" : 106,
             "textExplanations" : [
               {
                 "approximation" : 1,
@@ -222,14 +110,14 @@
               },
               {
                 "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "throw-in-garbage",
+                "object" : "hand",
+                "activity" : "peel",
                 "location" : "n/a"
               },
               {
                 "approximation" : 3,
-                "object" : "hand",
-                "activity" : "shake",
+                "object" : "knife",
+                "activity" : "peel",
                 "location" : "n/a"
               }
             ],
@@ -237,26 +125,83 @@
               "listOfAllDetectedObject" : [
                 {
                   "name" : "carrot",
-                  "probability" : 1.0000
+                  "probability" : 0.4575
                 },
                 {
                   "name" : "hand",
-                  "probability" : 0.8520
+                  "probability" : 0.4228
+                },
+                {
+                  "name" : "knife",
+                  "probability" : 0.0986
                 }
               ],
-              "listOfAllDetectedLocation" : [ ],
+              "listOfAllDetectedLocation" : [],
               "listOfAllDetectedAction" : [
                 {
                   "name" : "peel",
                   "probability" : 0.9706
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 3,
+        "questionText" : "Does the person take out a cutting board?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 8,
+            "endTime" : 12,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.5291
                 },
                 {
-                  "name" : "throw-in-garbage",
-                  "probability" : 0.0187
+                  "name" : "chefs-knife",
+                  "probability" : 0.2347
                 },
                 {
-                  "name" : "shake",
-                  "probability" : 0.0108
+                  "name" : "carrot",
+                  "probability" : 0.1333
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
                 }
               ]
             }
@@ -265,12 +210,405 @@
       },
       {
         "questionId" : 5,
-        "questionText" : "Does the person take out anything from the fridge?",
+        "questionText" : "Does the person take out a plate from the drawer and place it on the counter?",
         "computerAnswer" : "No",
+        "correctAnswer" : "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 27,
+            "startTime" : 8,
+            "endTime" : 12,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.5291
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.2347
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.1333
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 6,
+        "questionText" : "Does the person take out the knife from the fridge?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 14,
+            "endTime" : 19,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "knife",
+                "activity" : "take-out",
+                "location" : "drawer-cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "take-out",
+                "location" : "drawer-cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "knife",
+                  "probability" : 0.7511
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.1782
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.0402
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "videoName" : "s17-d55.mp4",
+    "listOfQuestions" : [
+      {
+        "questionId" : 1,
+        "questionText" : "Does the person take out the knife?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 33,
+            "endTime" : 39,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "knife",
+                "activity" : "take-out",
+                "location" : "drawer-cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "take-out",
+                "location" : "drawer-cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "knife",
+                  "probability" : 0.7511
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.1782
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.0402
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 2,
+        "questionText" : "Does the person take out a plate?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 63,
+            "endTime" : 67,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "plate",
+                "activity" : "take-out",
+                "location" : "cupboard-counter"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "plate",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cupboard-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 3,
+        "questionText" : "Does the person take something out from the drawer and place it on the counter?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 6,
+            "endTime" : 10,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.5291
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.2347
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.1333
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 5,
+        "questionText" : "Does the person take the plate out from the fridge?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 63,
+            "endTime" : 67,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "plate",
+                "activity" : "take-out",
+                "location" : "cupboard-counter"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "plate",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cupboard-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 6,
+        "questionText" : "Does the person throw his hand in the garbage?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 55,
+            "endTime" : 59,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "hand",
+                "activity" : "throw-in-garbage",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "throw-in-garbage",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "peel",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "hand",
+                  "probability" : 0.9508
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.0492
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "throw-in-garbage",
+                  "probability" : 0.6727
+                },
+                {
+                  "name" : "peel",
+                  "probability" : 0.3273
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "videoName" : "s21-d28.mp4",
+    "listOfQuestions" : [
+      {
+        "questionId" : 1,
+        "questionText" : "Does the person take the plate out from the cupboard and place it on the counter?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 29,
             "endTime" : 32,
             "textExplanations" : [
               {
@@ -300,23 +638,306 @@
                 }
               ]
             }
-          },
+          }
+        ]
+      },
+      {
+        "questionId" : 2,
+        "questionText" : "Does the person wash the knife?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
           {
-            "frameId" : 2,
-            "startTime" : 9,
-            "endTime" : 12,
+            "frameId" : 1,
+            "startTime" : 69,
+            "endTime" : 73,
             "textExplanations" : [
               {
                 "approximation" : 1,
                 "object" : "knife",
-                "activity" : "take-out",
+                "activity" : "wash",
                 "location" : "n/a"
               },
               {
                 "approximation" : 2,
+                "object" : "hand",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "knife",
+                  "probability" : 0.6070
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2218
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.1041
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "wash",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 3,
+        "questionText" : "Does the person shake the water off from his hand?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 123,
+            "endTime" : 125,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "hand",
+                "activity" : "shake",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "shake",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "peel",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "hand",
+                  "probability" : 0.9965
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.0035
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "shake",
+                  "probability" : 0.9115
+                },
+                {
+                  "name" : "peel",
+                  "probability" : 0.0885
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 4,
+        "questionText" : "Does the person peel the knife?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 33,
+            "endTime" : 67,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "knife",
+                "activity" : "peel",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "peel",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "peel",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "knife",
+                  "probability" : 0.9018
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.0845
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.0136
+                }
+              ],
+              "listOfAllDetectedLocation" : [ ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "peel",
+                  "probability" : 0.9706
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 6,
+        "questionText" : "Does the person take out the plate from the fridge and place it inside the sink?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 29,
+            "endTime" : 32,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "plate",
+                "activity" : "take-out",
+                "location" : "cupboard-counter"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "plate",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cupboard-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "videoName" : "s22-d23.mp4",
+    "listOfQuestions" : [
+      {
+        "questionId" : 1,
+        "questionText" : "Does the person move a piece of carrot from the counter to the cutting board?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 91,
+            "endTime" : 94,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "move",
+                "location" : "counter-cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "hand",
+                "activity" : "move",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "chefs-knife",
+                "activity" : "move",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.4873
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2531
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.1673
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "counter-cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "move",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 2,
+        "questionText" : "Does the person take out a peeler from the drawer?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 31,
+            "endTime" : 37,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
                 "object" : "cutting-board",
                 "activity" : "take-out",
-                "location" : "n/a"
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
               },
               {
                 "approximation" : 3,
@@ -328,19 +949,77 @@
             "associatedFeatures" : {
               "listOfAllDetectedObject" : [
                 {
-                  "name" : "knife",
-                  "probability" : 0.7433
+                  "name" : "cutting-board",
+                  "probability" : 0.5291
                 },
                 {
-                  "name" : "cutting-board",
-                  "probability" : 0.2195
+                  "name" : "chefs-knife",
+                  "probability" : 0.2347
                 },
                 {
                   "name" : "carrot",
-                  "probability" : 0.0371
+                  "probability" : 0.1333
                 }
               ],
-              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 2,
+            "startTime" : 54,
+            "endTime" : 57,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "knife",
+                "activity" : "take-out",
+                "location" : "drawer-cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "take-out",
+                "location" : "drawer-cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "knife",
+                  "probability" : 0.7511
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.1782
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.0402
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
               "listOfAllDetectedAction" : [
                 {
                   "name" : "take-out",
@@ -352,28 +1031,180 @@
         ]
       },
       {
-        "questionId" : 6,
-        "questionText" : "Does the person cut off the ends of an apple in the sink?",
-        "computerAnswer" : "No",
+        "questionId" : 3,
+        "questionText" : "Does the person take out a carrot from the fridge?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 32,
-            "endTime" : 37,
+            "startTime" : 14,
+            "endTime" : 19,
             "textExplanations" : [
               {
                 "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "cut-off-ends",
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "fridge"
+              },
+              {
+                "approximation" : 2,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
                 "location" : "n/a"
               }
             ],
             "associatedFeatures" : {
-              "listOfAllDetectedObject" : [],
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.5426
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.2157
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.1163
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "fridge",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 4,
+        "questionText" : "Does the person scratch off bits off pepper from his knife onto the cutting board?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 117,
+            "endTime" : 119,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "scratch-off",
+                "location" : "chefs-knife-cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "scratch-off",
+                "location" : "cutting-board"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "peel",
+                "location" : "cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 1.0000
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.0488
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "chefs-knife-cutting-board",
+                  "probability" : 1.0000
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "scratch-off",
+                  "probability" : 0.9028
+                },
+                {
+                  "name" : "peel",
+                  "probability" : 0.0972
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 6,
+        "questionText" : "Does the person wash a pepper?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 20,
+            "endTime" : 25,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "hand",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.6455
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2641
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.0680
+                }
+              ],
               "listOfAllDetectedLocation" : [],
               "listOfAllDetectedAction" : [
                 {
-                  "name" : "cut-off-ends",
+                  "name" : "wash",
                   "probability" : 1.0000
                 }
               ]
@@ -388,8 +1219,367 @@
     "listOfQuestions" : [
       {
         "questionId" : 1,
-        "questionText" : "Does the person take out the pineapple and the cutting board?",
+        "questionText" : "Does the person wash the cutting board?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 206,
+            "endTime" : 214,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.3220
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.3096
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2361
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "wash",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 2,
+        "questionText" : "Does the person wash his hands?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 351,
+            "endTime" : 354,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "hand",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "hand",
+                  "probability" : 0.9256
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.0489
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.0162
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "wash",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 3,
+        "questionText" : "Does the person cut apart the pineapple on the cutting board?",
         "computerAnswer" : "No",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 40,
+            "endTime" : 60,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "chefs-knife",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.9452
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.0546
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "cut-apart",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 2,
+            "startTime" : 63,
+            "endTime" : 198,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "chefs-knife",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.9452
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.0546
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "cut-apart",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 5,
+        "questionText" : "Does the person wash a pineapple?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 206,
+            "endTime" : 214,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.3220
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.3096
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2361
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "wash",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 2,
+            "startTime" : 351,
+            "endTime" : 354,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "hand",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "hand",
+                  "probability" : 0.9256
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.0489
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.0162
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "wash",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 3,
+            "startTime" : 359,
+            "endTime" : 366,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "chefs-knife",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.5084
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.4393
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.0455
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "wash",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 6,
+        "questionText" : "Does the person take out the cutting board from the fridge?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
@@ -443,11 +1633,19 @@
                 }
               ]
             }
-          },
+          }
+        ]
+      },
+      {
+        "questionId" : 7,
+        "questionText" : "Is the sky dark during the night?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
           {
-            "frameId" : 2,
-            "startTime" : 10,
-            "endTime" : 13,
+            "frameId" : 1,
+            "startTime" : 7,
+            "endTime" : 9,
             "textExplanations" : [
               {
                 "approximation" : 1,
@@ -496,736 +1694,7 @@
                 }
               ]
             }
-          },
-          {
-            "frameId" : 3,
-            "startTime" : 13,
-            "endTime" : 21,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "plate",
-                "activity" : "take-out",
-                "location" : "cupboard-counter"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "plate",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cupboard-counter",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "take-out",
-                  "probability" : 0.9993
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 4,
-            "startTime" : 22,
-            "endTime" : 31,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "plate",
-                "activity" : "take-out",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "plate",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "take-out",
-                  "probability" : 0.9993
-                }
-              ]
-            }
           }
-        ]
-      },
-      {
-        "questionId" : 2,
-        "questionText" : "Does the person cut something apart on the cutting board?",
-        "computerAnswer" : "Yes",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 40,
-            "endTime" : 58,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "cut-apart",
-                "location" : "cutting-board"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "cut-apart",
-                "location" : "cutting-board"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "cut-apart",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 215,
-            "endTime" : 317,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "cut-apart",
-                "location" : "cutting-board"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "cut-apart",
-                "location" : "cutting-board"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.8305
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "cut-apart",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 3,
-        "questionText" : "Does the move the pineapple from the cutting board to the counter?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 36,
-            "endTime" : 38,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-counter"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "move",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "plate",
-                "activity" : "move",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.6805
-                },
-                {
-                  "name" : "plate",
-                  "probability" : 0.1190
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-counter",
-                  "probability" : 0.9766
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 215,
-            "endTime" : 317,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-counter"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "move",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "plate",
-                "activity" : "move",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.6805
-                },
-                {
-                  "name" : "plate",
-                  "probability" : 0.1190
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-counter",
-                  "probability" : 0.9766
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 4,
-        "questionText" : "Does the person move the cutting board?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 36,
-            "endTime" : 38,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-counter"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "move",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "plate",
-                "activity" : "move",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.6805
-                },
-                {
-                  "name" : "plate",
-                  "probability" : 0.1190
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-counter",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 215,
-            "endTime" : 317,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-counter"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "move",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "plate",
-                "activity" : "move",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.6805
-                },
-                {
-                  "name" : "plate",
-                  "probability" : 0.1190
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-counter",
-                  "probability" : 0.9766
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 3,
-            "startTime" : 180,
-            "endTime" : 219,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              },
-              {
-                "approximation" : 3,
-                "object" : "plate",
-                "activity" : "move",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.6805
-                },
-                {
-                  "name" : "plate",
-                  "probability" : 0.1190
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-plate",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 4,
-            "startTime" : 320,
-            "endTime" : 351,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              },
-              {
-                "approximation" : 3,
-                "object" : "plate",
-                "activity" : "move",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.6805
-                },
-                {
-                  "name" : "plate",
-                  "probability" : 0.1190
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-plate",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 5,
-        "questionText" : "Does the person cut apart anything on the plate?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-            {
-              "frameId" : 1,
-              "startTime" : 50,
-              "endTime" : 60,
-              "textExplanations" : [
-                {
-                  "approximation" : 1,
-                  "object" : "n/a",
-                  "activity" : "cut-apart",
-                  "location" : "cutting-board"
-                },
-                {
-                  "approximation" : 2,
-                  "object" : "carrot",
-                  "activity" : "cut-apart",
-                  "location" : "cutting-board"
-                }
-              ],
-              "associatedFeatures" : {
-                "listOfAllDetectedObject" : [
-                  {
-                    "name" : "carrot",
-                    "probability" : 1.0000
-                  }
-                ],
-                "listOfAllDetectedLocation" : [
-                  {
-                    "name" : "cutting-board",
-                    "probability" : 1.0000
-                  }
-                ],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "cut-apart",
-                    "probability" : 1.0000
-                  }
-                ]
-              }
-            },
-            {
-              "frameId" : 2,
-              "startTime" : 64,
-              "endTime" : 185,
-              "textExplanations" : [
-                {
-                  "approximation" : 1,
-                  "object" : "n/a",
-                  "activity" : "cut-apart",
-                  "location" : "cutting-board"
-                },
-                {
-                  "approximation" : 2,
-                  "object" : "carrot",
-                  "activity" : "cut-apart",
-                  "location" : "cutting-board"
-                }
-              ],
-              "associatedFeatures" : {
-                "listOfAllDetectedObject" : [
-                  {
-                    "name" : "carrot",
-                    "probability" : 1.0000
-                  }
-                ],
-                "listOfAllDetectedLocation" : [
-                  {
-                    "name" : "cutting-board",
-                    "probability" : 0.8700
-                  }
-                ],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "cut-apart",
-                    "probability" : 1.0000
-                  }
-                ]
-              }
-            },
-            {
-              "frameId" : 3,
-              "startTime" : 220,
-              "endTime" : 312,
-              "textExplanations" : [
-                {
-                  "approximation" : 1,
-                  "object" : "n/a",
-                  "activity" : "cut-apart",
-                  "location" : "cutting-board"
-                },
-                {
-                  "approximation" : 2,
-                  "object" : "carrot",
-                  "activity" : "cut-apart",
-                  "location" : "cutting-board"
-                }
-              ],
-              "associatedFeatures" : {
-                "listOfAllDetectedObject" : [
-                  {
-                    "name" : "carrot",
-                    "probability" : 1.0000
-                  }
-                ],
-                "listOfAllDetectedLocation" : [
-                  {
-                    "name" : "cutting-board",
-                    "probability" : 0.8700
-                  }
-                ],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "cut-apart",
-                    "probability" : 1.0000
-                  }
-                ]
-              }
-            }
-          ]
-      },
-      {
-        "questionId" : 6,
-        "questionText" : "Does the person wash the pineapple in the sink?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 205,
-            "endTime" : 215,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "hand",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "cutting-board",
-                "activity" : "wash",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "hand",
-                  "probability" : 0.3618
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.3177
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.2278
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "wash",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 351,
-            "endTime" : 356,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "hand",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "cutting-board",
-                "activity" : "wash",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "hand",
-                  "probability" : 0.9544
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.0338
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.0077
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "wash",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 3,
-            "startTime" : 357,
-            "endTime" : 366,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "carrot",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "cutting-board",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "chefs-knife",
-                "activity" : "wash",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                  {
-                    "name" : "carrot",
-                    "probability" : 0.5876
-                  },
-                  {
-                    "name" : "cutting-board",
-                    "probability" : 0.3499
-                  },
-                  {
-                    "name" : "chefs-knife",
-                    "probability" : 0.0508
-                  }
-                ],
-                "listOfAllDetectedLocation" : [],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "wash",
-                    "probability" : 1.0000
-                  }
-                ]
-              }
-            }
         ]
       }
     ]
@@ -1235,422 +1704,13 @@
     "listOfQuestions" : [
       {
         "questionId" : 1,
-        "questionText" : "Does the person take out the carrot and the side-peeler?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 9,
-            "endTime" : 32,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "carrot",
-                "activity" : "take-out",
-                "location" : "fridge"
-              },
-              {
-                "approximation" : 2,
-                "object" : "cutting-board",
-                "activity" : "take-out",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "chefs-knife",
-                "activity" : "take-out",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 0.5980
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.2405
-                },
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.1285
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "fridge",
-                  "probability" : 0.9286
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "take-out",
-                  "probability" : 0.9993
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 38,
-            "endTime" : 45,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "plate",
-                "activity" : "take-out",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "cutting-board",
-                "activity" : "take-out",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "carrot",
-                "activity" : "take-out",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "plate",
-                  "probability" : 0.6222
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.1672
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.1326
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "take-out",
-                  "probability" : 0.9993
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 3,
-            "startTime" : 92,
-            "endTime" : 100,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "cutting-board",
-                "activity" : "take-out",
-                "location" : "drawer-counter"
-              },
-              {
-                "approximation" : 2,
-                "object" : "knife",
-                "activity" : "take-out",
-                "location" : "drawer-counter"
-              },
-              {
-                "approximation" : 3,
-                "object" : "carrot",
-                "activity" : "take-out",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.5291
-                },
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.2347
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.1333
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "drawer-counter",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "take-out",
-                  "probability" : 0.9993
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 4,
-            "startTime" : 126,
-            "endTime" : 132,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "cutting-board",
-                "activity" : "take-out",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "take-out",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "carrot",
-                "activity" : "take-out",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.5291
-                },
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.2347
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.1333
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "take-out",
-                  "probability" : 0.9993
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 2,
-        "questionText" : "Does the person take out anything from the drawer and place it on the counter?",
+        "questionText" : "Does the person wash his hands?",
         "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 93,
-            "endTime" : 98,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "cutting-board",
-                "activity" : "take-out",
-                "location" : "drawer-counter"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "take-out",
-                "location" : "drawer-counter"
-              },
-              {
-                "approximation" : 3,
-                "object" : "carrot",
-                "activity" : "take-out",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.5291
-                },
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.2347
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.1333
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "drawer-counter",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "take-out",
-                  "probability" : 0.9993
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 3,
-        "questionText" : "Does the person scratch off the peel from the chefs-knife and place it on the cutting board?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 142,
-            "endTime" : 143,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "carrot",
-                "activity" : "scratch-off",
-                "location" : "chefs-knife-cutting-board"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "peel",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "chefs-knife-cutting-board",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "scratch-off",
-                  "probability" : 0.9028
-                },
-                {
-                  "name" : "peel",
-                  "probability" : 0.0972
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 162,
-            "endTime" : 164,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "carrot",
-                "activity" : "scratch-off",
-                "location" : "chefs-knife-cutting-board"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "peel",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "chefs-knife-cutting-board",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "scratch-off",
-                  "probability" : 0.9028
-                },
-                {
-                  "name" : "peel",
-                  "probability" : 0.0972
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 4,
-        "questionText" : "Does the person wash the cutting board?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 100,
-            "endTime" : 107,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "carrot",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "hand",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "cutting-board",
-                "activity" : "wash",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 0.5854
-                },
-                {
-                  "name" : "hand",
-                  "probability" : 0.3576
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.0425
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "wash",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 118,
+            "startTime" : 119,
             "endTime" : 122,
             "textExplanations" : [
               {
@@ -1676,15 +1736,15 @@
               "listOfAllDetectedObject" : [
                 {
                   "name" : "hand",
-                  "probability" : 0.9544
+                  "probability" : 0.9256
                 },
                 {
                   "name" : "carrot",
-                  "probability" : 0.0338
+                  "probability" : 0.0489
                 },
                 {
                   "name" : "cutting-board",
-                  "probability" : 0.0077
+                  "probability" : 0.0162
                 }
               ],
               "listOfAllDetectedLocation" : [],
@@ -1692,290 +1752,6 @@
                 {
                   "name" : "wash",
                   "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 3,
-            "startTime" : 186,
-            "endTime" : 189,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "hand",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "cutting-board",
-                "activity" : "wash",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "hand",
-                  "probability" : 0.9544
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.0338
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.0077
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "wash",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 5,
-        "questionText" : "Does the person peel anything on the counter?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 44,
-            "endTime" : 73,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "carrot",
-                "activity" : "peel",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "throw-in-garbage",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "hand",
-                "activity" : "shake",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 1.0000
-                },
-                {
-                  "name" : "hand",
-                  "probability" : 0.8520
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "peel",
-                  "probability" : 0.9706
-                },
-                {
-                  "name" : "throw-in-garbage",
-                  "probability" : 0.0187
-                },
-                {
-                  "name" : "shake",
-                  "probability" : 0.0108
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 137,
-            "endTime" : 143,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "carrot",
-                "activity" : "peel",
-                "location" : "cutting-board"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "throw-in-garbage",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "hand",
-                "activity" : "shake",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 1.0000
-                },
-                {
-                  "name" : "hand",
-                  "probability" : 0.8520
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "peel",
-                  "probability" : 0.9706
-                },
-                {
-                  "name" : "throw-in-garbage",
-                  "probability" : 0.0187
-                },
-                {
-                  "name" : "shake",
-                  "probability" : 0.0108
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 6,
-        "questionText" : "Does the person take out the carrot from the drawer?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 11,
-            "endTime" : 33,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "carrot",
-                "activity" : "take-out",
-                "location" : "fridge"
-              },
-              {
-                "approximation" : 2,
-                "object" : "cutting-board",
-                "activity" : "take-out",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "chefs-knife",
-                "activity" : "take-out",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 0.5980
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.2405
-                },
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.1285
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "fridge",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "take-out",
-                  "probability" : 0.9993
-                }
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "videoName" : "s25-d23.mp4",
-    "listOfQuestions" : [
-      {
-        "questionId" : 1,
-        "questionText" : "Does the person shake the carrot?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 68,
-            "endTime" : 69,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "hand",
-                "activity" : "shake",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "shake",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "carrot",
-                "activity" : "peel",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "hand",
-                  "probability" : 0.8520
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.1480
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "shake",
-                  "probability" : 0.9115
-                },
-                {
-                  "name" : "peel",
-                  "probability" : 0.0885
                 }
               ]
             }
@@ -1984,13 +1760,14 @@
       },
       {
         "questionId" : 2,
-        "questionText" : "Does the person take anything out from the fridge?",
+        "questionText" : "Does the person take the carrot out from the fridge?",
         "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 3,
-            "endTime" : 11,
+            "startTime" : 9,
+            "endTime" : 31,
             "textExplanations" : [
               {
                 "approximation" : 1,
@@ -2015,21 +1792,21 @@
               "listOfAllDetectedObject" : [
                 {
                   "name" : "carrot",
-                  "probability" : 0.5980
+                  "probability" : 0.5426
                 },
                 {
                   "name" : "cutting-board",
-                  "probability" : 0.2405
+                  "probability" : 0.2157
                 },
                 {
                   "name" : "chefs-knife",
-                  "probability" : 0.1285
+                  "probability" : 0.1163
                 }
               ],
               "listOfAllDetectedLocation" : [
                 {
                   "name" : "fridge",
-                  "probability" : 0.9286
+                  "probability" : 1.0000
                 }
               ],
               "listOfAllDetectedAction" : [
@@ -2044,25 +1821,265 @@
       },
       {
         "questionId" : 3,
-        "questionText" : "Does the person take out the chef's knife from the drawer and place it on the cutting board?",
-        "computerAnswer" : "No",
+        "questionText" : "Does the person peel a carrot?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 18,
-            "endTime" : 24,
+            "startTime" : 47,
+            "endTime" : 85,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "peel",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "hand",
+                "activity" : "peel",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "knife",
+                "activity" : "peel",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.4575
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.4228
+                },
+                {
+                  "name" : "knife",
+                  "probability" : 0.0986
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "peel",
+                  "probability" : 0.9706
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 5,
+        "questionText" : "Does the person throw his hand inside the garbage?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 110,
+            "endTime" : 117,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "hand",
+                "activity" : "throw-in-garbage",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "carrot",
+                "activity" : "throw-in-garbage",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "peel",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "hand",
+                  "probability" : 0.9508
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.0492
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "throw-in-garbage",
+                  "probability" : 0.6727
+                },
+                {
+                  "name" : "peel",
+                  "probability" : 0.3273
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 2,
+            "startTime" : 177,
+            "endTime" : 185,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "throw-in-garbage",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "hand",
+                "activity" : "throw-in-garbage",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "peel",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.7052
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2948
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "throw-in-garbage",
+                  "probability" : 0.6727
+                },
+                {
+                  "name" : "peel",
+                  "probability" : 0.3273
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 6,
+        "questionText" : "Does the person slice an orange on the cutting board?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 147,
+            "endTime" : 161,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "slice",
+                "location" : "cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "slice",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 2,
+            "startTime" : 164,
+            "endTime" : 168,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "slice",
+                "location" : "cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "slice",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "videoName" : "s24-d48.mp4",
+    "listOfQuestions" : [
+      {
+        "questionId" : 1,
+        "questionText" : "Does the person take the cutting-board out from the drawer and place it on the counter?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 27,
+            "endTime" : 32,
             "textExplanations" : [
               {
                 "approximation" : 1,
                 "object" : "cutting-board",
                 "activity" : "take-out",
-                "location" : "n/a"
+                "location" : "drawer-counter"
               },
               {
                 "approximation" : 2,
                 "object" : "chefs-knife",
                 "activity" : "take-out",
-                "location" : "drawer-cutting-board"
+                "location" : "drawer-counter"
               },
               {
                 "approximation" : 3,
@@ -2075,20 +2092,20 @@
               "listOfAllDetectedObject" : [
                 {
                   "name" : "cutting-board",
-                  "probability" : 0.5244
+                  "probability" : 0.5291
                 },
                 {
                   "name" : "chefs-knife",
-                  "probability" : 0.3166
+                  "probability" : 0.2347
                 },
                 {
                   "name" : "carrot",
-                  "probability" : 0.1590
+                  "probability" : 0.1333
                 }
               ],
               "listOfAllDetectedLocation" : [
                 {
-                  "name" : "drawer-cutting-board",
+                  "name" : "drawer-counter",
                   "probability" : 1.0000
                 }
               ],
@@ -2103,54 +2120,64 @@
         ]
       },
       {
-        "questionId" : 4,
-        "questionText" : "Does the person shake the knife?",
-        "computerAnswer" : "No",
+        "questionId" : 2,
+        "questionText" : "Does the person take the chefs-knife out from the drawer?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 68,
-            "endTime" : 70,
+            "startTime" : 34,
+            "endTime" : 38,
             "textExplanations" : [
               {
                 "approximation" : 1,
-                "object" : "hand",
-                "activity" : "shake",
-                "location" : "n/a"
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-cutting-board"
               },
               {
                 "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "shake",
-                "location" : "n/a"
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
               },
               {
                 "approximation" : 3,
                 "object" : "carrot",
-                "activity" : "peel",
+                "activity" : "take-out",
                 "location" : "n/a"
               }
             ],
             "associatedFeatures" : {
               "listOfAllDetectedObject" : [
                 {
-                  "name" : "hand",
-                  "probability" : 0.8520
+                  "name" : "chefs-knife",
+                  "probability" : 0.5215
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.3177
                 },
                 {
                   "name" : "carrot",
-                  "probability" : 0.1480
+                  "probability" : 0.1600
                 }
               ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
+              "listOfAllDetectedLocation" : [
                 {
-                  "name" : "shake",
-                  "probability" : 0.9115
+                  "name" : "drawer-cutting-board",
+                  "probability" : 1.0000
                 },
                 {
-                  "name" : "peel",
-                  "probability" : 0.0885
+                  "name" : "drawer-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
                 }
               ]
             }
@@ -2158,14 +2185,15 @@
         ]
       },
       {
-        "questionId" : 5,
-        "questionText" : "Does the person slice anything on the counter?",
-        "computerAnswer" : "No",
+        "questionId" : 3,
+        "questionText" : "Does the person slice something on the cutting-board?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 70,
-            "endTime" : 125,
+            "startTime" : 42,
+            "endTime" : 69,
             "textExplanations" : [
               {
                 "approximation" : 1,
@@ -2198,153 +2226,60 @@
         ]
       },
       {
-        "questionId" : 6,
-        "questionText" : "Does the person wash his hand in the sink?",
-        "computerAnswer" : "No",
+        "questionId" : 5,
+        "questionText" : "Does the person use the knife to scratch off something from his hand onto the cutting board?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 24,
-            "endTime" : 31,
+            "startTime" : 71,
+            "endTime" : 74,
             "textExplanations" : [
               {
                 "approximation" : 1,
-                "object" : "carrot",
-                "activity" : "wash",
-                "location" : "n/a"
+                "object" : "hand",
+                "activity" : "scratch-off",
+                "location" : "chefs-knife-cutting-board"
               },
               {
                 "approximation" : 2,
-                "object" : "hand",
-                "activity" : "wash",
-                "location" : "n/a"
+                "object" : "carrot",
+                "activity" : "scratch-off",
+                "location" : "chefs-knife-cutting-board"
               },
               {
                 "approximation" : 3,
-                "object" : "cutting-board",
-                "activity" : "wash",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 0.5854
-                },
-                {
-                  "name" : "hand",
-                  "probability" : 0.3576
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.0425
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "wash",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 62,
-            "endTime" : 69,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
                 "object" : "carrot",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 2,
-                "object" : "hand",
-                "activity" : "wash",
-                "location" : "n/a"
-              },
-              {
-                "approximation" : 3,
-                "object" : "cutting-board",
-                "activity" : "wash",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "carrot",
-                  "probability" : 0.5854
-                },
-                {
-                  "name" : "hand",
-                  "probability" : 0.3576
-                },
-                {
-                  "name" : "cutting-board",
-                  "probability" : 0.0425
-                }
-              ],
-              "listOfAllDetectedLocation" : [],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "wash",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "videoName" : "s25-d35.mp4",
-    "listOfQuestions" : [
-      {
-        "questionId" : 1,
-        "questionText" : "Does the person cut apart a plum?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 119,
-            "endTime" : 126,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "cut-apart",
-                "location" : "cutting-board"
-              },
-              {
-                "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "cut-apart",
+                "activity" : "peel",
                 "location" : "cutting-board"
               }
             ],
             "associatedFeatures" : {
               "listOfAllDetectedObject" : [
                 {
+                  "name" : "hand",
+                  "probability" : 0.9491
+                },
+                {
                   "name" : "carrot",
-                  "probability" : 1.0000
+                  "probability" : 0.0509
                 }
               ],
               "listOfAllDetectedLocation" : [
                 {
+                  "name" : "chefs-knife-cutting-board",
+                  "probability" : 1.0000
+                },
+                {
                   "name" : "cutting-board",
                   "probability" : 1.0000
                 }
               ],
               "listOfAllDetectedAction" : [
                 {
-                  "name" : "cut-apart",
-                  "probability" : 1.0000
+                  "name" : "scratch-off",
+                  "probability" : 0.9028
                 }
               ]
             }
@@ -2352,30 +2287,31 @@
         ]
       },
       {
-        "questionId" : 2,
-        "questionText" : "Does the person take something out from the fridge?",
-        "computerAnswer" : "Yes",
+        "questionId" : 6,
+        "questionText" : "Does the person take a carrot out from the drawer?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 10,
-            "endTime" : 19,
+            "startTime" : 27,
+            "endTime" : 32,
             "textExplanations" : [
               {
                 "approximation" : 1,
-                "object" : "n/a",
+                "object" : "cutting-board",
                 "activity" : "take-out",
-                "location" : "fridge"
+                "location" : "drawer-counter"
               },
               {
                 "approximation" : 2,
-                "object" : "plate",
+                "object" : "chefs-knife",
                 "activity" : "take-out",
-                "location" : "n/a"
+                "location" : "drawer-counter"
               },
               {
                 "approximation" : 3,
-                "object" : "cutting-board",
+                "object" : "carrot",
                 "activity" : "take-out",
                 "location" : "n/a"
               }
@@ -2383,17 +2319,78 @@
             "associatedFeatures" : {
               "listOfAllDetectedObject" : [
                 {
-                  "name" : "plate",
-                  "probability" : 0.6222
+                  "name" : "cutting-board",
+                  "probability" : 0.5291
                 },
                 {
-                  "name" : "cutting-board",
-                  "probability" : 0.1672
+                  "name" : "chefs-knife",
+                  "probability" : 0.2347
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.1333
                 }
               ],
               "listOfAllDetectedLocation" : [
                 {
-                  "name" : "fridge",
+                  "name" : "drawer-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 2,
+            "startTime" : 34,
+            "endTime" : 38,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.5215
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.3177
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.1600
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-cutting-board",
+                  "probability" : 1.0000
+                },
+                {
+                  "name" : "drawer-counter",
                   "probability" : 1.0000
                 }
               ],
@@ -2408,13 +2405,14 @@
         ]
       },
       {
-        "questionId" : 3,
-        "questionText" : "Does the person take out the cutting board from the drawer and place it on the counter?",
-        "computerAnswer" : "Yes",
+        "questionId" : 7,
+        "questionText" : "Is the earth flat?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 5,
+            "startTime" : 7,
             "endTime" : 9,
             "textExplanations" : [
               {
@@ -2460,62 +2458,183 @@
               "listOfAllDetectedAction" : [
                 {
                   "name" : "take-out",
-                  "probability" : 1.0000
+                  "probability" : 0.9993
                 }
               ]
             }
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "videoName" : "s25-d23.mp4",
+    "listOfQuestions" : [
       {
-        "questionId" : 4,
-        "questionText" : "Does the person wash his hands?",
-        "computerAnswer" : "Yes",
+        "questionId" : 1,
+        "questionText" : "Does the person open the drawer?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 20,
-            "endTime" : 26,
+            "startTime" : 6,
+            "endTime" : 9,
             "textExplanations" : [
               {
                 "approximation" : 1,
-                "object" : "hand",
-                "activity" : "wash",
-                "location" : "n/a"
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "fridge"
               },
               {
                 "approximation" : 2,
-                "object" : "carrot",
-                "activity" : "wash",
+                "object" : "cutting-board",
+                "activity" : "take-out",
                 "location" : "n/a"
               },
               {
                 "approximation" : 3,
-                "object" : "cutting-board",
-                "activity" : "wash",
+                "object" : "chefs-knife",
+                "activity" : "take-out",
                 "location" : "n/a"
               }
             ],
             "associatedFeatures" : {
               "listOfAllDetectedObject" : [
                 {
-                  "name" : "hand",
-                  "probability" : 0.9544
-                },
-                {
                   "name" : "carrot",
-                  "probability" : 0.0338
+                  "probability" : 0.5980
                 },
                 {
                   "name" : "cutting-board",
-                  "probability" : 0.0077
+                  "probability" : 0.2405
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.1285
                 }
               ],
-              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "fridge",
+                  "probability" : 1.0000
+                }
+              ],
               "listOfAllDetectedAction" : [
                 {
-                  "name" : "wash",
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 2,
+            "startTime" : 11,
+            "endTime" : 16,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.5291
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.2347
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.1333
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-counter",
                   "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 3,
+            "startTime" : 20,
+            "endTime" : 24,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 3,
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.5215
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.3177
+                },
+                {
+                  "name" : "carrot",
+                  "probability" : 0.1600
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "drawer-cutting-board",
+                  "probability" : 1.0000
+                },
+                {
+                  "name" : "drawer-counter",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "take-out",
+                  "probability" : 0.9993
                 }
               ]
             }
@@ -2523,25 +2642,20 @@
         ]
       },
       {
-        "questionId" : 5,
-        "questionText" : "Does the person cut apart anything on a plate?",
-        "computerAnswer" : "No",
+        "questionId" : 2,
+        "questionText" : "Does the person slice a carrot on the cutting board?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 119,
-            "endTime" : 126,
+            "startTime" : 71,
+            "endTime" : 124,
             "textExplanations" : [
               {
                 "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "cut-apart",
-                "location" : "cutting-board"
-              },
-              {
-                "approximation" : 2,
                 "object" : "carrot",
-                "activity" : "cut-apart",
+                "activity" : "slice",
                 "location" : "cutting-board"
               }
             ],
@@ -2560,7 +2674,7 @@
               ],
               "listOfAllDetectedAction" : [
                 {
-                  "name" : "cut-apart",
+                  "name" : "slice",
                   "probability" : 1.0000
                 }
               ]
@@ -2569,47 +2683,208 @@
         ]
       },
       {
-        "questionId" : 6,
-        "questionText" : "Does the person take out the chef's knife from the fridge?",
-        "computerAnswer" : "No",
+        "questionId" : 3,
+        "questionText" : "Does the person throw the carrot in the garbage?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 7,
-            "endTime" : 9,
+            "startTime" : 59,
+            "endTime" : 61,
             "textExplanations" : [
               {
                 "approximation" : 1,
-                "object" : "cutting-board",
-                "activity" : "take-out",
+                "object" : "carrot",
+                "activity" : "throw-in-garbage",
                 "location" : "n/a"
               },
               {
                 "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "take-out",
+                "object" : "hand",
+                "activity" : "throw-in-garbage",
                 "location" : "n/a"
               },
               {
                 "approximation" : 3,
                 "object" : "carrot",
-                "activity" : "take-out",
-                "location" : "fridge"
+                "activity" : "peel",
+                "location" : "n/a"
               }
             ],
             "associatedFeatures" : {
               "listOfAllDetectedObject" : [
                 {
+                  "name" : "carrot",
+                  "probability" : 0.7052
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2948
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "throw-in-garbage",
+                  "probability" : 0.6727
+                },
+                {
+                  "name" : "peel",
+                  "probability" : 0.3273
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 4,
+        "questionText" : "Does the person wash the knife?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 26,
+            "endTime" : 30,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "hand",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.6455
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2641
+                },
+                {
                   "name" : "cutting-board",
-                  "probability" : 0.5291
+                  "probability" : 0.0680
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "wash",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          },
+          {
+            "frameId" : 2,
+            "startTime" : 63,
+            "endTime" : 67,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "hand",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.6455
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2641
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.0680
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "wash",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 5,
+        "questionText" : "Does the person take a plate out from the fridge?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 6,
+            "endTime" : 9,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "take-out",
+                "location" : "fridge"
+              },
+              {
+                "approximation" : 2,
+                "object" : "cutting-board",
+                "activity" : "take-out",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.5980
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.2405
                 },
                 {
                   "name" : "chefs-knife",
-                  "probability" : 0.2347
-                },
-                {
-                  "name" : "carrot",
-                  "probability" : 0.1333
+                  "probability" : 0.1285
                 }
               ],
               "listOfAllDetectedLocation" : [
@@ -2631,298 +2906,95 @@
     ]
   },
   {
-    "videoName" : "s33-d45.mp4",
+    "videoName" : "s28-d23.mp4",
     "listOfQuestions" : [
       {
         "questionId" : 1,
-        "questionText" : "Does the person wash the cutting board and the knife?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-            {
-              "frameId" : 1,
-              "startTime" : 246,
-              "endTime" : 272,
-              "textExplanations" : [
-                {
-                  "approximation" : 1,
-                  "object" : "hand",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 2,
-                  "object" : "carrot",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 3,
-                  "object" : "cutting-board",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                }
-              ],
-              "associatedFeatures" : {
-                "listOfAllDetectedObject" : [
-                  {
-                    "name" : "hand",
-                    "probability" : 0.9544
-                  },
-                  {
-                    "name" : "carrot",
-                    "probability" : 0.0338
-                  },
-                  {
-                    "name" : "cutting-board",
-                    "probability" : 0.0077
-                  }
-                ],
-                "listOfAllDetectedLocation" : [],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "wash",
-                    "probability" : 1.0000
-                  }
-                ]
-              }
-            },
-            {
-              "frameId" : 2,
-              "startTime" : 272,
-              "endTime" : 276,
-              "textExplanations" : [
-                {
-                  "approximation" : 1,
-                  "object" : "knife",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 2,
-                  "object" : "hand",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 3,
-                  "object" : "cutting-board",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                }
-              ],
-              "associatedFeatures" : {
-                "listOfAllDetectedObject" : [
-                  {
-                    "name" : "knife",
-                    "probability" : 0.4443
-                  },
-                  {
-                    "name" : "hand",
-                    "probability" : 0.3915
-                  },
-                  {
-                    "name" : "cutting-board",
-                    "probability" : 0.0848
-                  }
-                ],
-                "listOfAllDetectedLocation" : [],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "wash",
-                    "probability" : 1.0000
-                  }
-                ]
-              }
-            }
-          ]
-      },
-      {
-        "questionId" : 2,
-        "questionText" : "Does the person move something from the cutting board to the plate?",
+        "questionText" : "Does the person cut apart a carrot on the cutting board?",
         "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 82,
-            "endTime" : 88,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              },
-              {
-                "approximation" : 3,
-                "object" : "plate",
-                "activity" : "move",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.6805
-                },
-                {
-                  "name" : "plate",
-                  "probability" : 0.1190
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-plate",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 120,
-            "endTime" : 130,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              },
-              {
-                "approximation" : 2,
-                "object" : "chefs-knife",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              },
-              {
-                "approximation" : 3,
-                "object" : "plate",
-                "activity" : "move",
-                "location" : "n/a"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [
-                {
-                  "name" : "chefs-knife",
-                  "probability" : 0.6805
-                },
-                {
-                  "name" : "plate",
-                  "probability" : 0.1190
-                }
-              ],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-plate",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 3,
-        "questionText" : "Does the person move the pepper from the cutting-board to the plate?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 82,
-            "endTime" : 88,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-plate",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          },
-          {
-            "frameId" : 2,
-            "startTime" : 120,
-            "endTime" : 131,
-            "textExplanations" : [
-              {
-                "approximation" : 1,
-                "object" : "n/a",
-                "activity" : "move",
-                "location" : "cutting-board-plate"
-              }
-            ],
-            "associatedFeatures" : {
-              "listOfAllDetectedObject" : [],
-              "listOfAllDetectedLocation" : [
-                {
-                  "name" : "cutting-board-plate",
-                  "probability" : 1.0000
-                }
-              ],
-              "listOfAllDetectedAction" : [
-                {
-                  "name" : "move",
-                  "probability" : 1.0000
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "questionId" : 4,
-        "questionText" : "Does the person throw the plate in the garbage?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-          {
-            "frameId" : 1,
-            "startTime" : 89,
-            "endTime" : 92,
+            "startTime" : 81,
+            "endTime" : 118,
             "textExplanations" : [
               {
                 "approximation" : 1,
                 "object" : "carrot",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.6710
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.2331
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.0614
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "cut-apart",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 2,
+        "questionText" : "Does the person throw a peel into the garbage?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "Yes",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 136,
+            "endTime" : 144,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "hand",
                 "activity" : "throw-in-garbage",
                 "location" : "n/a"
               },
               {
                 "approximation" : 2,
                 "object" : "carrot",
+                "activity" : "throw-in-garbage",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
                 "activity" : "peel",
                 "location" : "n/a"
               }
@@ -2930,8 +3002,12 @@
             "associatedFeatures" : {
               "listOfAllDetectedObject" : [
                 {
+                  "name" : "hand",
+                  "probability" : 0.9508
+                },
+                {
                   "name" : "carrot",
-                  "probability" : 1.0000
+                  "probability" : 0.0492
                 }
               ],
               "listOfAllDetectedLocation" : [],
@@ -2950,177 +3026,139 @@
         ]
       },
       {
-        "questionId" : 5,
-        "questionText" : "Does the person wash anything on the counter?",
-        "computerAnswer" : "No",
-        "listOfKeyFrames" : [
-            {
-              "frameId" : 1,
-              "startTime" : 24,
-              "endTime" : 32,
-              "textExplanations" : [
-                {
-                  "approximation" : 1,
-                  "object" : "hand",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 2,
-                  "object" : "carrot",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 3,
-                  "object" : "cutting-board",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                }
-              ],
-              "associatedFeatures" : {
-                "listOfAllDetectedObject" : [
-                  {
-                    "name" : "hand",
-                    "probability" : 0.3618
-                  },
-                  {
-                    "name" : "carrot",
-                    "probability" : 0.0338
-                  },
-                  {
-                    "name" : "cutting-board",
-                    "probability" : 0.0077
-                  }
-                ],
-                "listOfAllDetectedLocation" : [],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "wash",
-                    "probability" :1.0000
-                  }
-                ]
-              }
-            },
-            {
-              "frameId" : 2,
-              "startTime" : 246,
-              "endTime" : 272,
-              "textExplanations" : [
-                {
-                  "approximation" : 1,
-                  "object" : "hand",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 2,
-                  "object" : "carrot",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 3,
-                  "object" : "cutting-board",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                }
-              ],
-              "associatedFeatures" : {
-                "listOfAllDetectedObject" : [
-                  {
-                    "name" : "hand",
-                    "probability" : 0.3618
-                  },
-                  {
-                    "name" : "carrot",
-                    "probability" : 0.0338
-                  },
-                  {
-                    "name" : "cutting-board",
-                    "probability" : 0.0077
-                  }
-                ],
-                "listOfAllDetectedLocation" : [],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "wash",
-                    "probability" :1.0000
-                  }
-                ]
-              }
-            },
-            {
-              "frameId" : 3,
-              "startTime" : 272,
-              "endTime" : 276,
-              "textExplanations" : [
-                {
-                  "approximation" : 1,
-                  "object" : "knife",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 2,
-                  "object" : "hand",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                },
-                {
-                  "approximation" : 3,
-                  "object" : "cutting-board",
-                  "activity" : "wash",
-                  "location" : "n/a"
-                }
-              ],
-              "associatedFeatures" : {
-                "listOfAllDetectedObject" : [
-                  {
-                    "name" : "knife",
-                    "probability" : 0.4443
-                  },
-                  {
-                    "name" : "hand",
-                    "probability" : 0.3915
-                  },
-                  {
-                    "name" : "cutting-board",
-                    "probability" : 0.0848
-                  }
-                ],
-                "listOfAllDetectedLocation" : [],
-                "listOfAllDetectedAction" : [
-                  {
-                    "name" : "wash",
-                    "probability" : 1.0000
-                  }
-                ]
-              }
-            }
-          ]
-      },
-      {
-        "questionId" : 6,
-        "questionText" : "Does the person take out a knife from the fridge?",
-        "computerAnswer" : "No",
+        "questionId" : 3,
+        "questionText" : "Does the person peel a carrot?",
+        "computerAnswer" : "Yes",
+        "correctAnswer" : "Yes",
         "listOfKeyFrames" : [
           {
             "frameId" : 1,
-            "startTime" : 46,
-            "endTime" : 48,
+            "startTime" : 52,
+            "endTime" : 75,
             "textExplanations" : [
               {
                 "approximation" : 1,
-                "object" : "knife",
-                "activity" : "take-out",
-                "location" : "drawer-cutting-board"
+                "object" : "carrot",
+                "activity" : "peel",
+                "location" : "n/a"
               },
               {
                 "approximation" : 2,
+                "object" : "hand",
+                "activity" : "peel",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "knife",
+                "activity" : "peel",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.4575
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.4228
+                },
+                {
+                  "name" : "knife",
+                  "probability" : 0.0986
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "peel",
+                  "probability" : 0.9706
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 4,
+        "questionText" : "Does the person wash a banana?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 37,
+            "endTime" : 42,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 2,
+                "object" : "hand",
+                "activity" : "wash",
+                "location" : "n/a"
+              },
+              {
+                "approximation" : 3,
+                "object" : "cutting-board",
+                "activity" : "wash",
+                "location" : "n/a"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.6455
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.2641
+                },
+                {
+                  "name" : "cutting-board",
+                  "probability" : 0.0680
+                }
+              ],
+              "listOfAllDetectedLocation" : [],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "wash",
+                  "probability" : 1.0000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 5,
+        "questionText" : "Does the person take out a carrot from the drawer and place it on the counter?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 9,
+            "endTime" : 14,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
                 "object" : "cutting-board",
                 "activity" : "take-out",
-                "location" : "n/a"
+                "location" : "drawer-counter"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "take-out",
+                "location" : "drawer-counter"
               },
               {
                 "approximation" : 3,
@@ -3132,21 +3170,21 @@
             "associatedFeatures" : {
               "listOfAllDetectedObject" : [
                 {
-                  "name" : "knife",
-                  "probability" : 0.7432
+                  "name" : "cutting-board",
+                  "probability" : 0.5291
                 },
                 {
-                  "name" : "cutting-board",
-                  "probability" : 0.2195
+                  "name" : "chefs-knife",
+                  "probability" : 0.2347
                 },
                 {
                   "name" : "carrot",
-                  "probability" : 0.0371
+                  "probability" : 0.1333
                 }
               ],
               "listOfAllDetectedLocation" : [
                 {
-                  "name" : "drawer-cutting-board",
+                  "name" : "drawer-counter",
                   "probability" : 1.0000
                 }
               ],
@@ -3154,6 +3192,67 @@
                 {
                   "name" : "take-out",
                   "probability" : 0.9993
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "questionId" : 6,
+        "questionText" : "Does the person cut apart a banana on the cutting board?",
+        "computerAnswer" : "No",
+        "correctAnswer" : "No",
+        "listOfKeyFrames" : [
+          {
+            "frameId" : 1,
+            "startTime" : 81,
+            "endTime" : 118,
+            "textExplanations" : [
+              {
+                "approximation" : 1,
+                "object" : "carrot",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              },
+              {
+                "approximation" : 2,
+                "object" : "chefs-knife",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              },
+              {
+                "approximation" : 3,
+                "object" : "hand",
+                "activity" : "cut-apart",
+                "location" : "cutting-board"
+              }
+            ],
+            "associatedFeatures" : {
+              "listOfAllDetectedObject" : [
+                {
+                  "name" : "carrot",
+                  "probability" : 0.6710
+                },
+                {
+                  "name" : "chefs-knife",
+                  "probability" : 0.2331
+                },
+                {
+                  "name" : "hand",
+                  "probability" : 0.0614
+                }
+              ],
+              "listOfAllDetectedLocation" : [
+                {
+                  "name" : "cutting-board",
+                  "probability" : 1.0000
+                }
+              ],
+              "listOfAllDetectedAction" : [
+                {
+                  "name" : "cut-apart",
+                  "probability" : 1.0000
                 }
               ]
             }

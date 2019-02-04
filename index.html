@@ -13,7 +13,7 @@
     <link href="assets/css/main-style.css" rel="stylesheet" />
     <link href="assets/css/checkbox.css" rel="stylesheet"/>
     <link href="assets/css/questions-video.css" rel="stylesheet"/>
-    <link href='assets/css/media-player.css' rel='stylesheet' />
+    <link href='assets/css/media-player.css' rel='stylesheet'/>
     <script src="assets/plugins/d3.js"></script>
 </head>
 <body>
@@ -27,7 +27,7 @@
                 <div class="panel panel-primary">
                     <div id="video-panel" class="panel-body">
                         <div id='media-player' class="col-md-12">
-                            <video id='media-video' class="col-md-12" controls>
+                            <video id='media-video' class="col-md-12" onloadeddata="onVideoLoaded()" controls>
                                 <!-- <source src='s22-d23.mp4' type='video/mp4'> -->
                             </video>
                             <div id='media-controls'>
@@ -134,7 +134,7 @@
                         <h class="header"><b>Select Video</b></h>
                     </div>
                     <div class="panel-body" id="video-select">
-                        <input type="file" id="video_selector" accept="video/*"/>
+                        <!--<input type="file" id="video_selector" accept="video/*"/>-->
                     </div>
                 </div>
             </div>
@@ -143,19 +143,7 @@
                     <div class="panel-heading user-task-panel-header">
                         <h class="header"><b>Select Query</b></h>
                     </div>
-                    <div class="panel-body" id="queries">
-                        <div id="sel" class="col-md-12">
-                            <div class="row" >
-                                <div class="input-group col-md-12">
-                                    <select id="mySelect" class="col-md-12"> </select>
-                                    <!--<button class="btn btn-success col-md-3" id="button1" type="button">Submit Question</button>-->
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div id="answer" class="well vertical-align-center"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="panel-body" id="queries"></div>
                 </div>
             </div>
             <div class="col-md-2 main-boxes">
@@ -180,8 +168,8 @@
 <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="assets/plugins/d3.min.js"></script>
 <script src="assets/scripts/Explanation.js"></script>
-<!--<script src="assets/scripts/Video.js"></script>-->
-<script type="text/javascript" src="assets/data/Video.json"></script>
+<script src="assets/scripts/loadVideo.js"></script>
+<!--<script type="text/javascript" src="assets/data/Video.json"></script>-->
 <script src="assets/scripts/newCharts.js"></script>
 <script src="assets/scripts/options.js"></script>
 <script src='assets/scripts/media-player.js'></script>

@@ -1,7 +1,106 @@
-#queries {
-    height: 180px;
+#queries, #video-select {
+    height: 207px;
 }
 
-#video-select {
-    height: 180px;
+#selector-main-div {
+    padding: 5px;
 }
+
+.video-item {
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 17px;
+    border-color: #005c63;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    cursor: pointer;
+    color: #005c63;
+    background-color: #b2d9dd;
+}
+
+.video-item:hover {
+    background-color: #005c63;
+    color: #b2d9dd;
+}
+
+.video-item-select {
+    background-color: #005c63;
+    color: #b2d9dd;
+}
+
+.query-item {
+    height: 45px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 6px;
+    border-color: #005c63;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    cursor: pointer;
+    color: #005c63;
+    background-color: #b2d9dd;
+    font-size: 13px;
+}
+
+.query-item:hover {
+    background-color: #005c63;
+    color: #b2d9dd;
+}
+
+.selected-query {
+    background-color: #005c63;
+    color: #b2d9dd;
+}
+
+#selected-query-main-div {
+    /*min-height: 70px;*/
+    padding: 5px;
+}
+
+#selected-query-main {
+    min-height: 72px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 6px;
+    border-color: #005c63;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    background-color: #005c63;
+    color: #b2d9dd;
+    font-size: 20px;
+}
+
+#video-select, #queries {
+    overflow-y: scroll;
+}
+
+.response-title {
+    background-color: #135b62 !important;
+    border-color: #135b62 !important;
+    height: 26px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-style: oblique;
+}
+
+#selected-query-main-div .col-md-3{
+    padding: 0;
+    padding-left: 5px;
+}
+
+#computer-response {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    padding: 9px;
+}
+
+/*#queries .row {*/
+    /*padding: 5px;*/
+/*}*/

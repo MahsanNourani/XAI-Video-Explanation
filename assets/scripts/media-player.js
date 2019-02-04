@@ -217,170 +217,125 @@ function resetPlayer() {
 
 function segment_buttons(start,end,explanations,associations,flag){
 
- var elmnt = document.getElementById("progress-bar");
- var w= elmnt.offsetWidth;
- // var w=300;
- var h= 50;
+    var elmnt = document.getElementById("progress-bar");
+    var w= elmnt.offsetWidth;
+    var h= 50;
 
- // start=[33,78];
- // end=[68,100];
- var data=[];
- var position=[];
- var mPlayer = document.getElementById("media-video");
- console.log(mPlayer.duration);
+    var data=[];
+    var position=[];
+    var mPlayer = document.getElementById("media-video");
+    console.log(mPlayer.duration);
 
-for(var i=0;i<start.length;i++){
+    for(var i=0;i<start.length;i++){
+        var obj={};
+        var percentage = Math.floor((100 / mPlayer.duration) * (start[i]));
+        position[i]=(percentage/100)*w;
+        console.log(position[i]);
+        percentage = Math.floor((100 / mPlayer.duration) * (end[i]));
+        temp=(percentage/100)*w;
+        width=temp-position[i];
 
-	var obj={};
-
-	// var bar = document.getElementById('progress-bar'),
- //    new_mark = document.createElement('div');   //create a div
- //    new_mark.id = 'newid'+i;
- //    bar.appendChild(new_mark);                 //append to the doc.body
-	// var new_id = document.getElementById('newid'+i);
-	// console.log(new_id);
-	// var x=(end[i]-start[i])*5;
-    var percentage = Math.floor((100 / mPlayer.duration) * (start[i]));
-    position[i]=(percentage/100)*w;
-    console.log(position[i]);
-    percentage = Math.floor((100 / mPlayer.duration) * (end[i]));
-    temp=(percentage/100)*w;
-    width=temp-position[i];
-
-    obj.pos=position[i];
-    obj.width=width;
-    obj.start=start[i];
-    obj.end=end[i];
-    data.push(obj);
-	// new_id.setAttribute('style', 'width:'+ x +'px; height: 20px; position: absolute; background: #f0ad4e;right:'+percentage+5+'%');
-	// new_id.setAttribute('style', 'width:'+ x +'px; height: 16px; position: absolute; background: #f0ad4e;right:40%');
-}
+        obj.pos=position[i];
+        obj.width=width;
+        obj.start=start[i];
+        obj.end=end[i];
+        data.push(obj);
+    }
 
 
-            var svg= d3.select("#segment")
-                        .append("svg")
-                        .attr("width",w)
-                        .attr("height",h)
+    var svg= d3.select("#segment")
+                .append("svg")
+                .attr("width",w)
+                .attr("height",h)
 
 
 
-            //container for all buttons
-            var allButtons= svg.append("g")
-                                .attr("id","allButtons") 
+    //container for all buttons
+    var allButtons= svg.append("g")
+                        .attr("id","allButtons");
 
-            //fontawesome button labels and 
-            // var labels= ['\uf017','\uf200','\uf183'];
-        
-            //colors for different button states 
-            var defaultColor= "#4dcee4"
-            var hoverColor= "#357487"
-            var pressedColor= "#f3aea1"
-            var doubleColor="#80002a"
+    //colors for different button states
+    var defaultColor= "#8aabff";
+    var hoverColor= "#3a6cec";
+    var pressedColor= "#001e63";
+    var doubleColor="#80002a";
 
-;
-
-            //groups for each button (which will hold a rect and text)
-            var buttonGroups= allButtons.selectAll("g.button")
-                                    .data(data)
-                                    .enter()
-                                    .append("g")
-                                    .attr("class","button")
-                                    .style("cursor","pointer")
-                                    .on("click",function(d,i) {
-                                    	d3.selectAll('image').attr("width","16").attr("height","16");
-                                        updateButtonColors(d3.select(this), d3.select(this.parentNode));
-                                        change_segment(d.start,d.end,explanations[i],associations[i],flag);
-                                        // d3.select("#numberToggle").text(i+1)
-                                    })
-                                    .on("mouseover", function() {
-                                    	flag=false;
-                                        if ((d3.select(this).select("rect").attr("fill") != pressedColor)){
-                                            d3.select(this)
-                                                .select("rect")
-                                                .attr("fill",hoverColor);
-                                        }
-                                    })
-                                    .on("mouseout", function() {
-                                        if ((d3.select(this).select("rect").attr("fill") != pressedColor)) {
-                                            d3.select(this)
-                                                .select("rect")
-                                                .attr("fill",defaultColor);
-                                        }
-                                    })
-
-                                    // })
-
-
-
-            var bWidth= 20; //button width
-            var bHeight= 50; //button height
-            var bSpace= 10; //space between buttons
-            var x0= 20; //x offset
-            var y0= 0; //y offset
-
-
-            var Rect_buttons=buttonGroups.append("rect")
-                        .attr("class","buttonRect")
-                        .attr("width",function(d){return d.width;})
-                        .attr("height",bHeight)
-                        .attr("x",function(d) {return d.pos;})
-                        .attr("y",y0)
-                        .attr("rx",3) //rx and ry give the buttons rounded corners
-                        .attr("ry",3)
-                        .attr("fill",defaultColor);
-               
-
-            // var lock_buttons=svg.selectAll('image').data(data).enter().append('image')
-            //                     .attr("xlink:href", "assets/replay.png")
-            //                     .attr("x", function(d) {return d.pos+(d.width/2)-4;})
-            //                     .attr("y", "25")
-            //                     .attr("width", "16")
-            //                     .attr("height", "16")
-            //                     .on("click",function(d) {
-                                
-            //                     if(d3.select(this).attr("width")!=20){
-            //                     d3.selectAll('rect').attr("fill",defaultColor);
-            //                     d3.select(this).attr("width","20").attr("height","20").attr("opacity",1);
-                      
-            //                     // for(var i=0;i<3;i++)
-            //                         {                               
-            //                            flag=1;
-            //                            loop_segment(d.start,d.end);
-
-
-            //                         }
-            //                     }
-
-            //                     else
-            //                     {
-            //                     	flag=0;
-            //                     	d3.select(this).attr("width","16").attr("height","16");
-
-
-            //                     }
-            //                   });
-
-
-            function updateButtonColors(button, parent) {
-                parent.selectAll("rect")
-                        .attr("fill",defaultColor)
-
-                button.select("rect")
-                        .attr("fill",pressedColor)
+    //groups for each button (which will hold a rect and text)
+    var buttonGroups= allButtons.selectAll("g.button")
+        .data(data)
+        .enter()
+        .append("g")
+        .attr("class","button")
+        .style("cursor","pointer")
+        .on("click",function(d,i) {
+            d3.selectAll('image').attr("width","16").attr("height","16");
+            updateButtonColors(d3.select(this), d3.select(this.parentNode));
+            change_segment(d.start,d.end,explanations[i],associations[i],flag);
+            // d3.select("#numberToggle").text(i+1)
+        })
+        .on("mouseover", function() {
+            flag=false;
+            if ((d3.select(this).select("rect").attr("fill") != pressedColor)){
+                d3.select(this)
+                    .select("rect")
+                    .attr("fill",hoverColor);
             }
-
-            function updateButtonColors2(button, parent) {
-                parent.selectAll("rect")
-                        .attr("fill",defaultColor)
-
-                button.select("rect")
-                        .attr("fill",doubleColor)
+        })
+        .on("mouseout", function() {
+            if ((d3.select(this).select("rect").attr("fill") != pressedColor)) {
+                d3.select(this)
+                    .select("rect")
+                    .attr("fill",defaultColor);
             }
+        });
+
+
+    loadData(explanations[0],associations[0]);
+
+    var bHeight= 50; //button height
+    // var bSpace= 10; //space between buttons
+    // var x0= 20; //x offset
+    var y0= 0; //y offset
+
+
+    var Rect_buttons = buttonGroups.append("rect")
+                .attr("class","buttonRect")
+                .attr("width",function(d){return d.width;})
+                .attr("height",bHeight)
+                .attr("x",function(d) {return d.pos;})
+                .attr("y",y0)
+                .attr("rx",3) //rx and ry give the buttons rounded corners
+                .attr("ry",3)
+                .attr("fill",function(d,i) {
+                    // The first button is always pressed!
+                    return (i!=0) ? defaultColor: pressedColor;
+                });
 
 
 
-          
-        
+    function updateButtonColors(button, parent) {
+        parent.selectAll("rect")
+                .attr("fill",defaultColor);
+
+        button.select("rect")
+                .attr("fill",pressedColor)
+    }
+
+    function updateButtonColors2(button, parent) {
+        parent.selectAll("rect")
+                .attr("fill",defaultColor);
+
+        button.select("rect")
+                .attr("fill",doubleColor)
+    }
+
+
+    if (d3.select("#checkbox0").property("checked") == false) {
+        console.log("well.");
+        createDropDownForNoSegmentConditions(data, explanations, associations);
+    }
+
+
 }
 
 function change_segment(time,end,explanations,associations,flag){
@@ -536,21 +491,60 @@ t=d3.timer(timeOut);
 
 }
 
-// 	var t;
+function createDropDownForNoSegmentConditions(dataToChangeTime, explanations, associations) {
 
-// 	t=d3.timer(showTime)
+    // console.log(explanations);
+    d3.select("#segment").html("");
+    d3.select("#dropdown-div").remove();
+    var mainDiv =
+        d3.select("#segment")
+            .append("div")
+            .style("width", "100%")
+            .style("height", "50px")
+            .attr("id", "dropdown-div")
+            .append("div")
+            .classed("dropdown", true);
+    mainDiv.append("button")
+        .classed("btn btn-primary dropdown-toggle", true)
+        .attr("id", "dropdown-btn")
+        .attr("value", "0")
+        .attr("type", "button")
+        .attr("data-toggle", "dropdown")
+        .html("Explanation Set #1 ")
+        .append("span")
+        .classed("caret", true);
 
-// function showTime()
-// {
+    var dropdownMenu =
+        mainDiv.append("ul")
+            .classed("dropdown-menu", true);
 
-//    var div= document.getElementById('showTime');
+    dropdownMenu.selectAll("li")
+        .data(explanations)
+        .enter()
+        .append("li")
+        .append("a")
+        .html(function (d, i) {
+            // console.log("here! " + d);
+            return "Explanation Set #" + parseInt(i+1) + " ";
+        })
+        .on("click", function (d, i) {
+            d3.select("#dropdown-btn")
+                .attr("value", function () {
+                    return i;
+                })
+                .html(function () {
+                    return "Explanation Set #" + parseInt(i+1) + " ";
+                })
+                .append("span")
+                .classed("caret", true);
 
-//    div.innerHTML=(mediaPlayer.currentTime).toFixed(1)+"ms";
-//    updateProgressBar();
-// }
+            clear_list();
+            loadData(explanations[i], associations[i]);
+        });
+}
 
 function clear_segment(){
 
-d3.select('svg').remove();
+    d3.select('svg').remove();
 
 }

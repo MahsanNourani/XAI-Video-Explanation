@@ -2,16 +2,16 @@ var optionsDiv = d3.select("#options");
 
 var toggleItems = [
     {
-        "text":"Video Segment",
-        "id":"segment"
+        text:"Video Segment",
+        id:"segment"
     },
     {
-        "text":"Component Scores",
-        "id":"component-score-div"
+        text:"Component Scores",
+        id:"component-score-div"
     },
     {
-        "text":"Detected Combinations",
-        "id":"explanation-box"
+        text:"Detected Combinations",
+        id:"explanation-box"
     }
 ];
 
@@ -38,6 +38,7 @@ temp.append("input")
         if (d3.select("#checkbox" + i).property("checked")) {
             d3.select("#" + d.id)
                 .style("visibility", "visible");
+        
         }
         else {
             d3.select("#" + d.id)
