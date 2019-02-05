@@ -35,17 +35,32 @@ temp.append("input")
         return "checkbox" + i;
     })
     .on("click", function (d,i) {
+        var vid = d3.select("#checkbox0").property("checked");
+        var comp = d3.select("#checkbox1").property("checked");
+        var score = d3.select("#checkbox2").property("checked");
+
         if (d3.select("#checkbox" + i).property("checked")) {
             d3.select("#" + d.id)
                 .style("visibility", "visible");
-        
         }
+
         else {
             d3.select("#" + d.id)
+                .style("visibility", "hidden");
+        }
+
+        if (!vid && (comp || score)) {
+            d3.select("#explanation-set-main")
+                .style("visibility", "visible");
+        }
+
+        else {
+            d3.select("#explanation-set-main")
                 .style("visibility", "hidden");
         }
     });
 
 temp.append("span")
     .classed("checkmark", true);
+
 

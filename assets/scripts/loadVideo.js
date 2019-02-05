@@ -19,8 +19,7 @@
             .data(fileNames).enter()
             .append("div")
                 .style("padding", "3px")
-                .attr("id", "video-select-div")
-                .classed("col-md-6", true)
+                .classed("col-md-6 video-select-div", true)
             .append("a")
                 .classed("col-md-12 video-item", true)
                 .on("click", function (d,i) {
@@ -28,7 +27,7 @@
                         return "assets/videos/" + d;
                     });
                     currentVideo.videoName = d;
-                    d3.selectAll("#video-select-div > a").classed("video-item-select", false);
+                    d3.selectAll(".video-select-div > a").classed("video-item-select", false);
                     d3.select(this).classed("video-item-select", true);
                     d3.select("#video-select").node().scrollTop = 0;
                 })
@@ -40,6 +39,7 @@
     // Read all the questions from file and show them on the interface
     this.onVideoLoaded = function () {
 
+        document.getElementById('media-video').currentTime = 0;
         var file = "assets/data/video_new.json";
 
         d3.json(file, function (data) {
@@ -58,6 +58,7 @@
         d3.select("#queries").html("");
         clear_list();
         clear_segment();
+        clear_explanation_sets();
         var querySection = d3.select("#queries").append("div").classed("col-md-12", true);
         var selectedRow = querySection.append("div").classed("row", true).attr("id","selected-query-main-div");
         selectedRow.append("div")
@@ -82,12 +83,12 @@
             .data(currentVideoData).enter()
             .append("div")
                 .style("padding", "5px")
-                .attr("id", "query-select-div")
-                .classed("col-md-6", true)
+                // .attr("id", "query-select-div")
+                .classed("col-md-6 query-select-div", true)
             .append("a")
                 .classed("col-md-12 query-item", true)
                 .on("click", function (d,i) {
-                    d3.selectAll("#query-select-div > a").classed("selected-query", false);
+                    d3.selectAll(".query-select-div > a").classed("selected-query", false);
                     d3.select(this).classed("selected-query", true);
                     d3.select("#queries").node().scrollTop = 0;
                     loadSelectedQuestion(d);

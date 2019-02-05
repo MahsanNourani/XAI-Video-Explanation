@@ -13,7 +13,6 @@ var progress;
 var flag=0;
 
 
-
 function initialiseMediaPlayer() {
 	// Get a handle to the player
 	mediaPlayer = document.getElementById('media-video');
@@ -68,25 +67,9 @@ function togglePlayPause() {
 }
 
 function changePos(event) {
-    video= document.getElementById('media-video');
-    var X=event.clientX;
-    // var X = event.pageX - document.getElementById('progress-bar').offsetLeft;
-    // var Y=event.clientY;
-    console.log("this is x: " + X);
-    var left=document.getElementById('dynamic').offsetLeft;
-    console.log("this is left: " +left);
-    var P_left=document.getElementById('dynamic').offsetParent.offsetLeft;
-    console.log("this is P_left: " + P_left);
-    var width=document.getElementById('progress-bar').offsetWidth;
-    console.log("this is width: " + width);
-    var pos = (X+2 -(left+P_left)) / width;
-    // var pos = left /width;
-    console.log("this is pos: " + (X+2 -(left+P_left)));
-    console.log("video_duration: " + video.duration);
-    video.currentTime = (pos*video.duration);
-    console.log("this is cTime: " + pos*video.duration);
-
-
+    var box = progressBar.getBoundingClientRect();
+    var pos = (event.pageX - box.left) / box.width;
+    mediaPlayer.currentTime = (pos * mediaPlayer.duration);
 
 }
 
@@ -291,6 +274,7 @@ function segment_buttons(start,end,explanations,associations,flag){
 
 
     loadData(explanations[0],associations[0]);
+    mPlayer.pause();
 
     var bHeight= 50; //button height
     // var bSpace= 10; //space between buttons
@@ -330,12 +314,23 @@ function segment_buttons(start,end,explanations,associations,flag){
     }
 
 
-    if (d3.select("#checkbox0").property("checked") == false) {
-        console.log("well.");
-        createDropDownForNoSegmentConditions(data, explanations, associations);
-    }
+    // if (d3.select("#checkbox0").property("checked") == false) {
+    createDropDownForNoSegmentConditions(data, explanations, associations);
+    // }
 
+    if (!isNoExplanationCondition())
+        mediaPlayer.currentTime=start[0];
+}
 
+function isNoExplanationCondition() {
+    var vid = d3.select("#checkbox0").property("checked");
+    var comp = d3.select("#checkbox1").property("checked");
+    var score = d3.select("#checkbox2").property("checked");
+
+    if (!vid && !comp && !score)
+        return true;
+    else
+        return false;
 }
 
 function change_segment(time,end,explanations,associations,flag){
@@ -493,58 +488,36 @@ t=d3.timer(timeOut);
 
 function createDropDownForNoSegmentConditions(dataToChangeTime, explanations, associations) {
 
-    // console.log(explanations);
-    d3.select("#segment").html("");
-    d3.select("#dropdown-div").remove();
+    d3.select("#explanation-set-div").html("");
     var mainDiv =
-        d3.select("#segment")
+        d3.select("#explanation-set-div")
             .append("div")
-            .style("width", "100%")
-            .style("height", "50px")
-            .attr("id", "dropdown-div")
-            .append("div")
-            .classed("dropdown", true);
-    mainDiv.append("button")
-        .classed("btn btn-primary dropdown-toggle", true)
-        .attr("id", "dropdown-btn")
-        .attr("value", "0")
-        .attr("type", "button")
-        .attr("data-toggle", "dropdown")
-        .html("Explanation Set #1 ")
-        .append("span")
-        .classed("caret", true);
+            // .attr("id", "explanation-set")
+            .classed("col-md-12", true);
 
-    var dropdownMenu =
-        mainDiv.append("ul")
-            .classed("dropdown-menu", true);
-
-    dropdownMenu.selectAll("li")
-        .data(explanations)
-        .enter()
-        .append("li")
+    mainDiv.selectAll("div")
+        .data(explanations).enter()
+        .append("div")
+            .style("padding", "5px")
+            .classed("col-md-4 explanation-set", true)
         .append("a")
-        .html(function (d, i) {
-            // console.log("here! " + d);
-            return "Explanation Set #" + parseInt(i+1) + " ";
-        })
-        .on("click", function (d, i) {
-            d3.select("#dropdown-btn")
-                .attr("value", function () {
-                    return i;
-                })
-                .html(function () {
-                    return "Explanation Set #" + parseInt(i+1) + " ";
-                })
-                .append("span")
-                .classed("caret", true);
-
-            clear_list();
-            loadData(explanations[i], associations[i]);
-        });
+            .classed("col-md-12 explanation-select-item", true)
+            .on("click", function (d,i) {
+                clear_list();
+                loadData(explanations[i], associations[i]);
+                d3.selectAll(".explanation-set > a").classed("explanation-select-item-active", false);
+                d3.select(this).classed("explanation-select-item-active", true);
+                d3.select("#explanation-set-div").node().scrollTop = 0;
+            })
+            .html(function (d, i) {
+                return "Set " + i;
+            });
 }
 
 function clear_segment(){
-
     d3.select('svg').remove();
+}
 
+function clear_explanation_sets() {
+    d3.select("#explanation-set-div").html("");
 }

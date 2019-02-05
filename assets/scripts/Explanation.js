@@ -152,6 +152,7 @@ function clear_list(flag){
     d3.selectAll('.list-group-item').remove();
     d3.select('#marginal-score').html("");
     d3.selectAll('.explanation-options').remove();
+    // d3.selectAll("#explanation-set-div").html("");
 
 }
 
