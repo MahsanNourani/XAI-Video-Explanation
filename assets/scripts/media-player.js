@@ -499,7 +499,7 @@ function createDropDownForNoSegmentConditions(dataToChangeTime, explanations, as
         .data(explanations).enter()
         .append("div")
             .style("padding", "5px")
-            .classed("col-md-4 explanation-set", true)
+            .classed("col-md-2 explanation-set", true)
         .append("a")
             .classed("col-md-12 explanation-select-item", true)
             .on("click", function (d,i) {
@@ -508,10 +508,14 @@ function createDropDownForNoSegmentConditions(dataToChangeTime, explanations, as
                 d3.selectAll(".explanation-set > a").classed("explanation-select-item-active", false);
                 d3.select(this).classed("explanation-select-item-active", true);
                 d3.select("#explanation-set-div").node().scrollTop = 0;
+                mediaPlayer.currentTime=dataToChangeTime[i].start;
             })
             .html(function (d, i) {
-                return "Set " + i;
+                return "Set " + (i+1);
             });
+
+    // The first button should always be selected!
+    d3.select(".explanation-set > a").classed("explanation-select-item-active", true);
 }
 
 function clear_segment(){

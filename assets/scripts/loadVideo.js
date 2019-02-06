@@ -11,8 +11,8 @@
 
         var videoSelector = d3.select("#video-select")
             .append("div")
-            .classed("col-md-12", true)
-            .attr("id", "selector-main-div");
+            .classed("col-md-12 selector-main-div", true);
+            // .attr("id", "selector-main-div");
         var videoSegment = d3.select("#media-video");
 
         videoSelector.selectAll("div")
@@ -56,33 +56,40 @@
 
     function createQuestionInterface() {
         d3.select("#queries").html("");
+        d3.select("#main-query").html("");
         clear_list();
         clear_segment();
         clear_explanation_sets();
-        var querySection = d3.select("#queries").append("div").classed("col-md-12", true);
-        var selectedRow = querySection.append("div").classed("row", true).attr("id","selected-query-main-div");
-        selectedRow.append("div")
-            .classed("col-md-9", true)
+        var allTheQuestions = d3.select("#queries").append("div").classed("col-md-12 selector-main-div", true);
+        var mainQuery = d3.select("#main-query").append("div").classed("col-md-12 vertical-align-center", true);
+
+        // var selectedRow = mainQuery.append("div");
+            // .classed("row", true).attr("id","selected-query-main-div");
+
+        mainQuery.append("div")
+            .classed("col-md-8", true)
             .attr("id", "selected-query-main")
             .html("Select one of the questions below to see more details.");
-        var responseDiv = selectedRow.append("div")
-            .classed("col-md-3", true);
-        responseDiv.append("div")
-            .classed("col-md-12 response-title", true)
-            .html("Computer Answer");
+
+        var responseDiv = mainQuery.append("div")
+            .classed("col-md-4", true)
+            .style("padding", "28px");
+        // responseDiv.append("div")
+        //     .classed("col-md-12 response-title", true)
+        //     .html("Computer Answer");
         responseDiv.append("div")
             .classed("col-md-12", true)
             .attr("id", "computer-response")
             .html("");
 
-        var allTheQuestions = querySection.append("div").classed("row", true);
+        // var allTheQuestions = querySection.append("div").classed("row", true);
 
         // allTheQuestions.style("background-color", "pink");
 
         allTheQuestions.selectAll("div")
             .data(currentVideoData).enter()
             .append("div")
-                .style("padding", "5px")
+                .style("padding", "3px")
                 // .attr("id", "query-select-div")
                 .classed("col-md-6 query-select-div", true)
             .append("a")

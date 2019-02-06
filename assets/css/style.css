@@ -376,7 +376,7 @@ canvas, img {
 #video-panel {
     height: inherit;
     overflow: auto;
-    min-height: 497px;
+    min-height: 505px;
     background-color: #ffffff;
     border-radius: 4px;
 }
@@ -672,16 +672,16 @@ div#selection-panel-body {
 }
 
 #options {
-    height: 207px;
+    height: 161px;
 }
 
 .option-item {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 
 #explanation-set-div {
-    height: 123px;
+    height: 64px;
     /*margin-top: 12px;*/
     /*visibility: hidden;*/
     overflow-y: scroll;
@@ -689,17 +689,19 @@ div#selection-panel-body {
 }
 
 #explanation-set-main {
-    visibility: hidden;
+    /*visibility: hidden;*/
+    display: none;
+    margin-bottom: 6px;
 }
 
 .explanation-select-item {
     background-color: #83abff;
     font-weight: bold;
     color: #001d67;
-    height: 60px;
+    height: 44px;
     text-align: center;
     vertical-align: middle;
-    padding: 17px;
+    padding: 10px;
     /*border-color: #005c63;*/
     /*border-style: solid;*/
     border-radius: 4px;

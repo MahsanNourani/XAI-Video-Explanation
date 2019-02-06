@@ -40,23 +40,35 @@ temp.append("input")
         var score = d3.select("#checkbox2").property("checked");
 
         if (d3.select("#checkbox" + i).property("checked")) {
-            d3.select("#" + d.id)
-                .style("visibility", "visible");
+            if (i == 0)
+                d3.select("#" + d.id)
+                    .style("visibility", "visible");
+            else
+                d3.select("#" + d.id)
+                    // .style("visibility", "visible");
+                    .style("display","block");
         }
 
         else {
-            d3.select("#" + d.id)
-                .style("visibility", "hidden");
+            if (i == 0)
+                d3.select("#" + d.id)
+                    .style("visibility", "hidden");
+            else
+                d3.select("#" + d.id)
+                    // .style("visibility", "hidden");
+                    .style("display","none");
         }
 
         if (!vid && (comp || score)) {
             d3.select("#explanation-set-main")
-                .style("visibility", "visible");
+                .style("display","block");
+                // .style("visibility", "visible");
         }
 
         else {
             d3.select("#explanation-set-main")
-                .style("visibility", "hidden");
+                .style("display","none");
+                // .style("visibility", "hidden");
         }
     });
 
