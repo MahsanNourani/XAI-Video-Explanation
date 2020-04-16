@@ -12,13 +12,9 @@
 		<div class="row">
             <p class="col-md-10 offset-md-1 rounded bg-success shadow mt-4 p-3 text-light font-weight-bold" style="font-size: 25px;">
                 <?php
-                $servername = "ict-prod-hosting06.mysql.osg.ufl.edu";
-                $username = "indiecise";
-                $password = "J#4AeBAt0TWxD0VNg20#";
-                $dbname = "indiecise";
-                $port = "3373";
+                $configs = include('config.php');
                 // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $dbname, $port);
+                $conn = mysqli_connect($configs['servername'], $configs['username'], $configs['password'], $configs['dbname'], $configs['port']);
 
                 $_Reference= $_POST["response"]; //this is a json object
 
