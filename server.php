@@ -16,7 +16,7 @@
                 // Create connection
                 $conn = mysqli_connect($configs['servername'], $configs['username'], $configs['password'], $configs['dbname'], $configs['port']);
 
-                $_Reference= $_POST["response"]; //this is a json object
+                $_Reference= $_POST["response"]; 
 
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
