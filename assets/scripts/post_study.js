@@ -25,7 +25,8 @@ function continueToLastPage() {
     }
 
     localStorage.setItem("post", JSON.stringify(responsesPost));
-    location.href = "./index.html";
+    // location.href = "./index.html";
+    location.href = "./results.html";
     // location.href ="./Tutorial.html";
 }
 

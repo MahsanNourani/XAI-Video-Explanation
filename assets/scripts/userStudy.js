@@ -1,8 +1,9 @@
-$(document).ready(function () {
-   if (localStorage.getItem("isPredictionTask") == "true") {
-       createResultsInterface();
-   }
-});
+// $(document).ready(function () {
+//    if (localStorage.getItem("isPredictionTask") == "true") {
+//     //    createResultsInterface();
+//         // location.href = './results.html'
+//    }
+// });
 
 function grantConsentToParticipate() {
     localStorage.clear();
@@ -128,7 +129,7 @@ function showQuestionnaire() {
             }
             else {
                 localStorage.setItem("postStudyDone", getDateTime());
-                createResultsInterface();
+                // createResultsInterface();
                 // window.alert("done");
             }
         });
